@@ -30,6 +30,7 @@ services:
       - KEYCLOAK_DATABASE_NAME=beatbuddyauth
       - KEYCLOAK_DATABASE_SCHEMA=public
       - KEYCLOAK_DATABASE_HOST=db
+      - KC_HOSTNAME_URL=beatbuddyauth.datvu.tech:8000
     depends_on:
       - db
     ports:
