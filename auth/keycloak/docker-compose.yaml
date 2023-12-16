@@ -1,0 +1,45 @@
+# Copyright VMware, Inc.
+# SPDX-License-Identifier: APACHE-2.0
+
+version: '3.7'
+name: 'beatbuddyauth'
+services:
+  db:
+    image: bitnami/postgresql:16.1.0
+    hostname: db
+    environment:
+      # ALLOW_EMPTY_PASSWORD is recommended only for development.
+      # - ALLOW_EMPTY_PASSWORD=yes
+      - POSTGRESQL_USERNAME=beatbuddyauth
+      - POSTGRESQL_DATABASE=beatbuddyauth
+      - POSTGRES_PASSWORD=beatbuddyauth
+    volumes:
+      - 'beatbuddyauth:/bitnami/postgresql'
+      - './scripts/initdb.d:/docker-entrypoint-initdb.d'
+      - './scripts/tools:/tools'
+      - './db-backup:/backup'
+  keycloak:
+    image: bitnami/keycloak:22
+    hostname: keycloak
+    environment:
+      - KEYCLOAK_CREATE_ADMIN_USER=true
+      - KEYCLOAK_ADMIN_USER=admin
+      - KEYCLOAK_ADMIN_PASSWORD=123456Aa@
+      - KEYCLOAK_DATABASE_USER=beatbuddyauth
+      - KEYCLOAK_DATABASE_PASSWORD=beatbuddyauth
+      - KEYCLOAK_DATABASE_NAME=beatbuddyauth
+      - KEYCLOAK_DATABASE_SCHEMA=public
+      - KEYCLOAK_DATABASE_HOST=db
+    depends_on:
+      - db
+    ports:
+      - '8000:8080'
+
+volumes:
+  beatbuddyauth:
+    name: beatbuddyauth
+    driver: local
+networks:
+  default:
+    name: beatbuddyauth
+    driver: bridge
