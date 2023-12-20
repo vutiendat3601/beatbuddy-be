@@ -1,0 +1,24 @@
+name: 'beatbuddy'
+services:
+  db:
+    image: postgres:16.1-bookworm
+    environment:
+      - POSTGRES_DB=beatbuddy
+      - POSTGRES_USER=beatbuddy
+      - POSTGRES_PASSWORD=beatbuddy
+    ports:
+      - '5432:5432'
+    networks:
+      - beatbuddy
+  redis:
+    image: redis:7.0-bookworm
+    environment:
+      - REDIS_PASSWORD=beatbuddy
+    ports:
+      - '6379:6379'
+    networks:
+      - default
+networks:
+  beatbuddy:
+    name: beatbuddy
+    driver: bridge
