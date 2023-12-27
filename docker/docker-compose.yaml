@@ -1,0 +1,143 @@
+version: '3.7'
+name: 'beatbuddy'
+services:
+  # #: API
+  apiredis:
+    image: redis:7.0-bookworm
+    hostname: apiredis
+    ports:
+      - 6379
+    environment:
+      - REDIS_PASSWORD=beatbuddyapiredis
+    networks:
+      - beatbuddy
+  apidb:
+    image: bitnami/postgresql:16.1.0
+    hostname: apidb
+    environment:
+      - POSTGRES_DB=beatbuddyapidb
+      - POSTGRES_USER=beatbuddyapidb
+      - POSTGRES_PASSWORD=beatbuddyapidb
+      - PGPASSWORD=beatbuddyapidb
+    ports:
+      - 5432
+    volumes:
+      - beatbuddyapidb:/bitnami/postgresql
+      - ./api/db/initdb.d/:/docker-entrypoint-initdb.d/
+      - ./api/db/backup.sh:/backup.sh
+      - ./api/db/backup/:/backup/
+    networks:
+      - beatbuddy
+  api:
+    image: vutiendat3601/beatbuddy-api:1.0.0
+    hostname: api
+    environment:
+      - DB_URL=jdbc:postgresql://apidb:5432/beatbuddyapidb
+      - DB_USER=beatbuddyapidb
+      - DB_PASS=beatbuddyapidb
+      - FLYWAY_BASELINE_VERSION=1
+      - JWKS_URI=http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs
+      - REDIS_HOST=apiredis
+      - REDIS_PORT=6379
+      - REDIS_PASSWORD=beatbuddyapiredis
+      - PORT=8080
+    ports:
+      - 8080
+    volumes:
+      - beatbuddyapi:/root/beatbuddy
+    depends_on:
+      - apiredis
+      - apidb
+    networks:
+      - beatbuddy
+  # # API
+
+  # ## Storage
+  storage:
+    image: vutiendat3601/beatbuddy-storage:1.0.0
+    hostname: storage
+    environment:
+      - JWKS_URI=http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs
+      - PORT=8080
+    ports:
+      - 8080
+    volumes:
+      - beatbuddystorage:/root/beatbuddy
+    networks:
+      - beatbuddy
+
+  # #: Auth
+  authdb:
+    image: bitnami/postgresql:16.1.0
+    hostname: beatbuddyauthdb
+    environment:
+      - POSTGRESQL_USERNAME=beatbuddyauthdb
+      - POSTGRESQL_DATABASE=beatbuddyauthdb
+      - POSTGRES_PASSWORD=beatbuddyauthdb
+      - PGPASSWORD=beatbuddyauthdb
+    volumes:
+      - beatbuddyauthdb:/bitnami/postgresql
+      - ./auth/db/initdb.d/:/docker-entrypoint-initdb.d/
+      - ./auth/backup.sh:/backup.sh
+      - ./auth/backup/:/backup/
+    networks:
+      - beatbuddy
+  auth:
+    image: bitnami/keycloak:22
+    hostname: auth
+    environment:
+      - KEYCLOAK_CREATE_ADMIN_USER=true
+      - KEYCLOAK_ADMIN_USER=admin
+      - KEYCLOAK_ADMIN_PASSWORD=123456Aa@
+      - KEYCLOAK_DATABASE_USER=beatbuddyauthdb
+      - KEYCLOAK_DATABASE_PASSWORD=beatbuddyauthdb
+      - KEYCLOAK_DATABASE_NAME=beatbuddyauthdb
+      - KEYCLOAK_DATABASE_SCHEMA=public
+      - KEYCLOAK_DATABASE_HOST=authdb
+      - KC_HOSTNAME_URL=http://beatbuddyauth.datvu.tech
+      - KC_HOSTNAME_ADMIN_URL=http://beatbuddyauth.datvu.tech
+      - KC_PROXY=passthrough
+    depends_on:
+      - authdb
+    networks:
+      - beatbuddy
+  # # Auth
+
+  # ## Proxy
+  proxy:
+    image: nginx:mainline-bookworm-perl
+    hostname: proxy
+    volumes:
+      - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - '80:80'
+    depends_on:
+      - auth
+      - api
+      - storage
+    networks:
+      - beatbuddy
+    healthcheck:
+      test: curl http://beatbuddyauth.datvu.tech  && curl http://beatbuddyapi.datvu.tech && curl http://beatbuddystorage.datvu.tech
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+    restart: on-failure
+volumes:
+  beatbuddyapidb:
+    name: beatbuddyapidb
+    driver: local
+  beatbuddyapi:
+    name: beatbuddyapi
+    driver: local
+  beatbuddyauthdb:
+    name: beatbuddyauthdb
+    driver: local
+  beatbuddystorage:
+    name: beatbuddystorage
+    driver: local
+networks:
+  beatbuddy:
+    name: beatbuddy
+    driver: bridge
