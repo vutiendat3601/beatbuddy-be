@@ -42,7 +42,7 @@ public interface TrackSuggestionRepo extends JpaRepository<TrackSuggestion, UUID
             @Param("toDate") LocalDate toDate,
             @Param("createdBy") String createdBy);
 
-    Optional<TrackSuggestion> findFirstByTempAudioCodeAndCreatedBy(String tempAudioCode, String createdBy);
+    Optional<TrackSuggestion> findFirstByAudioRefCodeAndCreatedBy(String audioRefCode, String createdBy);
 
     Optional<TrackSuggestion> findFirstByUrlAndCreatedBy(String url, String createdBy);
 }

@@ -6,7 +6,7 @@ services:
     image: redis:7.0-bookworm
     hostname: apiredis
     ports:
-      - 6379
+      - 6379:6379
     environment:
       - REDIS_PASSWORD=beatbuddyapiredis
     networks:
@@ -20,7 +20,7 @@ services:
       - POSTGRES_PASSWORD=beatbuddyapidb
       - PGPASSWORD=beatbuddyapidb
     ports:
-      - 5432
+      - 5432:5432
     volumes:
       - beatbuddyapidb:/bitnami/postgresql
       - ./api/db/initdb.d/:/docker-entrypoint-initdb.d/

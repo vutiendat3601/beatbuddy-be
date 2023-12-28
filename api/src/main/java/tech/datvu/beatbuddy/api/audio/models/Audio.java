@@ -1,11 +1,9 @@
 package tech.datvu.beatbuddy.api.audio.models;
 
-import java.time.LocalDate;
+import java.util.UUID;
 
-import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -24,17 +22,14 @@ import tech.datvu.beatbuddy.api.shared.models.AbstractEntity;
 @Entity
 public class Audio extends AbstractEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    @GeneratedValue(generator = "pg-uuid")
+    private UUID id;
 
-    private String code;
+    private String refCode;
 
-    @Column(name = "orig_url")
-    private String originalUrl;
-
-    private String file;
+    private String filePath;
 
     private String hashMd5;
 
-    private LocalDate releasedDate;
+    private long durationSec;
 }

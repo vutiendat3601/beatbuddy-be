@@ -45,10 +45,9 @@ public class TrackSuggestion extends AbstractEntity {
 
     private String tags;
 
-    @Column(name = "tmp_audio_code")
-    private String tempAudioCode;
+    private UUID trackId;
 
-    private String audioCode;
+    private String audioRefCode;
 
     private Status status;
 

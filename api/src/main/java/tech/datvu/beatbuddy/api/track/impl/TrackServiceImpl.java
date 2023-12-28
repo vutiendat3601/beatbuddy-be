@@ -1,6 +1,6 @@
 package tech.datvu.beatbuddy.api.track.impl;
 
-import static tech.datvu.beatbuddy.api.shared.global.GlobalConstant.YOUTUBE_FILENAME_PREFIX;
+import static tech.datvu.beatbuddy.api.shared.global.GlobalConstant.YOUTUBE_REF_CODE_PREFIX;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -61,18 +61,18 @@ public class TrackServiceImpl implements TrackService {
     @Override
     public UUID createTrackSuggestion(TrackSuggestionRequest suggTrackReq) {
         // ## Process url, if there is any audio file available
-        String tempAudioCode = processUrl(suggTrackReq.getUrl());
-        boolean isRequested = tempAudioCode == null
+        String audioRefCode = processUrl(suggTrackReq.getUrl());
+        boolean isRequested = audioRefCode == null
                 ? suggTrackRepo
                         .findFirstByUrlAndCreatedBy(suggTrackReq.getUrl(), UserContext.getUsername())
                         .isPresent()
                 : suggTrackRepo
-                        .findFirstByTempAudioCodeAndCreatedBy(tempAudioCode, UserContext.getUsername())
+                        .findFirstByAudioRefCodeAndCreatedBy(audioRefCode, UserContext.getUsername())
                         .isPresent();
 
         // ## Check if the user have requested this url before
         if (isRequested) {
-            throw TrackException.SUGGEST_TRACK_REQUESTED.instance();
+            throw TrackException.TRACK_SUGGESTION_REQUESTED.instance();
         }
 
         // ## Validate artists UUIDs
@@ -95,12 +95,13 @@ public class TrackServiceImpl implements TrackService {
         TrackSuggestion trackSugg = trackMapper.mapToTrackSuggestion(suggTrackReq);
         trackSugg.setLyrics(lyricsFile);
         trackSugg.setThumbnail(thumbFile);
-        trackSugg.setTempAudioCode(tempAudioCode);
+        trackSugg.setAudioRefCode(audioRefCode);
         trackSugg.setTags(tags.toString());
         trackSugg = suggTrackRepo.save(trackSugg);
-        UUID suggTrackId = trackSugg.getId();
+        UUID trackSuggId = trackSugg.getId();
+
         // ## Save TrackSuggestion, Artist mapping
-        trackSuggArtists.stream().forEach(suggTrackArtist -> suggTrackArtist.setTrackSuggestionId(suggTrackId));
+        trackSuggArtists.stream().forEach(trackSuggArtist -> trackSuggArtist.setTrackSuggestionId(trackSuggId));
         trackSuggestionArtistRepo.saveAll(trackSuggArtists);
         return trackSugg.getId();
     }
@@ -164,7 +165,8 @@ public class TrackServiceImpl implements TrackService {
                         final UUID artistId = tsa.getArtistId();
                         if (!artistDtosMap.containsKey(artistId)) {
                             Artist artist = artistRepo.findById(artistId).orElse(null);
-                            TrackSuggestionDto.ArtistDto artistDto = artist == null ? null
+                            TrackSuggestionDto.ArtistDto artistDto = artist == null
+                                    ? null
                                     : TrackSuggestionDto.ArtistDto.builder()
                                             .id(artistId)
                                             .nickName(artist.getNickName())
@@ -185,9 +187,9 @@ public class TrackServiceImpl implements TrackService {
             // ## Case YouTube url
             YouTubeService.YouTubeUrl ytUrl = YouTubeService.parseYouTubeLink(url);
             if (ytUrl != null && ytUrl.getVideoId() != null) {
-                String tempAudioCode = YOUTUBE_FILENAME_PREFIX + ytUrl.getVideoId();
-                audioServiceAsync.saveYouTubeAudio(url, tempAudioCode);
-                return tempAudioCode;
+                String audioRefCode = YOUTUBE_REF_CODE_PREFIX + ytUrl.getVideoId();
+                audioServiceAsync.saveYouTubeAudio(url, audioRefCode);
+                return audioRefCode;
             }
         }
         return null;

@@ -4,7 +4,7 @@ import tech.datvu.beatbuddy.api.shared.global.GlobalException;
 
 public enum TrackException {
     SUGGEST_TRACK_NOT_FOUND(new GlobalException("404", "Track suggestion not found")),
-    SUGGEST_TRACK_REQUESTED(new GlobalException("409", "Track suggestion url was requested"));
+    TRACK_SUGGESTION_REQUESTED(new GlobalException("409", "Track suggestion url was requested"));
 
     private GlobalException instance;
 

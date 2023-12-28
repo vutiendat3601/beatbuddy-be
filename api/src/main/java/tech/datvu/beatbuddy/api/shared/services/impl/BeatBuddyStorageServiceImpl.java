@@ -37,22 +37,23 @@ public class BeatBuddyStorageServiceImpl implements BeatBuddyStorageService {
     private String beatBuddyStorageUrl;
 
     @Override
-    public FileDto createFile(String filePath, String path, boolean replaceIfExist) {
+    public FileDto createFile(String localFilePath, String storagePath, boolean replaceIfExist) {
         final String CREATE_FILE_API = "%s/v1/storage/files".formatted(beatBuddyStorageUrl);
         HttpHeaders headers = prepareHeader();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
         MultiValueMap<String, Object> bodyFormData = new LinkedMultiValueMap<>();
-        bodyFormData.add("file", new FileSystemResource(filePath));
-        bodyFormData.add("path", path);
+        bodyFormData.add("file", new FileSystemResource(localFilePath));
+        bodyFormData.add("path", storagePath);
         bodyFormData.add("replaceIfExist", replaceIfExist);
         HttpEntity<MultiValueMap<String, Object>> reqEntity = new HttpEntity<>(bodyFormData, headers);
 
-        log.info("Create file with path %s".formatted(path));
+        log.info("Create file: " + storagePath);
         ResponseEntity<FileResponse> respEntity = restTemplate.postForEntity(CREATE_FILE_API, reqEntity,
                 FileResponse.class);
         if (respEntity.getStatusCode().is2xxSuccessful()) {
             FileResponse fileResp = respEntity.getBody();
             if (fileResp != null) {
+                log.info("Created file: " + storagePath);
                 return fileResp.getData();
             }
         }

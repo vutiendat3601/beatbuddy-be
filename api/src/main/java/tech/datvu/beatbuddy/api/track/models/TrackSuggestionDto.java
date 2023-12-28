@@ -25,11 +25,11 @@ public class TrackSuggestionDto {
 
     private String description;
 
+    private UUID trackId;
+    
     @JsonIgnore
-    private String tempAudioCode;
+    private String audioRefCode;
 
-    @JsonIgnore
-    private String audioCode;
 
     @JsonIgnore
     private ZonedDateTime createdAt;
@@ -59,7 +59,7 @@ public class TrackSuggestionDto {
 
     @JsonProperty("isAvailable")
     public boolean isAvailable() {
-        return tempAudioCode != null;
+        return audioRefCode != null;
     }
 
     @Builder

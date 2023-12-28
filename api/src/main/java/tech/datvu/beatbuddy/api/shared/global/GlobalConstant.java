@@ -5,7 +5,7 @@ public class GlobalConstant {
     public static final String LYRICS_FORMAT = "lrc";
     public static final String STORAGE_DIR = System.getProperty("user.home") + "/beatbuddy";
     public static final String STORAGE_PUBLIC_DIR = System.getProperty("user.home") + "/beatbuddy/public";
-    public static final String YOUTUBE_FILENAME_PREFIX = "ytb_";
+    public static final String YOUTUBE_REF_CODE_PREFIX = "ytb_";
     public static final String STATUS_SUCCESS = "success";
     public static final String STATUS_PENDING = "pending";
     public static final String STATUS_HANDLED = "handled";

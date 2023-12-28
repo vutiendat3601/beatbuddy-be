@@ -6,30 +6,30 @@ import tech.datvu.beatbuddy.api.track.models.TrackSuggestion.Status;
 
 @Component
 public class TrackMapper {
-    public TrackSuggestion mapToTrackSuggestion(TrackSuggestionRequest suggTrackReq) {
+    public TrackSuggestion mapToTrackSuggestion(TrackSuggestionRequest trackSuggReq) {
         return TrackSuggestion.builder()
-                .title(suggTrackReq.getTitle())
-                .url(suggTrackReq.getUrl())
-                .releasedDate(suggTrackReq.getReleasedDate())
-                .description(suggTrackReq.getDescription())
-                .lyrics(suggTrackReq.getLyrics())
+                .title(trackSuggReq.getTitle())
+                .url(trackSuggReq.getUrl())
+                .releasedDate(trackSuggReq.getReleasedDate())
+                .description(trackSuggReq.getDescription())
+                .lyrics(trackSuggReq.getLyrics())
                 .status(Status.PENDING)
                 .build();
     }
 
-    public TrackSuggestionDto mapToTrackSuggestionDto(TrackSuggestion suggTrack) {
+    public TrackSuggestionDto mapToTrackSuggestionDto(TrackSuggestion trackSugg) {
         return TrackSuggestionDto.builder()
-                .id(suggTrack.getId())
-                .title(suggTrack.getTitle())
-                .url(suggTrack.getUrl())
-                .releasedDate(suggTrack.getReleasedDate())
-                .description(suggTrack.getDescription())
-                .tempAudioCode(suggTrack.getTempAudioCode())
-                .audioCode(suggTrack.getAudioCode())
-                .createdAt(suggTrack.getCreatedAt())
-                .updatedAt(suggTrack.getUpdatedAt())
-                .createdBy(suggTrack.getCreatedBy())
-                .status(suggTrack.getStatus())
+                .id(trackSugg.getId())
+                .title(trackSugg.getTitle())
+                .url(trackSugg.getUrl())
+                .releasedDate(trackSugg.getReleasedDate())
+                .description(trackSugg.getDescription())
+                .audioRefCode(trackSugg.getAudioRefCode())
+                .trackId(trackSugg.getTrackId())
+                .createdAt(trackSugg.getCreatedAt())
+                .updatedAt(trackSugg.getUpdatedAt())
+                .createdBy(trackSugg.getCreatedBy())
+                .status(trackSugg.getStatus())
                 .build();
     }
 }

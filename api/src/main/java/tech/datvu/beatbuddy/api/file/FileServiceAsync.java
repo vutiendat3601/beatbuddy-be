@@ -18,7 +18,7 @@ public interface FileServiceAsync {
     /*
      * Save to local disk
      */
-    default void saveFile(
+    default void saveFileToLocal(
             InputStream inpStream,
             String outFile,
             boolean replaceIfExist) {
@@ -34,4 +34,6 @@ public interface FileServiceAsync {
             FileUtil.saveFile(inpStream, LOCAL_OUT_FILE);
         }
     }
+
+    void saveFileToStorage(String localFilePath, String storagePath, boolean replaceIfExist);
 }

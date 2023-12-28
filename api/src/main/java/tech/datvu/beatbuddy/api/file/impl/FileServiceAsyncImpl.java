@@ -1,9 +1,6 @@
 package tech.datvu.beatbuddy.api.file.impl;
 
-import static tech.datvu.beatbuddy.api.shared.global.GlobalConstant.STORAGE_DIR;
-
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
@@ -24,20 +21,13 @@ public class FileServiceAsyncImpl implements FileServiceAsync {
     private final BeatBuddyStorageService storageService;
 
     @Override
-    public void saveFile(
-            InputStream inpStream,
-            String outFile,
-            boolean replaceIfExist) {
-        // ## Save to local disk
-        FileServiceAsync.super.saveFile(inpStream, outFile, replaceIfExist);
-
-        final String LOCAL_OUT_FILE = STORAGE_DIR + outFile;
-        FileDto fileDto = storageService.createFile(LOCAL_OUT_FILE, outFile, replaceIfExist);
+    public void saveFileToStorage(String localFilePath, String storagePath, boolean replaceIfExist) {
+        FileDto fileDto = storageService.createFile(localFilePath, storagePath, replaceIfExist);
         if (fileDto != null) {
-            String hashMd5 = FileUtil.hashMd5(LOCAL_OUT_FILE);
+            String hashMd5 = FileUtil.hashMd5(localFilePath);
             if (hashMd5 != null && hashMd5.equals(fileDto.getHashMd5())) {
                 try {
-                    Files.deleteIfExists(Path.of(LOCAL_OUT_FILE));
+                    Files.deleteIfExists(Path.of(localFilePath));
                 } catch (IOException e) {
                     log.error(e.getMessage(), e);
                 }

@@ -7,7 +7,7 @@ public class ResourceMapper {
     public Resource mapToResource(ResourceRequest resourceReq) {
         return Resource.builder()
                 .name(resourceReq.getName())
-                .urn(Resource.mapUrn(resourceReq.getType(), resourceReq.getCode()))
+                .uri(Resource.mapUri(resourceReq.getType(), resourceReq.getCode()))
                 .tags(resourceReq.getTags())
                 .thumbnail(resourceReq.getThumbnail())
                 .type(resourceReq.getType())
@@ -18,7 +18,7 @@ public class ResourceMapper {
         return ResourceDto.builder()
                 .id(resource.getId())
                 .name(resource.getName())
-                .urn(resource.getUrn())
+                .urn(resource.getUri())
                 .tags(resource.getTags())
                 .thumbnail(resource.getThumbnail())
                 .type(resource.getType())

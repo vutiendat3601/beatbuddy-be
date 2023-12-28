@@ -32,7 +32,7 @@ public class Resource extends AbstractEntity {
 
     private String name;
 
-    private String urn;
+    private String uri;
 
     private String tags;
 
@@ -41,7 +41,7 @@ public class Resource extends AbstractEntity {
     
     private ResourceType type;
 
-    public static String mapUrn(ResourceType type, UUID id) {
+    public static String mapUri(ResourceType type, UUID id) {
         return (type == null || id == null)
                 ? null
                 : type.name().toLowerCase() + ":" + id;

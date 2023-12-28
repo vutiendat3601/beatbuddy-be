@@ -30,7 +30,7 @@ public class FileServiceImpl implements FileService {
             String simpleFileName = "%s.%s".formatted(hashMd5, LYRICS_FORMAT);
             String outFile = "/%s/%s".formatted(FILE_TYPE_LYRICS, simpleFileName);
             outFile = isPublic ? "/public" + outFile : outFile;
-            fileServiceAsync.saveFile(
+            fileServiceAsync.saveFileToLocal(
                     new ByteArrayInputStream(lyrics.getBytes()),
                     outFile,
                     false);
@@ -52,7 +52,7 @@ public class FileServiceImpl implements FileService {
             String simpleFileName = "%s.%s".formatted(hashMd5, extension);
             String outFile = "/%s/%s".formatted(fileType, simpleFileName);
             outFile = isPublic ? "/public" + outFile : outFile;
-            fileServiceAsync.saveFile(
+            fileServiceAsync.saveFileToLocal(
                     new ByteArrayInputStream(bytes),
                     outFile,
                     false);
