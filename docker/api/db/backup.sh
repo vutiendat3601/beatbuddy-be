@@ -1,4 +1,3 @@
 #!/bin/bash
 
-PGPASSWORD=beatbuddy
-pg_dump -c -w beatbuddy -U beatbuddy >/backup/$(date +%Y%m%d'_'%H_%M_%S).sql
+PGPASSWORD=beatbuddyapidb && pg_dump -c -w beatbuddyapidb -U beatbuddyapidb > /backup/$(date +%Y%m%d'_'%H_%M_%S).sql
