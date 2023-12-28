@@ -1,0 +1,58 @@
+spring:
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://beatbuddybe.datvu.tech:5432/beatbuddy}
+    username: ${DB_USER:beatbuddy}
+    password: ${DB_PASS:beatbuddy}
+  flyway:
+    baseline-on-migrate: true
+    baseline-version: 1
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWKS_URI:http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs}
+      client:
+        registration:
+          beatbuddyapi:
+            client-id: beatbuddyapi
+            client-secret: HMNndY0zYD02TEvHStUpwW0xcpxXE4oc
+            scope: openid
+            authorization-grant-type: client_credentials
+        provider: 
+          beatbuddyapi: 
+            token-uri: http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/token
+  data:
+    redis:
+      host: ${REDIS_HOST:beatbuddybe.datvu.tech}
+      port: ${REDIS_PORT:6379}
+      password: ${REDIS_PASSWORD:beatbuddy}
+  cache:
+    redis:
+      cache-null-values: true
+      time-to-live: 60000
+    type: redis
+    cache-names:
+      - cache1
+      - cache2
+  jpa:
+    open-in-view: false
+    properties:
+      hibernate:
+        "[format_sql]": false
+        jdbc:
+          "[time_zone]": UTC
+        cache:
+          "[use_second_level_cache]": false
+          
+    show-sql: true
+  docker:
+    compose:
+      enabled: false
+      skip:
+        in-tests: true
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger

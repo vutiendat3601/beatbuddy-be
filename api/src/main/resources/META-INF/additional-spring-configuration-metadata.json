@@ -1,0 +1,12 @@
+{"properties": [
+  {
+    "name": "app.service.beatbuddy-storage-url",
+    "type": "java.lang.String",
+    "description": "A description for 'app.service.beatbuddy-storage-url'"
+  },
+  {
+    "name": "app.service.beatbuddy-static-url",
+    "type": "java.lang.String",
+    "description": "A description for 'app.service.beatbuddy-static-url'"
+  }
+]}
