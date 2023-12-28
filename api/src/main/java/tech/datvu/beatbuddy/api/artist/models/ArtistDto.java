@@ -1,0 +1,45 @@
+package tech.datvu.beatbuddy.api.artist.models;
+
+import java.time.LocalDate;
+import java.util.UUID;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Builder
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class ArtistDto {
+    private UUID id;
+
+    @JsonIgnore
+    private UUID accountId;
+
+    private String nickName;
+    
+    private String realName;
+
+    private LocalDate birthDate;
+
+    private String description;
+
+    private String nationality;
+
+    private String biography;
+
+    @JsonProperty("isVerified")
+    private Boolean isVerified;
+
+    @JsonProperty("isPublic")
+    private boolean isPublic;
+
+    private String avatar;
+
+    private String backgroundImg;
+}
