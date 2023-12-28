@@ -1,0 +1,18 @@
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: ${JWKS_URI:http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs}
+  servlet:
+    multipart:
+      max-file-size: 20MB
+      max-request-size: 30MB
+springdoc:
+  api-docs:
+    enabled: true
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger
+server:
+  port: ${PORT:8080}
