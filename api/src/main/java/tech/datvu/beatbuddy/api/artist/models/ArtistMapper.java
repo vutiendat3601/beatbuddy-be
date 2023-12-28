@@ -23,6 +23,7 @@ public class ArtistMapper {
         return ArtistDto.builder()
                 .id(artist.getId())
                 .accountId(artist.getAccountId())
+                .refCode(artist.getRefCode())
                 .realName(artist.getRealName())
                 .nickName(artist.getNickName())
                 .realName(artist.getRealName())

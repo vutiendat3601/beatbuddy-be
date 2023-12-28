@@ -21,6 +21,9 @@ public class ArtistDto {
     @JsonIgnore
     private UUID accountId;
 
+    @JsonIgnore
+    private String refCode;
+
     private String nickName;
     
     private String realName;
