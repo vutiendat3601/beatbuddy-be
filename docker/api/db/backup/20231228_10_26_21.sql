@@ -16,12 +16,10 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
-DROP INDEX public.flyway_schema_history_s_idx;
 ALTER TABLE ONLY public.tracksuggestion_artist DROP CONSTRAINT tracksuggestion_artist_pkey;
 ALTER TABLE ONLY public.track_suggestions DROP CONSTRAINT track_suggestions_pkey;
 ALTER TABLE ONLY public.resources DROP CONSTRAINT resources_urn_key;
 ALTER TABLE ONLY public.resources DROP CONSTRAINT resources_pkey;
-ALTER TABLE ONLY public.flyway_schema_history DROP CONSTRAINT flyway_schema_history_pk;
 ALTER TABLE ONLY public.audios DROP CONSTRAINT audios_pkey;
 ALTER TABLE ONLY public.audios DROP CONSTRAINT audios_code_key;
 ALTER TABLE ONLY public.artists DROP CONSTRAINT artists_ref_code_key;
@@ -33,7 +31,6 @@ DROP SEQUENCE public.tracksuggestion_artist_id_seq;
 DROP TABLE public.tracksuggestion_artist;
 DROP TABLE public.track_suggestions;
 DROP TABLE public.resources;
-DROP TABLE public.flyway_schema_history;
 DROP SEQUENCE public.audios_id_seq;
 DROP TABLE public.audios;
 DROP TABLE public.artists;
@@ -148,26 +145,6 @@ ALTER SEQUENCE public.audios_id_seq OWNER TO beatbuddyapidb;
 
 ALTER SEQUENCE public.audios_id_seq OWNED BY public.audios.id;
 
-
---
--- Name: flyway_schema_history; Type: TABLE; Schema: public; Owner: beatbuddyapidb
---
-
-CREATE TABLE public.flyway_schema_history (
-    installed_rank integer NOT NULL,
-    version character varying(50),
-    description character varying(200) NOT NULL,
-    type character varying(20) NOT NULL,
-    script character varying(1000) NOT NULL,
-    checksum integer,
-    installed_by character varying(100) NOT NULL,
-    installed_on timestamp without time zone DEFAULT now() NOT NULL,
-    execution_time integer NOT NULL,
-    success boolean NOT NULL
-);
-
-
-ALTER TABLE public.flyway_schema_history OWNER TO beatbuddyapidb;
 
 --
 -- Name: resources; Type: TABLE; Schema: public; Owner: beatbuddyapidb
@@ -630,15 +607,6 @@ COPY public.audios (id, code, orig_url, file, hash_md5, released_date, created_b
 
 
 --
--- Data for Name: flyway_schema_history; Type: TABLE DATA; Schema: public; Owner: beatbuddyapidb
---
-
-COPY public.flyway_schema_history (installed_rank, version, description, type, script, checksum, installed_by, installed_on, execution_time, success) FROM stdin;
-1	01	Init DB	SQL	V01__Init_DB.sql	1042332075	beatbuddyapidb	2023-12-28 07:48:25.862512	1475	t
-\.
-
-
---
 -- Data for Name: resources; Type: TABLE DATA; Schema: public; Owner: beatbuddyapidb
 --
 
@@ -1064,14 +1032,6 @@ ALTER TABLE ONLY public.audios
 
 
 --
--- Name: flyway_schema_history flyway_schema_history_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyapidb
---
-
-ALTER TABLE ONLY public.flyway_schema_history
-    ADD CONSTRAINT flyway_schema_history_pk PRIMARY KEY (installed_rank);
-
-
---
 -- Name: resources resources_pkey; Type: CONSTRAINT; Schema: public; Owner: beatbuddyapidb
 --
 
@@ -1101,13 +1061,6 @@ ALTER TABLE ONLY public.track_suggestions
 
 ALTER TABLE ONLY public.tracksuggestion_artist
     ADD CONSTRAINT tracksuggestion_artist_pkey PRIMARY KEY (id);
-
-
---
--- Name: flyway_schema_history_s_idx; Type: INDEX; Schema: public; Owner: beatbuddyapidb
---
-
-CREATE INDEX flyway_schema_history_s_idx ON public.flyway_schema_history USING btree (success);
 
 
 --
