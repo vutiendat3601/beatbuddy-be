@@ -78,17 +78,19 @@ public class TrackServiceImpl implements TrackService {
         // ## Validate artists UUIDs
         Set<UUID> artistIds = suggTrackReq.getArtists();
         final List<TrackSuggestionArtist> trackSuggArtists = new ArrayList<>();
-        final StringBuilder tags = new StringBuilder();
+        final StringBuilder tagsBuilder = new StringBuilder();
         artistIds.forEach(artistId -> {
             Artist artist = artistRepo.findPublicById(artistId)
                     .orElseThrow(() -> ArtistException.ARTIST_NOT_FOUND.instance());
-            tags.append(artist.getNickName() + ",");
+            tagsBuilder.append(", " + artist.getName());
             trackSuggArtists.add(
                     TrackSuggestionArtist.builder()
                             .artistId(artistId)
                             .isActive(true)
                             .build());
         });
+        String tags = tagsBuilder.length() > 2 ? tagsBuilder.substring(2) : null;
+        
         // ## Save lyrics, thumbnail, and save track TrackSuggestion to database
         String lyricsFile = fileService.saveLyricsFile(suggTrackReq.getLyrics(), true);
         String thumbFile = fileService.saveImageFile(suggTrackReq.getThumbnail(), false);
@@ -96,7 +98,7 @@ public class TrackServiceImpl implements TrackService {
         trackSugg.setLyrics(lyricsFile);
         trackSugg.setThumbnail(thumbFile);
         trackSugg.setAudioRefCode(audioRefCode);
-        trackSugg.setTags(tags.toString());
+        trackSugg.setTags(tags);
         trackSugg = suggTrackRepo.save(trackSugg);
         UUID trackSuggId = trackSugg.getId();
 
@@ -114,7 +116,8 @@ public class TrackServiceImpl implements TrackService {
         Pageable pageable = PageRequest.of(pageReq.getPage(), pageReq.getSize(), sort);
 
         // ## Find all artists, matches the keyword
-        String keyword = TextUtil.removeAccents(pageReq.getQ());
+        String keyword = pageReq.getQ();
+        keyword = keyword == null ? "" : TextUtil.removeAccents(keyword.trim());
         DateTimeFormatter isoDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate fromDate = LocalDate.parse(pageReq.getFromDate(), isoDateFormatter);
         LocalDate toDate = LocalDate.parse(pageReq.getToDate(), isoDateFormatter);
@@ -136,7 +139,8 @@ public class TrackServiceImpl implements TrackService {
         Pageable pageable = PageRequest.of(pageReq.getPage(), pageReq.getSize(), sort);
 
         // ## Find track suggestion, matches the keyword and
-        String keyword = TextUtil.removeAccents(pageReq.getQ());
+        String keyword = pageReq.getQ();
+        keyword = keyword == null ? "" : TextUtil.removeAccents(keyword.trim());
         DateTimeFormatter isoDateFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         LocalDate fromDate = LocalDate.parse(pageReq.getFromDate(), isoDateFormatter);
         LocalDate toDate = LocalDate.parse(pageReq.getToDate(), isoDateFormatter);
@@ -169,8 +173,8 @@ public class TrackServiceImpl implements TrackService {
                                     ? null
                                     : TrackSuggestionDto.ArtistDto.builder()
                                             .id(artistId)
-                                            .nickName(artist.getNickName())
-                                            .avatar(artist.getAvatar())
+                                            .nickName(artist.getName())
+                                            .avatar(artist.getThumbnail())
                                             .isPublic(artist.isPublic())
                                             .build();
                             artistDtosMap.put(artistId, artistDto);

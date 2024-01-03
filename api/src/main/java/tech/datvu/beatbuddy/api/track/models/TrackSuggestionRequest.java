@@ -1,5 +1,7 @@
 package tech.datvu.beatbuddy.api.track.models;
 
+import static tech.datvu.beatbuddy.api.shared.global.GlobalConstant.URL_REGEX;
+
 import java.util.Set;
 import java.util.UUID;
 
@@ -20,11 +22,11 @@ public class TrackSuggestionRequest {
     private MultipartFile thumbnail;
 
     @NotBlank
-    private String title;
+    private String name;
 
     private Set<UUID> artists;
 
-    @Pattern(regexp = "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$", message = "is wrong format")
+    @Pattern(regexp = URL_REGEX, message = "is wrong url format")
     @NotBlank
     private String url;
 

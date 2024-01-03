@@ -15,6 +15,7 @@ import tech.datvu.beatbuddy.api.resource.models.ResourceMapper;
 import tech.datvu.beatbuddy.api.resource.models.ResourceSearchDto;
 import tech.datvu.beatbuddy.api.resource.models.ResourceSearchQueryRequest;
 import tech.datvu.beatbuddy.api.shared.utils.PaginationUltil;
+import tech.datvu.beatbuddy.api.shared.utils.TextUtil;
 
 @RequiredArgsConstructor
 @Service
@@ -30,10 +31,14 @@ public class ResourceServiceImpl implements ResourceService {
         PaginationUltil.checkPageOffset(queryReq.getPage(), queryReq.getSize());
         Pageable pageReq = PageRequest.of(queryReq.getPage(), queryReq.getSize());
 
-        Page<Resource> resourcePage = resourceRepo.findByTypeInAndKeyword(pageReq, queryReq.getTypes(),
-                queryReq.getQ());
+        String keyword = queryReq.getQ();
+        keyword = keyword == null ? "" : TextUtil.removeAccents(keyword.trim());
+        Page<Resource> resourcePage = resourceRepo.findByTypeInAndKeyword(
+                pageReq,
+                queryReq.getTypes(),
+                keyword);
         Page<ResourceDto> resourceDtoPage = resourcePage.map(resourceMapper::mapResourceDto);
-        ResourceSearchDto resourceSearchDto = ResourceSearchDto.parse(resourceDtoPage);
+        ResourceSearchDto resourceSearchDto = ResourceSearchDto.parse(resourceDtoPage, queryReq.getTypes());
         return resourceSearchDto;
     }
 

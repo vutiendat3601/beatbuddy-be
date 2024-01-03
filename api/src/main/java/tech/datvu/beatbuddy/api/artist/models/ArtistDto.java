@@ -24,7 +24,7 @@ public class ArtistDto {
     @JsonIgnore
     private String refCode;
 
-    private String nickName;
+    private String name;
     
     private String realName;
 
@@ -42,7 +42,7 @@ public class ArtistDto {
     @JsonProperty("isPublic")
     private boolean isPublic;
 
-    private String avatar;
+    private String thumbnail;
 
     private String backgroundImg;
 }

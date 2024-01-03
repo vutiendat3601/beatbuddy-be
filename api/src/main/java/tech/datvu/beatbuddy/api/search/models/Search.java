@@ -1,11 +1,10 @@
-package tech.datvu.beatbuddy.api.resource.models;
+package tech.datvu.beatbuddy.api.search.models;
 
 import java.util.UUID;
 
 import com.fasterxml.jackson.annotation.JsonValue;
 
 import jakarta.persistence.AttributeConverter;
-import jakarta.persistence.Column;
 import jakarta.persistence.Converter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -23,9 +22,9 @@ import tech.datvu.beatbuddy.api.shared.models.AbstractEntity;
 @Builder
 @Data
 @EqualsAndHashCode(callSuper = false)
-@Table(name = "resources")
+@Table(name = "searchs")
 @Entity
-public class Resource extends AbstractEntity {
+public class Search extends AbstractEntity {
     @Id
     @GeneratedValue(generator = "pg-uuid")
     private UUID id;
@@ -36,9 +35,6 @@ public class Resource extends AbstractEntity {
 
     private String tags;
 
-    @Column(name = "thumb_img")
-    private String thumbnail;
-    
     private ResourceType type;
 
     public static String mapUri(ResourceType type, UUID id) {
@@ -47,7 +43,15 @@ public class Resource extends AbstractEntity {
                 : type.name().toLowerCase() + ":" + id;
     }
 
-    public static enum ResourceType  {
+    public static UUID getIdFromUri(Search resource) {
+        if (resource != null) {
+            String uri = resource.getUri();
+            return uri == null ? null : UUID.fromString(uri.split(":")[1]);
+        }
+        return null;
+    }
+
+    public static enum ResourceType {
         ARTIST, TRACK;
 
         @JsonValue

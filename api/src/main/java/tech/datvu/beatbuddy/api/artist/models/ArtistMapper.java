@@ -10,7 +10,7 @@ public class ArtistMapper {
         return Artist.builder()
                 .isVerified(artistReq.getIsVerified())
                 .isPublic(artistReq.getIsPublic())
-                .nickName(artistReq.getNickName())
+                .name(artistReq.getName())
                 .realName(artistReq.getRealName())
                 .birthDate(artistReq.getBirthDate())
                 .description(artistReq.getDescription())
@@ -25,7 +25,7 @@ public class ArtistMapper {
                 .accountId(artist.getAccountId())
                 .refCode(artist.getRefCode())
                 .realName(artist.getRealName())
-                .nickName(artist.getNickName())
+                .name(artist.getName())
                 .realName(artist.getRealName())
                 .isVerified(artist.getIsVerified())
                 .isPublic(artist.isPublic())
@@ -33,7 +33,7 @@ public class ArtistMapper {
                 .description(artist.getDescription())
                 .nationality(artist.getNationality())
                 .biography(artist.getBiography())
-                .avatar(artist.getAvatar())
+                .thumbnail(artist.getThumbnail())
                 .backgroundImg(artist.getBackgroundImg())
                 .build();
     }

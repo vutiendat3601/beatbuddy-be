@@ -18,7 +18,7 @@ public class ArtistRequest {
     }
 
     @NotBlank
-    private String nickName;
+    private String name;
 
     private String realName;
 
@@ -36,7 +36,7 @@ public class ArtistRequest {
     private String nationality;
 
     @ContentType(accepts = { MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE })
-    private MultipartFile avatar;
+    private MultipartFile thumbnail;
 
     @ContentType(accepts = { MediaType.IMAGE_JPEG_VALUE, MediaType.IMAGE_PNG_VALUE })
     private MultipartFile backgroundImg;

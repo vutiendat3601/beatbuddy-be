@@ -18,7 +18,7 @@ public class ResourceMapper {
         return ResourceDto.builder()
                 .id(resource.getId())
                 .name(resource.getName())
-                .urn(resource.getUri())
+                .uri(resource.getUri())
                 .tags(resource.getTags())
                 .thumbnail(resource.getThumbnail())
                 .type(resource.getType())

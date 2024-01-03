@@ -19,7 +19,7 @@ CREATE TABLE IF NOT EXISTS artists(
     id uuid PRIMARY KEY NOT NULL,
     acc_id uuid UNIQUE,
     ref_code varchar(64) UNIQUE,
-    nick_name varchar(255) NOT NULL,
+    "name" varchar(255) NOT NULL,
     is_verified boolean,
     is_public boolean NOT NULL DEFAULT false,
     real_name varchar(255),
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS artists(
     "description" text,
     nationality char(2),
     bio text,
-    avatar varchar(255),
+    thumb_img varchar(255),
     bg_img varchar(255),
     created_by varchar(255) NOT NULL,
     updated_by varchar(255) NOT NULL,
@@ -40,22 +40,32 @@ CREATE TABLE IF NOT EXISTS tracks(
     id uuid PRIMARY KEY NOT NULL,
     audio_id uuid UNIQUE,
     ref_code varchar(64) UNIQUE,
-    title varchar(255) NOT NULL,
+    "name" varchar(255) NOT NULL,
     is_public boolean NOT NULL DEFAULT false,
     "description" text,
     released_date varchar(10),
-    thumb varchar(255),
+    thumb_img varchar(255),
     created_by varchar(255) NOT NULL,
     updated_by varchar(255) NOT NULL,
     created_at timestamptz NOT NULL DEFAULT current_timestamp,
     updated_at timestamptz NOT NULL DEFAULT current_timestamp
 );
-
+-- Create table track_artist
+CREATE TABLE track_artist (
+	id serial8 PRIMARY KEY NOT NULL,
+	track_id uuid NOT NULL,
+	artist_id uuid NOT NULL,
+	is_active bool NOT NULL DEFAULT true,
+	created_by varchar(255) NOT NULL,
+	updated_by varchar(255) NOT NULL,
+	created_at timestamptz NOT NULL DEFAULT current_timestamp,
+	updated_at timestamptz NOT NULL DEFAULT current_timestamp
+);
 -- Create table suggest_tracks
 CREATE TABLE IF NOT EXISTS track_suggestions(
     id uuid PRIMARY KEY NOT NULL,
-    thumb varchar(255),
-    title varchar(255) NOT NULL,
+    thumb_img varchar(255),
+    "name" varchar(255) NOT NULL,
     "url" varchar(255) NOT NULL,
     released_date varchar(32),
     "description" text,
@@ -88,7 +98,7 @@ CREATE TABLE IF NOT EXISTS resources(
     "name" varchar(255) NOT NULL,
     uri varchar(512) UNIQUE NOT NULL,
     tags varchar(512),
-    thumb varchar(255),
+    thumb_img varchar(255),
     "type" varchar(64) NOT NULL,
     created_by varchar(255),
     updated_by varchar(255),

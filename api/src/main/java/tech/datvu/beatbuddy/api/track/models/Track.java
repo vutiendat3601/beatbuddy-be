@@ -30,7 +30,7 @@ public class Track extends AbstractEntity {
 
     private String refCode;
     
-    private String title;
+    private String name;
     
     private String isPublic;
     
@@ -38,6 +38,6 @@ public class Track extends AbstractEntity {
 
     private String releasedDate;
 
-    @Column(name = "thumb")
+    @Column(name = "thumb_img")
     private String thumbnail;
 }

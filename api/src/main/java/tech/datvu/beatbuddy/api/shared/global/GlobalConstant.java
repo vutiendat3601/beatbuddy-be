@@ -16,4 +16,6 @@ public class GlobalConstant {
     public static final String FILE_TYPE_PUBLIC = "public";
     public static final String TRACK_REQ_THUMB_FILENAME_PREFIX = "trackreqthumb_";
     public static final String TRACK_REQ_LYRICS_FILENAME_PREFIX = "trackreqlyrics_";
+    public static final String STATIC_BASE_URL = "http://beatbuddystatic.datvu.tech";
+    public static final String URL_REGEX = "^https?:\\/\\/(?:www\\.)?[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b(?:[-a-zA-Z0-9()@:%_\\+.~#?&\\/=]*)$";
 }

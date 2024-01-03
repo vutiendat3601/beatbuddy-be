@@ -17,7 +17,7 @@ import lombok.Data;
 public class TrackSuggestionDto {
     private UUID id;
 
-    private String title;
+    private String name;
 
     private String url;
 

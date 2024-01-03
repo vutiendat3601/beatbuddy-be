@@ -80,17 +80,17 @@ public class ArtistServiceImpl implements ArtistService {
         }
         Artist artist = artistMapper.mapToArtist(artistReq);
 
-        String avatar = fileService.saveImageFile(artistReq.getAvatar(), true);
+        String avatar = fileService.saveImageFile(artistReq.getThumbnail(), true);
         String bgImg = fileService.saveImageFile(artistReq.getBackgroundImg(), true);
-        artist.setAvatar(avatar);
+        artist.setThumbnail(avatar);
         artist.setBackgroundImg(bgImg);
 
         artist = artistRepo.save(artist);
         resourceServiceAsync.createResource(
                 new ResourceRequest(
-                        artist.getNickName(),
+                        artist.getName(),
                         "",
-                        artist.getAvatar(),
+                        artist.getThumbnail(),
                         ResourceType.ARTIST,
                         artist.getId()));
 

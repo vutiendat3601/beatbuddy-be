@@ -28,6 +28,6 @@ public interface ArtistRepo extends JpaRepository<Artist, UUID> {
 
     @Query(" SELECT a FROM Artist a " +
             " WHERE a.id IN :ids AND a.isPublic = true " +
-            " AND (a.nickName ILIKE %:keyword% OR a.realName ILIKE %:keyword%) ")
+            " AND (a.name ILIKE %:keyword% OR a.realName ILIKE %:keyword%) ")
     List<Artist> findPublicByKeywordAndIdIn(String keyword, List<UUID> ids);
 }

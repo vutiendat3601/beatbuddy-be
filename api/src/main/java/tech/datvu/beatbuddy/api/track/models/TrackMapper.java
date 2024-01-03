@@ -8,7 +8,7 @@ import tech.datvu.beatbuddy.api.track.models.TrackSuggestion.Status;
 public class TrackMapper {
     public TrackSuggestion mapToTrackSuggestion(TrackSuggestionRequest trackSuggReq) {
         return TrackSuggestion.builder()
-                .title(trackSuggReq.getTitle())
+                .name(trackSuggReq.getName())
                 .url(trackSuggReq.getUrl())
                 .releasedDate(trackSuggReq.getReleasedDate())
                 .description(trackSuggReq.getDescription())
@@ -20,7 +20,7 @@ public class TrackMapper {
     public TrackSuggestionDto mapToTrackSuggestionDto(TrackSuggestion trackSugg) {
         return TrackSuggestionDto.builder()
                 .id(trackSugg.getId())
-                .title(trackSugg.getTitle())
+                .name(trackSugg.getName())
                 .url(trackSugg.getUrl())
                 .releasedDate(trackSugg.getReleasedDate())
                 .description(trackSugg.getDescription())

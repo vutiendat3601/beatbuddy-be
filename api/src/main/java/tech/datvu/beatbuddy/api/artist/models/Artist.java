@@ -32,7 +32,7 @@ public class Artist extends AbstractEntity {
 
     private String refCode;
 
-    private String nickName;
+    private String name;
 
     private Boolean isVerified;
 
@@ -49,7 +49,8 @@ public class Artist extends AbstractEntity {
     @Column(name = "bio")
     private String biography;
 
-    private String avatar;
+    @Column(name = "thumb_img")
+    private String thumbnail;
 
     @Column(name = "bg_img")
     private String backgroundImg;

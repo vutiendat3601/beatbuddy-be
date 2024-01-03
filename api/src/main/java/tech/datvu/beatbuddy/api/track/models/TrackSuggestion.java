@@ -33,7 +33,7 @@ public class TrackSuggestion extends AbstractEntity {
     @Column(name = "thumb")
     private String thumbnail;
 
-    private String title;
+    private String name;
 
     private String url;
 

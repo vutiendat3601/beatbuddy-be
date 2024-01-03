@@ -17,7 +17,7 @@ public interface TrackSuggestionRepo extends JpaRepository<TrackSuggestion, UUID
     // Page<TrackSuggestion> findAllByCreatedBy(Pageable pageable, String
     // createdBy);
     @Query(" SELECT ts FROM TrackSuggestion ts " +
-            " WHERE (cast(function('unaccent', ts.title) AS text) ILIKE %:keyword% " +
+            " WHERE (cast(function('unaccent', ts.name) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.description) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.releasedDate) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.tags) AS text) ILIKE %:keyword%) " +
@@ -29,7 +29,7 @@ public interface TrackSuggestionRepo extends JpaRepository<TrackSuggestion, UUID
             @Param("toDate") LocalDate toDate);
 
     @Query(" SELECT ts FROM TrackSuggestion ts " +
-            " WHERE (cast(function('unaccent', ts.title) AS text) ILIKE %:keyword% " +
+            " WHERE (cast(function('unaccent', ts.name) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.description) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.releasedDate) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.tags) AS text) ILIKE %:keyword%) " +
