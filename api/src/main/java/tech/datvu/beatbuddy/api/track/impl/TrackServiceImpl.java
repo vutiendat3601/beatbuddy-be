@@ -11,6 +11,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -21,18 +22,31 @@ import lombok.RequiredArgsConstructor;
 import tech.datvu.beatbuddy.api.artist.ArtistException;
 import tech.datvu.beatbuddy.api.artist.ArtistRepo;
 import tech.datvu.beatbuddy.api.artist.models.Artist;
+import tech.datvu.beatbuddy.api.artist.models.ArtistDto;
+import tech.datvu.beatbuddy.api.artist.models.ArtistMapper;
+import tech.datvu.beatbuddy.api.audio.AudioRepo;
 import tech.datvu.beatbuddy.api.audio.AudioServiceAsync;
+import tech.datvu.beatbuddy.api.audio.AudioTrackRepo;
 import tech.datvu.beatbuddy.api.audio.YouTubeService;
+import tech.datvu.beatbuddy.api.audio.models.Audio;
+import tech.datvu.beatbuddy.api.audio.models.Audio.AudioQuality;
+import tech.datvu.beatbuddy.api.audio.models.AudioTrack;
 import tech.datvu.beatbuddy.api.file.FileService;
 import tech.datvu.beatbuddy.api.shared.utils.PaginationUltil;
 import tech.datvu.beatbuddy.api.shared.utils.TextUtil;
 import tech.datvu.beatbuddy.api.shared.utils.UserContext;
 import tech.datvu.beatbuddy.api.shared.utils.parser.SortParser;
+import tech.datvu.beatbuddy.api.track.TrackArtistRepo;
 import tech.datvu.beatbuddy.api.track.TrackException;
+import tech.datvu.beatbuddy.api.track.TrackRepo;
 import tech.datvu.beatbuddy.api.track.TrackService;
 import tech.datvu.beatbuddy.api.track.TrackSuggestionArtistRepo;
 import tech.datvu.beatbuddy.api.track.TrackSuggestionRepo;
+import tech.datvu.beatbuddy.api.track.models.Track;
+import tech.datvu.beatbuddy.api.track.models.TrackArtist;
+import tech.datvu.beatbuddy.api.track.models.TrackDto;
 import tech.datvu.beatbuddy.api.track.models.TrackMapper;
+import tech.datvu.beatbuddy.api.track.models.TrackStreamDto;
 import tech.datvu.beatbuddy.api.track.models.TrackSuggestion;
 import tech.datvu.beatbuddy.api.track.models.TrackSuggestionArtist;
 import tech.datvu.beatbuddy.api.track.models.TrackSuggestionDto;
@@ -48,15 +62,36 @@ public class TrackServiceImpl implements TrackService {
 
     // ## Mappers
     private final TrackMapper trackMapper;
+    private final ArtistMapper artistMapper;
 
     // ## Services
     private final AudioServiceAsync audioServiceAsync;
     private final FileService fileService;
 
     // ## Repos
+    private final AudioRepo audioRepo;
+    private final AudioTrackRepo audioTrackRepo;
+    private final TrackRepo trackRepo;
     private final TrackSuggestionRepo suggTrackRepo;
     private final ArtistRepo artistRepo;
+    private final TrackArtistRepo trackArtistRepo;
     private final TrackSuggestionArtistRepo trackSuggestionArtistRepo;
+
+    @Value("${app.service.beatbuddy-static-url}")
+    private String beatBuddyStaticUrl;
+
+    @Override
+    public TrackDto getTrack(UUID trackId) {
+        Track track = trackRepo.findById(trackId)
+                .orElseThrow(() -> TrackException.TRACK_NOT_FOUND.instance());
+        TrackDto trackDto = trackMapper.mapToTrackDto(track);
+        List<TrackArtist> trackArtists = trackArtistRepo.findAllByTrackId(trackId);
+
+        List<Artist> artists = artistRepo.findAllById(trackArtists.stream().map(ta -> ta.getArtistId()).toList());
+        List<ArtistDto> artistDtos = artists.stream().map(artistMapper::mapToArtistDto).toList();
+        trackDto.setArtists(artistDtos);
+        return trackDto;
+    }
 
     @Override
     public UUID createTrackSuggestion(TrackSuggestionRequest suggTrackReq) {
@@ -90,7 +125,7 @@ public class TrackServiceImpl implements TrackService {
                             .build());
         });
         String tags = tagsBuilder.length() > 2 ? tagsBuilder.substring(2) : null;
-        
+
         // ## Save lyrics, thumbnail, and save track TrackSuggestion to database
         String lyricsFile = fileService.saveLyricsFile(suggTrackReq.getLyrics(), true);
         String thumbFile = fileService.saveImageFile(suggTrackReq.getThumbnail(), false);
@@ -197,5 +232,26 @@ public class TrackServiceImpl implements TrackService {
             }
         }
         return null;
+    }
+
+    @Override
+    public TrackStreamDto getStream(UUID trackId) {
+        Track track = trackRepo.findById(trackId)
+                .orElseThrow(() -> TrackException.TRACK_NOT_FOUND.instance());
+        if (track.isPlayable()) {
+            String refCode = track.getRefCode();
+            String fileName = TextUtil.hashMd5(refCode == null ? track.getId() + "" : refCode);
+            List<AudioTrack> audioTracks = audioTrackRepo.findAllByTrackId(trackId);
+            List<Audio> audios = audioRepo.findAllById(audioTracks.stream().map(at -> at.getAudioId()).toList());
+            final Map<AudioQuality, String> links = new HashMap<>();
+            audios.forEach(a -> {
+                AudioQuality quality = a.getQuality();
+                String filePath = a.getFilePath();
+                String url = beatBuddyStaticUrl + filePath.replaceAll("/public", "");
+                links.put(quality, url);
+            });
+            return new TrackStreamDto(fileName, links);
+        }
+        return new TrackStreamDto();
     }
 }

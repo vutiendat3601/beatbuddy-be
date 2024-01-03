@@ -6,6 +6,19 @@ import tech.datvu.beatbuddy.api.track.models.TrackSuggestion.Status;
 
 @Component
 public class TrackMapper {
+    public TrackDto mapToTrackDto(Track track) {
+        return TrackDto.builder()
+                .id(track.getId())
+                .refCode(track.getRefCode())
+                .name(track.getName())
+                .isPublic(track.isPublic())
+                .description(track.getDescription())
+                .durationSec(track.getDurationSec())
+                .thumbnail(track.getThumbnail())
+                .isPlayable(track.isPlayable())
+                .build();
+    }
+
     public TrackSuggestion mapToTrackSuggestion(TrackSuggestionRequest trackSuggReq) {
         return TrackSuggestion.builder()
                 .name(trackSuggReq.getName())

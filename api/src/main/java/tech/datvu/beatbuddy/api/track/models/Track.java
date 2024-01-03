@@ -26,17 +26,19 @@ public class Track extends AbstractEntity {
     @GeneratedValue(generator = "pg-uuid")
     private UUID id;
 
-    private UUID audioId;
-
     private String refCode;
     
     private String name;
     
-    private String isPublic;
+    private boolean isPublic;
     
     private String description;
 
     private String releasedDate;
+
+    private Long durationSec;
+
+    private boolean isPlayable;
 
     @Column(name = "thumb_img")
     private String thumbnail;

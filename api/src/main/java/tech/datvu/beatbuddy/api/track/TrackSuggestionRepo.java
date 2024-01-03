@@ -17,11 +17,13 @@ public interface TrackSuggestionRepo extends JpaRepository<TrackSuggestion, UUID
     // Page<TrackSuggestion> findAllByCreatedBy(Pageable pageable, String
     // createdBy);
     @Query(" SELECT ts FROM TrackSuggestion ts " +
-            " WHERE (cast(function('unaccent', ts.name) AS text) ILIKE %:keyword% " +
+            " WHERE ( cast(function('unaccent', ts.name) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.description) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.releasedDate) AS text) ILIKE %:keyword% " +
-            " OR cast(function('unaccent', ts.tags) AS text) ILIKE %:keyword%) " +
-            " AND (ts.createdAt BETWEEN cast(:fromDate AS date) AND cast(:toDate AS date)) ")
+            " OR cast(function('unaccent', ts.tags) AS text) ILIKE %:keyword% ) " +
+            " AND ( ts.createdAt BETWEEN cast(:fromDate AS date) AND cast(:toDate AS date) ) " +
+            " ORDER BY CASE WHEN cast(function('unaccent', ts.name) AS text) ILIKE %:keyword% " +
+            " THEN 0 ELSE 1 END ")
     Page<TrackSuggestion> findAll(
             Pageable pageable,
             @Param("keyword") String keyword,
@@ -29,12 +31,14 @@ public interface TrackSuggestionRepo extends JpaRepository<TrackSuggestion, UUID
             @Param("toDate") LocalDate toDate);
 
     @Query(" SELECT ts FROM TrackSuggestion ts " +
-            " WHERE (cast(function('unaccent', ts.name) AS text) ILIKE %:keyword% " +
+            " WHERE ( cast(function('unaccent', ts.name) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.description) AS text) ILIKE %:keyword% " +
             " OR cast(function('unaccent', ts.releasedDate) AS text) ILIKE %:keyword% " +
-            " OR cast(function('unaccent', ts.tags) AS text) ILIKE %:keyword%) " +
-            " AND (ts.createdAt BETWEEN cast(:fromDate AS date) AND cast(:toDate AS date) " +
-            " AND ts.createdBy = :createdBy) ")
+            " OR cast(function('unaccent', ts.tags) AS text) ILIKE %:keyword% ) " +
+            " AND ( ts.createdAt BETWEEN cast(:fromDate AS date) AND cast(:toDate AS date) " +
+            " AND ts.createdBy = :createdBy ) " +
+            " ORDER BY CASE WHEN cast(function('unaccent', ts.name) AS text) ILIKE %:keyword% " +
+            " THEN 0 ELSE 1 END ")
     Page<TrackSuggestion> findByKeywordAndArtistIdAndCreatedAtAndCreatedBy(
             Pageable pageable,
             @Param("keyword") String keyword,
