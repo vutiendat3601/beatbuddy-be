@@ -1,0 +1,8 @@
+.git
+.gitignore
+.dockerignore
+Dockerfile
+target
+!target/*.jar
+.mvn
+.vscode
