@@ -30,7 +30,7 @@ public class TrackSuggestion extends AbstractEntity {
     @GeneratedValue(generator = "pg-uuid")
     private UUID id;
 
-    @Column(name = "thumb")
+    @Column(name = "thumb_img")
     private String thumbnail;
 
     private String name;
