@@ -4,7 +4,7 @@ import org.springframework.core.convert.converter.Converter;
 import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 
-import tech.datvu.beatbuddy.api.resource.models.Resource.ResourceType;
+import tech.datvu.beatbuddy.api.search.models.Search.ResourceType;
 
 @Component
 public class ResourceTypeConverter implements Converter<String, ResourceType> {

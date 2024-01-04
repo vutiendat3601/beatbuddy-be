@@ -2,6 +2,10 @@ package tech.datvu.beatbuddy.api.audio.models;
 
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonValue;
+
+import jakarta.persistence.AttributeConverter;
+import jakarta.persistence.Converter;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -29,7 +33,37 @@ public class Audio extends AbstractEntity {
 
     private String filePath;
 
-    private String hashMd5;
+    private AudioQuality quality;
 
-    private long durationSec;
+    public static enum AudioQuality {
+        KBPS128("128"), KBPS320("320");
+
+        private String value;
+
+        private AudioQuality(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
+
+        @JsonValue
+        public String json() {
+            return name().toLowerCase();
+        }
+    }
+
+    @Converter(autoApply = true)
+    public static class AudioQualityConverter implements AttributeConverter<AudioQuality, String> {
+        @Override
+        public String convertToDatabaseColumn(AudioQuality quality) {
+            return quality == null ? null : quality.json();
+        }
+
+        @Override
+        public AudioQuality convertToEntityAttribute(String dbData) {
+            return dbData == null ? null : AudioQuality.valueOf(dbData.toUpperCase());
+        }
+    }
 }

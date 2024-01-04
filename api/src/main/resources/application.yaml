@@ -59,3 +59,5 @@ springdoc:
 app:
   service:
     beatbuddy-storage-url: ${BEAT_BUDDY_STORAGE_URL:http://beatbuddystorage.datvu.tech}
+    # beatbuddy-storage-url: ${BEAT_BUDDY_STORAGE_URL:http://localhost:8081}
+    beatbuddy-static-url: ${BEAT_BUDDY_STATIC_URL:http://beatbuddystatic.datvu.tech}

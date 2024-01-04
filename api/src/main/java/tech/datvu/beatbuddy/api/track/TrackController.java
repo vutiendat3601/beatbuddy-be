@@ -1,6 +1,7 @@
 package tech.datvu.beatbuddy.api.track;
 
 import java.util.List;
+import java.util.Set;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
@@ -40,6 +42,12 @@ public class TrackController {
         return ResponseEntity.ok(Response.success(trackDto));
     }
 
+    @GetMapping(value = "v1/tracks")
+    public ResponseEntity<Response<List<TrackDto>>> getSeveralTracks(@RequestParam("ids") Set<UUID> trackIds) {
+        List<TrackDto> trackDtos = trackService.getTracks(trackIds);
+        return ResponseEntity.ok(Response.success(trackDtos));
+    }
+
     @GetMapping(value = "v1/admin/tracks/suggestion")
     @PreAuthorize("hasAuthority('view_all_track_suggestion')")
     public ResponseEntity<Response<List<TrackSuggestionDto>>> getTrackSuggestions(
@@ -56,7 +64,7 @@ public class TrackController {
     }
 
     @GetMapping(value = "v1/tracks/{id}/stream")
-    public ResponseEntity<Response<TrackStreamDto>> getUserTrackSuggestions(@PathVariable("id") UUID trackId) {
+    public ResponseEntity<Response<TrackStreamDto>> getTrackStream(@PathVariable("id") UUID trackId) {
         TrackStreamDto trackStreamDto = trackService.getStream(trackId);
         return ResponseEntity.ok(Response.success(trackStreamDto));
     }

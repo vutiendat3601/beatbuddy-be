@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
@@ -91,6 +92,31 @@ public class TrackServiceImpl implements TrackService {
         List<ArtistDto> artistDtos = artists.stream().map(artistMapper::mapToArtistDto).toList();
         trackDto.setArtists(artistDtos);
         return trackDto;
+    }
+
+    @Override
+    public List<TrackDto> getTracks(Iterable<UUID> trackIds) {
+        List<Track> tracks = trackRepo.findAllById(trackIds);
+        final List<TrackArtist> trackArtists = trackArtistRepo
+                .findAllByTrackId(tracks.stream().map(t -> t.getId()).toList());
+        List<Artist> artists = artistRepo
+                .findAllById(trackArtists.stream()
+                        .map(ta -> ta.getArtistId())
+                        .collect(Collectors.toSet()));
+        List<ArtistDto> artistDtos = artists.stream()
+                .map(artistMapper::mapToArtistDto).toList();
+        Map<UUID, ArtistDto> artistDtosMap = artistDtos.stream()
+                .collect(Collectors.toMap(ArtistDto::getId, a -> a));
+        List<TrackDto> trackDtos = tracks.stream().map(
+                t -> {
+                    TrackDto trackDto = trackMapper.mapToTrackDto(t);
+                    List<ArtistDto> aDtos = trackArtists.stream()
+                            .filter(ta -> ta.getTrackId().equals(t.getId()))
+                            .map(ta -> artistDtosMap.get(ta.getArtistId())).toList();
+                    trackDto.setArtists(aDtos);
+                    return trackDto;
+                }).toList();
+        return trackDtos;
     }
 
     @Override

@@ -31,7 +31,7 @@ public interface FileServiceAsync {
             }
         }
         if (Files.notExists(Path.of(LOCAL_OUT_FILE))) {
-            FileUtil.saveFile(inpStream, LOCAL_OUT_FILE);
+            FileUtil.saveToLocal(inpStream, LOCAL_OUT_FILE);
         }
     }
 

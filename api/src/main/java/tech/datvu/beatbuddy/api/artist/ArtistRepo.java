@@ -1,6 +1,5 @@
 package tech.datvu.beatbuddy.api.artist;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -24,10 +23,10 @@ public interface ArtistRepo extends JpaRepository<Artist, UUID> {
     Optional<Artist> findById(UUID id);
 
     @Query(" SELECT a FROM Artist a WHERE id IN :ids AND a.isPublic = true")
-    List<Artist> findPublicByIdIn(@Param("ids") Collection<UUID> ids);
+    List<Artist> findPublicById(@Param("ids") Iterable<UUID> ids);
 
     @Query(" SELECT a FROM Artist a " +
             " WHERE a.id IN :ids AND a.isPublic = true " +
             " AND (a.name ILIKE %:keyword% OR a.realName ILIKE %:keyword%) ")
-    List<Artist> findPublicByKeywordAndIdIn(String keyword, List<UUID> ids);
+    List<Artist> findPublicByKeywordAndId(String keyword, Iterable<UUID> ids);
 }

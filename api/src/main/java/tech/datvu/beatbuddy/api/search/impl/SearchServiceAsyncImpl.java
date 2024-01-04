@@ -1,5 +1,8 @@
 package tech.datvu.beatbuddy.api.search.impl;
 
+import java.util.List;
+import java.util.UUID;
+
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
@@ -22,6 +25,20 @@ public class SearchServiceAsyncImpl implements SearchServiceAsync {
     public void createSearch(SearchRequest searchReq) {
         Search resource = searchMapper.mapToResource(searchReq);
         resource = searchRepo.save(resource);
+    }
+
+    @Override
+    public void increasePriorityById(Iterable<UUID> searchIds) {
+        List<Search> searchs = searchRepo.findAllById(searchIds);
+        searchs.forEach(s -> s.setPriority(s.getPriority() + 1));
+        searchRepo.saveAll(searchs);
+    }
+
+    @Override
+    public void increasePriorityByUri(Iterable<String> searchUris) {
+        List<Search> searchs = searchRepo.findAllByUri(searchUris);
+        searchs.forEach(s -> s.setPriority(s.getPriority() + 1));
+        searchRepo.saveAll(searchs);
     }
 
 }

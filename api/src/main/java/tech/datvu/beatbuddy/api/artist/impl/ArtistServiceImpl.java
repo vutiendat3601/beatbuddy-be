@@ -19,9 +19,10 @@ import tech.datvu.beatbuddy.api.artist.models.ArtistDto;
 import tech.datvu.beatbuddy.api.artist.models.ArtistMapper;
 import tech.datvu.beatbuddy.api.artist.models.ArtistRequest;
 import tech.datvu.beatbuddy.api.file.FileService;
-import tech.datvu.beatbuddy.api.resource.ResourceServiceAsync;
-import tech.datvu.beatbuddy.api.resource.models.Resource.ResourceType;
-import tech.datvu.beatbuddy.api.resource.models.ResourceRequest;
+import tech.datvu.beatbuddy.api.search.SearchServiceAsync;
+import tech.datvu.beatbuddy.api.search.models.Search;
+import tech.datvu.beatbuddy.api.search.models.SearchRequest;
+import tech.datvu.beatbuddy.api.search.models.Search.ResourceType;
 import tech.datvu.beatbuddy.api.shared.global.CommonException;
 import tech.datvu.beatbuddy.api.shared.global.GlobalException;
 import tech.datvu.beatbuddy.api.shared.utils.PaginationUltil;
@@ -32,17 +33,16 @@ import tech.datvu.beatbuddy.api.shared.utils.parser.SortParser;
 public class ArtistServiceImpl implements ArtistService {
     private static final String[] ARTIST_SORT_FIELDS = {
             "id", "realName", "nickName", "birthDate" };
+    private final List<String> COUNTRY_CODES = List.of(Locale.getISOCountries());
 
     // ## Mappers
     private final ArtistMapper artistMapper;
-
-    private final List<String> COUNTRY_CODES = List.of(Locale.getISOCountries());
 
     // ## Repos
     private final ArtistRepo artistRepo;
 
     // ## Services
-    private final ResourceServiceAsync resourceServiceAsync;
+    private final SearchServiceAsync searchServiceAsync;
     private final FileService fileService;
 
     @Override
@@ -60,13 +60,16 @@ public class ArtistServiceImpl implements ArtistService {
         Artist artist = artistRepo.findPublicById(artistId)
                 .orElseThrow(() -> ArtistException.ARTIST_NOT_FOUND.instance());
         ArtistDto artistDto = artistMapper.mapToArtistDto(artist);
+        List<String> searchUris = List.of(Search.mapUri(ResourceType.ARTIST, artistId));
+        searchServiceAsync.increasePriorityByUri(searchUris);
         return artistDto;
     }
 
     @Override
-    public List<ArtistDto> getArtists(List<UUID> artistIds) {
-        List<Artist> artists = artistRepo.findPublicByIdIn(artistIds);
-        List<ArtistDto> artistDtos = artists.stream().map(artistMapper::mapToArtistDto).toList();
+    public List<ArtistDto> getArtists(Iterable<UUID> artistIds) {
+        List<Artist> artists = artistRepo.findPublicById(artistIds);
+        List<ArtistDto> artistDtos = artists.stream()
+                .map(artistMapper::mapToArtistDto).toList();
         return artistDtos;
     }
 
@@ -86,8 +89,8 @@ public class ArtistServiceImpl implements ArtistService {
         artist.setBackgroundImg(bgImg);
 
         artist = artistRepo.save(artist);
-        resourceServiceAsync.createResource(
-                new ResourceRequest(
+        searchServiceAsync.createSearch(
+                new SearchRequest(
                         artist.getName(),
                         "",
                         artist.getThumbnail(),

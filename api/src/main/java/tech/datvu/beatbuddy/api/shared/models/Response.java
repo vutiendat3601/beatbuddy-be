@@ -4,6 +4,9 @@ import java.util.List;
 
 import org.springframework.data.domain.Page;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -17,12 +20,18 @@ import tech.datvu.beatbuddy.api.shared.models.PageResponse.Pageable;
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 public class Response<T> {
     protected T data;
+
+    @JsonInclude(Include.NON_NULL)
     protected String status;
 
     public static <R> Response<List<R>> successPage(Page<R> page) {
         Response<List<R>> resp = PageResponse.of(page);
         resp.status = GlobalConstant.STATUS_SUCCESS;
         return resp;
+    }
+
+    public static <R> Response<List<R>> page(Page<R> page) {
+        return PageResponse.of(page);
     }
 
     public static <R extends Pageable> Response<R> successPage(R pageable) {

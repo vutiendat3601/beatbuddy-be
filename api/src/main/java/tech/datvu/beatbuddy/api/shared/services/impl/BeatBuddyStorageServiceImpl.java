@@ -2,23 +2,29 @@ package tech.datvu.beatbuddy.api.shared.services.impl;
 
 import static tech.datvu.beatbuddy.api.shared.configs.SecurityConfig.BEAT_BUDDY_API_REGISTRATION_ID;
 
+import java.io.IOException;
 import java.time.Instant;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.client.ClientHttpResponse;
 import org.springframework.security.oauth2.core.OAuth2AccessToken;
 import org.springframework.stereotype.Service;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
+import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import tech.datvu.beatbuddy.api.shared.services.BeatBuddyStorageService;
+import tech.datvu.beatbuddy.api.shared.services.models.AudioSegmentRequest;
+import tech.datvu.beatbuddy.api.shared.services.models.AudioSegmentResponse;
 import tech.datvu.beatbuddy.api.shared.services.models.FileDto;
 import tech.datvu.beatbuddy.api.shared.services.models.FileResponse;
 import tech.datvu.beatbuddy.api.shared.utils.OAuth2Client;
@@ -27,7 +33,6 @@ import tech.datvu.beatbuddy.api.shared.utils.OAuth2Client;
 @RequiredArgsConstructor
 @Service
 public class BeatBuddyStorageServiceImpl implements BeatBuddyStorageService {
-    private final RestTemplate restTemplate;
 
     private final OAuth2Client oAuth2Client;
 
@@ -38,6 +43,7 @@ public class BeatBuddyStorageServiceImpl implements BeatBuddyStorageService {
 
     @Override
     public FileDto createFile(String localFilePath, String storagePath, boolean replaceIfExist) {
+        RestTemplate restTemplate = new RestTemplate();
         final String CREATE_FILE_API = "%s/v1/storage/files".formatted(beatBuddyStorageUrl);
         HttpHeaders headers = prepareHeader();
         headers.setContentType(MediaType.MULTIPART_FORM_DATA);
@@ -48,7 +54,9 @@ public class BeatBuddyStorageServiceImpl implements BeatBuddyStorageService {
         HttpEntity<MultiValueMap<String, Object>> reqEntity = new HttpEntity<>(bodyFormData, headers);
 
         log.info("Create file: " + storagePath);
-        ResponseEntity<FileResponse> respEntity = restTemplate.postForEntity(CREATE_FILE_API, reqEntity,
+        ResponseEntity<FileResponse> respEntity = restTemplate.postForEntity(
+                CREATE_FILE_API,
+                reqEntity,
                 FileResponse.class);
         if (respEntity.getStatusCode().is2xxSuccessful()) {
             FileResponse fileResp = respEntity.getBody();
@@ -58,6 +66,32 @@ public class BeatBuddyStorageServiceImpl implements BeatBuddyStorageService {
             }
         }
         return null;
+    }
+
+    @Override
+    public boolean createAudioSegment(AudioSegmentRequest audioSegReq) {
+        RestTemplate restTemplate = new RestTemplate();
+        restTemplate.setErrorHandler(new DefaultResponseErrorHandler() {
+            @Override
+            protected void handleError(ClientHttpResponse response, HttpStatusCode statusCode) throws IOException {
+            }
+        });
+        final String CREATE_AUDIO_SEGMENT_API = "%s/v1/storage/audios/segment".formatted(beatBuddyStorageUrl);
+        HttpHeaders headers = prepareHeader();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        HttpEntity<AudioSegmentRequest> reqEntity = new HttpEntity<>(audioSegReq, headers);
+        ResponseEntity<AudioSegmentResponse> respEntity = restTemplate.postForEntity(
+                CREATE_AUDIO_SEGMENT_API,
+                reqEntity,
+                AudioSegmentResponse.class);
+        if (respEntity.getStatusCode().is2xxSuccessful()) {
+            AudioSegmentResponse audioSegResp = respEntity.getBody();
+            if (audioSegResp != null) {
+                log.info("Created audio segment: " + audioSegReq.getM3u8Path());
+                return audioSegResp.getData();
+            }
+        }
+        return false;
     }
 
     /* #: Helpers */
@@ -72,6 +106,5 @@ public class BeatBuddyStorageServiceImpl implements BeatBuddyStorageService {
         headers.add(HttpHeaders.AUTHORIZATION, "Bearer " + accToken.getTokenValue());
         return headers;
     }
-
     /* # Helpers */
 }

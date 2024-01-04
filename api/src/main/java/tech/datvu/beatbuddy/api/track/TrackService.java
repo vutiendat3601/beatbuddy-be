@@ -1,5 +1,6 @@
 package tech.datvu.beatbuddy.api.track;
 
+import java.util.List;
 import java.util.UUID;
 
 import org.springframework.data.domain.Page;
@@ -20,4 +21,6 @@ public interface TrackService {
     TrackStreamDto getStream(UUID trackId);
 
     TrackDto getTrack(UUID trackId);
+
+    List<TrackDto> getTracks(Iterable<UUID> trackIds);
 }

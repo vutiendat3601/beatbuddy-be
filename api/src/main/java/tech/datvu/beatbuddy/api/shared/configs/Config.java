@@ -15,7 +15,6 @@ import org.springframework.data.redis.serializer.GenericJackson2JsonRedisSeriali
 import org.springframework.data.redis.serializer.StringRedisSerializer;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
-import org.springframework.web.client.RestTemplate;
 
 @EnableAsync
 @EnableCaching
@@ -63,10 +62,5 @@ public class Config {
         executor.setThreadNamePrefix("BackgroundTask-");
         executor.initialize();
         return executor;
-    }
-
-    @Bean
-    RestTemplate restTemplate() {
-        return new RestTemplate();
     }
 }

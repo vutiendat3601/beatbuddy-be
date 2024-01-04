@@ -15,5 +15,5 @@ public interface ArtistService {
 
     ArtistDto getArtist(UUID artistId);
 
-    List<ArtistDto> getArtists(List<UUID> artistIds);
+    List<ArtistDto> getArtists(Iterable<UUID> artistIds);
 }

@@ -9,7 +9,7 @@ public class PageRequest {
     @Range(min = 0, max = Integer.MAX_VALUE)
     protected int page;
 
-    @Range(min = 1, max = 100)
+    @Range(min = 1, max = 50)
     protected int size;
 
     public PageRequest() {

@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import org.springframework.web.method.annotation.HandlerMethodValidationException;
 
+import com.fasterxml.jackson.databind.exc.InvalidFormatException;
+
 import tech.datvu.beatbuddy.api.shared.models.Response;
 
 @RestControllerAdvice
@@ -37,6 +39,15 @@ public class GlobalExceptionHandler {
         }
         return ResponseEntity.status(status).body(
                 Response.errorGlobal(e));
+    }
+
+    @ExceptionHandler(InvalidFormatException.class)
+    public ResponseEntity<Response<?>> handleInvalidFormatException(
+            InvalidFormatException e) {
+        GlobalException errResp = CommonException.BAD_REQUEST.instance();
+        errResp.setMessage(e.getPath().get(0).getFieldName() + " is wrong type");
+        return ResponseEntity.badRequest().body(
+                Response.errorGlobal(errResp));
     }
 
     @ExceptionHandler(MissingServletRequestParameterException.class)

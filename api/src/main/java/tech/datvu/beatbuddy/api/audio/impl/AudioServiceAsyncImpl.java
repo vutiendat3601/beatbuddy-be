@@ -14,7 +14,6 @@ import tech.datvu.beatbuddy.api.audio.AudioRepo;
 import tech.datvu.beatbuddy.api.audio.AudioServiceAsync;
 import tech.datvu.beatbuddy.api.audio.YouTubeService;
 import tech.datvu.beatbuddy.api.audio.models.Audio;
-import tech.datvu.beatbuddy.api.audio.models.YouTubeMetadata;
 import tech.datvu.beatbuddy.api.file.FileServiceAsync;
 import tech.datvu.beatbuddy.api.shared.utils.FileUtil;
 
@@ -39,12 +38,9 @@ public class AudioServiceAsyncImpl implements AudioServiceAsync {
             boolean isSaved = ytService.extractAudioFile(url, tmpOutFile);
             if (isSaved && Files.exists(Path.of(tmpOutFile))) {
                 String hashMd5 = FileUtil.hashMd5(tmpOutFile);
-                YouTubeMetadata ytMetadata = ytService.fetchMetadata(url);
                 audio = Audio.builder()
                         .refCode(audioRefCode)
                         .filePath(tmpOutFile)
-                        .durationSec(ytMetadata.getDurationSec())
-                        .hashMd5(hashMd5)
                         .build();
                 audioRepo.save(audio);
                 String storageFilePath = "/%s/%s.%s".formatted(FILE_TYPE_AUDIO, hashMd5, AUDIO_FORMAT);

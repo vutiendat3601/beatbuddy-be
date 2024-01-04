@@ -37,6 +37,8 @@ public class Search extends AbstractEntity {
 
     private ResourceType type;
 
+    private long priority;
+
     public static String mapUri(ResourceType type, UUID id) {
         return (type == null || id == null)
                 ? null

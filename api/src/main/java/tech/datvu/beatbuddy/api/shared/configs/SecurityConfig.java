@@ -24,7 +24,7 @@ import tech.datvu.beatbuddy.api.shared.utils.JwtAuthorityConverter;
 @EnableMethodSecurity(jsr250Enabled = true, prePostEnabled = true)
 public class SecurityConfig {
     private static final String[] DOC_URLS = { "/swagger*/**", "/v3/api-docs/**" };
-    private static final String[] PUBLIC_RESOURCE_URLS = { "/v1/artists" };
+    private static final String[] PUBLIC_GET_RESOURCE_URLS = { "/v1/search", "/v1/tracks/**", "v1/artists/**" };
     public static final String BEAT_BUDDY_API_REGISTRATION_ID = "beatbuddyapi";
 
     @Bean
@@ -33,8 +33,7 @@ public class SecurityConfig {
         http.authorizeHttpRequests(
                 reqs -> reqs
                         .requestMatchers(DOC_URLS).permitAll()
-                        .requestMatchers(HttpMethod.GET, PUBLIC_RESOURCE_URLS).permitAll()
-                        .requestMatchers(HttpMethod.GET, "/v1/tracks").permitAll()
+                        .requestMatchers(HttpMethod.GET, PUBLIC_GET_RESOURCE_URLS).permitAll()
                         .anyRequest().authenticated())
                 .oauth2ResourceServer(
                         customizer -> customizer.jwt(jwt -> jwt

@@ -1,5 +1,6 @@
 package tech.datvu.beatbuddy.api.shared.utils;
 
+import java.io.BufferedOutputStream;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -11,12 +12,13 @@ import java.nio.file.Path;
 import java.security.DigestInputStream;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.logging.Logger;
 
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 public class FileUtil {
-    public static boolean saveFile(InputStream inpStream, String filePath) {
+    public static boolean saveToLocal(InputStream inpStream, String filePath) {
         byte[] buffer = new byte[1024];
         try {
             Files.createDirectories(Path.of(filePath).getParent());
@@ -59,5 +61,17 @@ public class FileUtil {
             log.error(e.getMessage(), e);
         }
         return null;
+    }
+
+    public static boolean appendText(String text, String filePath) {
+        try (FileOutputStream fos = new FileOutputStream(filePath, true);
+                BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+            byte[] bytes = text.getBytes();
+            bos.write(bytes);
+            return true;
+        } catch (IOException e) {
+            Logger.getGlobal().warning(e.getMessage());
+        }
+        return false;
     }
 }

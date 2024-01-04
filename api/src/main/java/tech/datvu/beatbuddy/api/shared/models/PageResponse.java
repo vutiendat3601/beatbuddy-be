@@ -29,26 +29,6 @@ public class PageResponse<T> extends Response<T> {
         return resp;
     }
 
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Data
-    public static class PageMetadata {
-        private int size;
-        private int page;
-        private int totalPages;
-        private int numOfElements;
-        private long totalElements;
-
-        public static <R> PageMetadata of(Page<R> page) {
-            return new PageMetadata(
-                    page.getSize(),
-                    page.getNumber(),
-                    page.getTotalPages(),
-                    page.getNumberOfElements(),
-                    page.getTotalElements());
-        }
-    }
-
     public static interface Pageable {
         PageMetadata getMetadata();
     }
