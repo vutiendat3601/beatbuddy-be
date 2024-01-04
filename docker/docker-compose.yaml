@@ -59,9 +59,9 @@ services:
     hostname: storage
     environment:
       - JWKS_URI=http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs
-      - PORT=8080
+      - PORT=8081
     ports:
-      - 8080
+      - 8081
     volumes:
       - beatbuddystorage:/root/beatbuddy
     networks:
