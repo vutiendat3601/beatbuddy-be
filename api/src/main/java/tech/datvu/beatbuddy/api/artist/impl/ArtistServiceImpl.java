@@ -67,7 +67,7 @@ public class ArtistServiceImpl implements ArtistService {
 
     @Override
     public List<ArtistDto> getArtists(Iterable<UUID> artistIds) {
-        List<Artist> artists = artistRepo.findPublicById(artistIds);
+        List<Artist> artists = artistRepo.findAllPublicById(artistIds);
         List<ArtistDto> artistDtos = artists.stream()
                 .map(artistMapper::mapToArtistDto).toList();
         return artistDtos;

@@ -23,10 +23,10 @@ public interface ArtistRepo extends JpaRepository<Artist, UUID> {
     Optional<Artist> findById(UUID id);
 
     @Query(" SELECT a FROM Artist a WHERE id IN :ids AND a.isPublic = true")
-    List<Artist> findPublicById(@Param("ids") Iterable<UUID> ids);
+    List<Artist> findAllPublicById(@Param("ids") Iterable<UUID> ids);
 
     @Query(" SELECT a FROM Artist a " +
             " WHERE a.id IN :ids AND a.isPublic = true " +
             " AND (a.name ILIKE %:keyword% OR a.realName ILIKE %:keyword%) ")
-    List<Artist> findPublicByKeywordAndId(String keyword, Iterable<UUID> ids);
+    List<Artist> findAllPublicByKeywordAndId(String keyword, Iterable<UUID> ids);
 }
