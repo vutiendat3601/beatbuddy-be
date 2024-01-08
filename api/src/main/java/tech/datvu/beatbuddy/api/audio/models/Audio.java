@@ -31,7 +31,7 @@ public class Audio extends AbstractEntity {
 
     private String refCode;
 
-    private String filePath;
+    private String url;
 
     private AudioQuality quality;
 

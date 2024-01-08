@@ -40,7 +40,7 @@ public class AudioServiceAsyncImpl implements AudioServiceAsync {
                 String hashMd5 = FileUtil.hashMd5(tmpOutFile);
                 audio = Audio.builder()
                         .refCode(audioRefCode)
-                        .filePath(tmpOutFile)
+                        .url(tmpOutFile)
                         .build();
                 audioRepo.save(audio);
                 String storageFilePath = "/%s/%s.%s".formatted(FILE_TYPE_AUDIO, hashMd5, AUDIO_FORMAT);
