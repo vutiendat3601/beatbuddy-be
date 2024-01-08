@@ -18,8 +18,8 @@ spring:
             client-secret: ${BEAT_BUDDY_API_CLIENT_SECRET:OlgAtZaj5SRia4YWBvKPok07rfGUKSoP}
             scope: openid
             authorization-grant-type: client_credentials
-        provider: 
-          beatbuddyapi: 
+        provider:
+          beatbuddyapi:
             token-uri: ${BEAT_BUDDY_API_TOKEN_URI:http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/token}
   data:
     redis:
@@ -38,12 +38,12 @@ spring:
     open-in-view: false
     properties:
       hibernate:
-        "[format_sql]": false
+        '[format_sql]': false
         jdbc:
-          "[time_zone]": UTC
+          '[time_zone]': UTC
         cache:
-          "[use_second_level_cache]": false
-          
+          '[use_second_level_cache]': false
+
     show-sql: true
   docker:
     compose:
@@ -60,4 +60,3 @@ app:
   service:
     beatbuddy-storage-url: ${BEAT_BUDDY_STORAGE_URL:http://beatbuddystorage.datvu.tech}
     # beatbuddy-storage-url: ${BEAT_BUDDY_STORAGE_URL:http://localhost:8081}
-    beatbuddy-static-url: ${BEAT_BUDDY_STATIC_URL:http://beatbuddystatic.datvu.tech}

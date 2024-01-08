@@ -1,5 +1,8 @@
 package tech.datvu.beatbuddy.api.track.models;
 
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Map;
 
 import lombok.AllArgsConstructor;
@@ -11,9 +14,12 @@ import tech.datvu.beatbuddy.api.audio.models.Audio.AudioQuality;
 public class TrackStreamDto {
     private String fileName;
 
-    private Map<AudioQuality, String> links;
+    private Map<AudioQuality, List<String>> links;
 
     public TrackStreamDto() {
-        links = Map.of();
+        links = new HashMap<>();
+        for (AudioQuality quality : AudioQuality.values()) {
+            links.put(quality, new LinkedList<>());
+        }
     }
 }

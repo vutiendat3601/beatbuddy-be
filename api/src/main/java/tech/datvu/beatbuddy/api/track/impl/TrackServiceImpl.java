@@ -12,7 +12,6 @@ import java.util.Set;
 import java.util.UUID;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -77,9 +76,6 @@ public class TrackServiceImpl implements TrackService {
     private final ArtistRepo artistRepo;
     private final TrackArtistRepo trackArtistRepo;
     private final TrackSuggestionArtistRepo trackSuggestionArtistRepo;
-
-    @Value("${app.service.beatbuddy-static-url}")
-    private String beatBuddyStaticUrl;
 
     @Override
     public TrackDto getTrack(UUID trackId) {
@@ -262,22 +258,23 @@ public class TrackServiceImpl implements TrackService {
 
     @Override
     public TrackStreamDto getStream(UUID trackId) {
+
         Track track = trackRepo.findById(trackId)
                 .orElseThrow(() -> TrackException.TRACK_NOT_FOUND.instance());
+
+        TrackStreamDto trackStreamDto = new TrackStreamDto();
         if (track.isPlayable()) {
             String refCode = track.getRefCode();
             String fileName = TextUtil.hashMd5(refCode == null ? track.getId() + "" : refCode);
+            trackStreamDto.setFileName(fileName);
             List<AudioTrack> audioTracks = audioTrackRepo.findAllByTrackId(trackId);
             List<Audio> audios = audioRepo.findAllById(audioTracks.stream().map(at -> at.getAudioId()).toList());
-            final Map<AudioQuality, String> links = new HashMap<>();
+            final Map<AudioQuality, List<String>> links = trackStreamDto.getLinks();
             audios.forEach(a -> {
-                AudioQuality quality = a.getQuality();
-                String filePath = a.getFilePath();
-                String url = beatBuddyStaticUrl + filePath.replaceAll("/public", "");
-                links.put(quality, url);
+                List<String> urls = links.get(a.getQuality());
+                urls.add(a.getUrl());
             });
-            return new TrackStreamDto(fileName, links);
         }
-        return new TrackStreamDto();
+        return trackStreamDto;
     }
 }

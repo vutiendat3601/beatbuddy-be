@@ -43,7 +43,7 @@ CREATE TABLE audio_track (
 CREATE TABLE audios (
 	id uuid NOT NULL PRIMARY KEY,
 	ref_code varchar(64) NOT NULL UNIQUE,
-	file_path varchar(255) NOT NULL,
+	"url" varchar(255) NOT NULL,
 	quality varchar(255) NOT NULL,
 	created_by varchar(255),
 	updated_by varchar(255),
