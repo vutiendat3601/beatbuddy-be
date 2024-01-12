@@ -26,10 +26,9 @@ public class TrackSuggestionDto {
     private String description;
 
     private UUID trackId;
-    
+
     @JsonIgnore
     private String audioRefCode;
-
 
     @JsonIgnore
     private ZonedDateTime createdAt;
@@ -73,10 +72,5 @@ public class TrackSuggestionDto {
         private boolean isPublic;
 
         private String avatar;
-
-        @JsonProperty("avatar")
-        public String avatar() {
-            return avatar;
-        }
     }
 }

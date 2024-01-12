@@ -69,32 +69,35 @@ services:
 
   # #: Auth
   authdb:
-    image: bitnami/postgresql:16.1.0
-    hostname: beatbuddyauthdb
+    image: postgres:16.1-bookworm
+    hostname: authdb
     environment:
       - POSTGRESQL_USERNAME=beatbuddyauthdb
       - POSTGRESQL_DATABASE=beatbuddyauthdb
       - POSTGRES_PASSWORD=beatbuddyauthdb
       - PGPASSWORD=beatbuddyauthdb
     volumes:
-      - beatbuddyauthdb:/bitnami/postgresql
-      - ./auth/db/initdb.d/:/docker-entrypoint-initdb.d/
-      - ./auth/db/backup/:/backup/
-      - ./auth/db/backup.sh:/backup.sh
+      - beatbuddyauthdb:/var/lib/postgresql/data
+      # - ./auth/db/initdb.d/:/docker-entrypoint-initdb.d/
+      # - ./auth/db/backup/:/backup/
+      # - ./auth/db/backup.sh:/backup.sh
     networks:
       - beatbuddy
   auth:
-    image: bitnami/keycloak:22
+    image: quay.io/keycloak/keycloak:23.0.4
     hostname: auth
+    volumes:
+      - ./auth/realms/:/opt/keycloak/data/import/
     environment:
       - KEYCLOAK_CREATE_ADMIN_USER=true
-      - KEYCLOAK_ADMIN_USER=admin
+      - KEYCLOAK_ADMIN=admin
       - KEYCLOAK_ADMIN_PASSWORD=123456Aa@
+      - KEYCLOAK_DATABASE_VENDOR=postgres
+      - KEYCLOAK_DATABASE_HOST=authdb
+      - KEYCLOAK_DATABASE_SCHEMA=public
+      - KEYCLOAK_DATABASE_NAME=beatbuddyauthdb
       - KEYCLOAK_DATABASE_USER=beatbuddyauthdb
       - KEYCLOAK_DATABASE_PASSWORD=beatbuddyauthdb
-      - KEYCLOAK_DATABASE_NAME=beatbuddyauthdb
-      - KEYCLOAK_DATABASE_SCHEMA=public
-      - KEYCLOAK_DATABASE_HOST=authdb
       - KC_HOSTNAME_URL=http://beatbuddyauth.datvu.tech
       - KC_HOSTNAME_ADMIN_URL=http://beatbuddyauth.datvu.tech
       - KC_PROXY=passthrough
@@ -102,6 +105,7 @@ services:
       - authdb
     networks:
       - beatbuddy
+    command: ['start-dev', '--import-realm']
   # # Auth
 
   # ## Proxy
