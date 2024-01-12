@@ -1,0 +1,12 @@
+[Unit]
+Description=Keycloak
+After=network.target
+ 
+[Service]
+Type=idle
+ExecStart=/opt/keycloak/bin/kc.sh start
+TimeoutStartSec=600
+TimeoutStopSec=600
+ 
+[Install]
+WantedBy=multi-user.target
