@@ -10,4 +10,3 @@ cp ../auth/keycloak.conf /opt/keycloak/conf/
 cp ../auth/kc.service /etc/systemd/system/
 systemctl daemon-reload
 systemctl enable kc
-systemctl start kc
