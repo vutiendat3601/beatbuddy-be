@@ -1,1 +1,1 @@
-/opt/keycloak/bin/kc.sh import -dir ../realms/realm-master.json --override true
+/opt/keycloak/bin/kc.sh build
