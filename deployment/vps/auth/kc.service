@@ -4,7 +4,7 @@ After=network.target
  
 [Service]
 Type=idle
-ExecStart=/opt/keycloak/bin/kc.sh start
+ExecStart=/opt/keycloak/bin/kc.sh start --optimized
 TimeoutStartSec=600
 TimeoutStopSec=600
  
