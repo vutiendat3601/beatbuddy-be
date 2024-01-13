@@ -6,4 +6,4 @@ systemctl restart postgresql
 sleep 3s
 
 sudo -u vutiendat3601 psql -U postgres -f ../db/init-authdb.sql
-sudo -u vutiendat3601 psql -U beatbuddyauthdb -d beatbuddyauthdb -f ../db/20240113_04_55_37.sql
+sudo -u vutiendat3601 psql -U bbauthdb -d bbauthdb -f ../db/initdb.d/20240113_23_51_25.sql

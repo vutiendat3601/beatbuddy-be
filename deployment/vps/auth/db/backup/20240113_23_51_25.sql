@@ -2,8 +2,8 @@
 -- PostgreSQL database dump
 --
 
--- Dumped from database version 16.1
--- Dumped by pg_dump version 16.1
+-- Dumped from database version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
+-- Dumped by pg_dump version 16.1 (Ubuntu 16.1-1.pgdg22.04+1)
 
 SET statement_timeout = 0;
 SET lock_timeout = 0;
@@ -17,20 +17,20 @@ SET client_min_messages = warning;
 SET row_security = off;
 
 --
--- Name: public; Type: SCHEMA; Schema: -; Owner: beatbuddyauthdb
+-- Name: public; Type: SCHEMA; Schema: -; Owner: bbauthdb
 --
 
 -- *not* creating schema, since initdb creates it
 
 
-ALTER SCHEMA public OWNER TO beatbuddyauthdb;
+ALTER SCHEMA public OWNER TO bbauthdb;
 
 SET default_tablespace = '';
 
 SET default_table_access_method = heap;
 
 --
--- Name: admin_event_entity; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: admin_event_entity; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.admin_event_entity (
@@ -49,10 +49,10 @@ CREATE TABLE public.admin_event_entity (
 );
 
 
-ALTER TABLE public.admin_event_entity OWNER TO beatbuddyauthdb;
+ALTER TABLE public.admin_event_entity OWNER TO bbauthdb;
 
 --
--- Name: associated_policy; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: associated_policy; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.associated_policy (
@@ -61,10 +61,10 @@ CREATE TABLE public.associated_policy (
 );
 
 
-ALTER TABLE public.associated_policy OWNER TO beatbuddyauthdb;
+ALTER TABLE public.associated_policy OWNER TO bbauthdb;
 
 --
--- Name: authentication_execution; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: authentication_execution; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.authentication_execution (
@@ -81,10 +81,10 @@ CREATE TABLE public.authentication_execution (
 );
 
 
-ALTER TABLE public.authentication_execution OWNER TO beatbuddyauthdb;
+ALTER TABLE public.authentication_execution OWNER TO bbauthdb;
 
 --
--- Name: authentication_flow; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: authentication_flow; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.authentication_flow (
@@ -98,10 +98,10 @@ CREATE TABLE public.authentication_flow (
 );
 
 
-ALTER TABLE public.authentication_flow OWNER TO beatbuddyauthdb;
+ALTER TABLE public.authentication_flow OWNER TO bbauthdb;
 
 --
--- Name: authenticator_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: authenticator_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.authenticator_config (
@@ -111,10 +111,10 @@ CREATE TABLE public.authenticator_config (
 );
 
 
-ALTER TABLE public.authenticator_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.authenticator_config OWNER TO bbauthdb;
 
 --
--- Name: authenticator_config_entry; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: authenticator_config_entry; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.authenticator_config_entry (
@@ -124,10 +124,10 @@ CREATE TABLE public.authenticator_config_entry (
 );
 
 
-ALTER TABLE public.authenticator_config_entry OWNER TO beatbuddyauthdb;
+ALTER TABLE public.authenticator_config_entry OWNER TO bbauthdb;
 
 --
--- Name: broker_link; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: broker_link; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.broker_link (
@@ -141,10 +141,10 @@ CREATE TABLE public.broker_link (
 );
 
 
-ALTER TABLE public.broker_link OWNER TO beatbuddyauthdb;
+ALTER TABLE public.broker_link OWNER TO bbauthdb;
 
 --
--- Name: client; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client (
@@ -177,10 +177,10 @@ CREATE TABLE public.client (
 );
 
 
-ALTER TABLE public.client OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client OWNER TO bbauthdb;
 
 --
--- Name: client_attributes; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_attributes; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_attributes (
@@ -190,10 +190,10 @@ CREATE TABLE public.client_attributes (
 );
 
 
-ALTER TABLE public.client_attributes OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_attributes OWNER TO bbauthdb;
 
 --
--- Name: client_auth_flow_bindings; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_auth_flow_bindings; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_auth_flow_bindings (
@@ -203,10 +203,10 @@ CREATE TABLE public.client_auth_flow_bindings (
 );
 
 
-ALTER TABLE public.client_auth_flow_bindings OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_auth_flow_bindings OWNER TO bbauthdb;
 
 --
--- Name: client_initial_access; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_initial_access; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_initial_access (
@@ -219,10 +219,10 @@ CREATE TABLE public.client_initial_access (
 );
 
 
-ALTER TABLE public.client_initial_access OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_initial_access OWNER TO bbauthdb;
 
 --
--- Name: client_node_registrations; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_node_registrations; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_node_registrations (
@@ -232,10 +232,10 @@ CREATE TABLE public.client_node_registrations (
 );
 
 
-ALTER TABLE public.client_node_registrations OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_node_registrations OWNER TO bbauthdb;
 
 --
--- Name: client_scope; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_scope (
@@ -247,10 +247,10 @@ CREATE TABLE public.client_scope (
 );
 
 
-ALTER TABLE public.client_scope OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_scope OWNER TO bbauthdb;
 
 --
--- Name: client_scope_attributes; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope_attributes; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_scope_attributes (
@@ -260,10 +260,10 @@ CREATE TABLE public.client_scope_attributes (
 );
 
 
-ALTER TABLE public.client_scope_attributes OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_scope_attributes OWNER TO bbauthdb;
 
 --
--- Name: client_scope_client; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope_client; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_scope_client (
@@ -273,10 +273,10 @@ CREATE TABLE public.client_scope_client (
 );
 
 
-ALTER TABLE public.client_scope_client OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_scope_client OWNER TO bbauthdb;
 
 --
--- Name: client_scope_role_mapping; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope_role_mapping; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_scope_role_mapping (
@@ -285,10 +285,10 @@ CREATE TABLE public.client_scope_role_mapping (
 );
 
 
-ALTER TABLE public.client_scope_role_mapping OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_scope_role_mapping OWNER TO bbauthdb;
 
 --
--- Name: client_session; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_session (
@@ -305,10 +305,10 @@ CREATE TABLE public.client_session (
 );
 
 
-ALTER TABLE public.client_session OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_session OWNER TO bbauthdb;
 
 --
--- Name: client_session_auth_status; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_auth_status; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_session_auth_status (
@@ -318,10 +318,10 @@ CREATE TABLE public.client_session_auth_status (
 );
 
 
-ALTER TABLE public.client_session_auth_status OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_session_auth_status OWNER TO bbauthdb;
 
 --
--- Name: client_session_note; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_note; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_session_note (
@@ -331,10 +331,10 @@ CREATE TABLE public.client_session_note (
 );
 
 
-ALTER TABLE public.client_session_note OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_session_note OWNER TO bbauthdb;
 
 --
--- Name: client_session_prot_mapper; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_prot_mapper; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_session_prot_mapper (
@@ -343,10 +343,10 @@ CREATE TABLE public.client_session_prot_mapper (
 );
 
 
-ALTER TABLE public.client_session_prot_mapper OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_session_prot_mapper OWNER TO bbauthdb;
 
 --
--- Name: client_session_role; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_role; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_session_role (
@@ -355,10 +355,10 @@ CREATE TABLE public.client_session_role (
 );
 
 
-ALTER TABLE public.client_session_role OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_session_role OWNER TO bbauthdb;
 
 --
--- Name: client_user_session_note; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_user_session_note; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.client_user_session_note (
@@ -368,10 +368,10 @@ CREATE TABLE public.client_user_session_note (
 );
 
 
-ALTER TABLE public.client_user_session_note OWNER TO beatbuddyauthdb;
+ALTER TABLE public.client_user_session_note OWNER TO bbauthdb;
 
 --
--- Name: component; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: component; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.component (
@@ -385,24 +385,24 @@ CREATE TABLE public.component (
 );
 
 
-ALTER TABLE public.component OWNER TO beatbuddyauthdb;
+ALTER TABLE public.component OWNER TO bbauthdb;
 
 --
--- Name: component_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: component_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.component_config (
     id character varying(36) NOT NULL,
     component_id character varying(36) NOT NULL,
     name character varying(255) NOT NULL,
-    value character varying(4000)
+    value text
 );
 
 
-ALTER TABLE public.component_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.component_config OWNER TO bbauthdb;
 
 --
--- Name: composite_role; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: composite_role; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.composite_role (
@@ -411,10 +411,10 @@ CREATE TABLE public.composite_role (
 );
 
 
-ALTER TABLE public.composite_role OWNER TO beatbuddyauthdb;
+ALTER TABLE public.composite_role OWNER TO bbauthdb;
 
 --
--- Name: credential; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: credential; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.credential (
@@ -430,10 +430,10 @@ CREATE TABLE public.credential (
 );
 
 
-ALTER TABLE public.credential OWNER TO beatbuddyauthdb;
+ALTER TABLE public.credential OWNER TO bbauthdb;
 
 --
--- Name: databasechangelog; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: databasechangelog; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.databasechangelog (
@@ -454,10 +454,10 @@ CREATE TABLE public.databasechangelog (
 );
 
 
-ALTER TABLE public.databasechangelog OWNER TO beatbuddyauthdb;
+ALTER TABLE public.databasechangelog OWNER TO bbauthdb;
 
 --
--- Name: databasechangeloglock; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: databasechangeloglock; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.databasechangeloglock (
@@ -468,10 +468,10 @@ CREATE TABLE public.databasechangeloglock (
 );
 
 
-ALTER TABLE public.databasechangeloglock OWNER TO beatbuddyauthdb;
+ALTER TABLE public.databasechangeloglock OWNER TO bbauthdb;
 
 --
--- Name: default_client_scope; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: default_client_scope; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.default_client_scope (
@@ -481,10 +481,10 @@ CREATE TABLE public.default_client_scope (
 );
 
 
-ALTER TABLE public.default_client_scope OWNER TO beatbuddyauthdb;
+ALTER TABLE public.default_client_scope OWNER TO bbauthdb;
 
 --
--- Name: event_entity; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: event_entity; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.event_entity (
@@ -497,14 +497,15 @@ CREATE TABLE public.event_entity (
     session_id character varying(255),
     event_time bigint,
     type character varying(255),
-    user_id character varying(255)
+    user_id character varying(255),
+    details_json_long_value text
 );
 
 
-ALTER TABLE public.event_entity OWNER TO beatbuddyauthdb;
+ALTER TABLE public.event_entity OWNER TO bbauthdb;
 
 --
--- Name: fed_user_attribute; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_attribute; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.fed_user_attribute (
@@ -517,10 +518,10 @@ CREATE TABLE public.fed_user_attribute (
 );
 
 
-ALTER TABLE public.fed_user_attribute OWNER TO beatbuddyauthdb;
+ALTER TABLE public.fed_user_attribute OWNER TO bbauthdb;
 
 --
--- Name: fed_user_consent; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_consent; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.fed_user_consent (
@@ -536,10 +537,10 @@ CREATE TABLE public.fed_user_consent (
 );
 
 
-ALTER TABLE public.fed_user_consent OWNER TO beatbuddyauthdb;
+ALTER TABLE public.fed_user_consent OWNER TO bbauthdb;
 
 --
--- Name: fed_user_consent_cl_scope; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_consent_cl_scope; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.fed_user_consent_cl_scope (
@@ -548,10 +549,10 @@ CREATE TABLE public.fed_user_consent_cl_scope (
 );
 
 
-ALTER TABLE public.fed_user_consent_cl_scope OWNER TO beatbuddyauthdb;
+ALTER TABLE public.fed_user_consent_cl_scope OWNER TO bbauthdb;
 
 --
--- Name: fed_user_credential; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_credential; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.fed_user_credential (
@@ -569,10 +570,10 @@ CREATE TABLE public.fed_user_credential (
 );
 
 
-ALTER TABLE public.fed_user_credential OWNER TO beatbuddyauthdb;
+ALTER TABLE public.fed_user_credential OWNER TO bbauthdb;
 
 --
--- Name: fed_user_group_membership; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_group_membership; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.fed_user_group_membership (
@@ -583,10 +584,10 @@ CREATE TABLE public.fed_user_group_membership (
 );
 
 
-ALTER TABLE public.fed_user_group_membership OWNER TO beatbuddyauthdb;
+ALTER TABLE public.fed_user_group_membership OWNER TO bbauthdb;
 
 --
--- Name: fed_user_required_action; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_required_action; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.fed_user_required_action (
@@ -597,10 +598,10 @@ CREATE TABLE public.fed_user_required_action (
 );
 
 
-ALTER TABLE public.fed_user_required_action OWNER TO beatbuddyauthdb;
+ALTER TABLE public.fed_user_required_action OWNER TO bbauthdb;
 
 --
--- Name: fed_user_role_mapping; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_role_mapping; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.fed_user_role_mapping (
@@ -611,10 +612,10 @@ CREATE TABLE public.fed_user_role_mapping (
 );
 
 
-ALTER TABLE public.fed_user_role_mapping OWNER TO beatbuddyauthdb;
+ALTER TABLE public.fed_user_role_mapping OWNER TO bbauthdb;
 
 --
--- Name: federated_identity; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: federated_identity; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.federated_identity (
@@ -627,10 +628,10 @@ CREATE TABLE public.federated_identity (
 );
 
 
-ALTER TABLE public.federated_identity OWNER TO beatbuddyauthdb;
+ALTER TABLE public.federated_identity OWNER TO bbauthdb;
 
 --
--- Name: federated_user; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: federated_user; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.federated_user (
@@ -640,10 +641,10 @@ CREATE TABLE public.federated_user (
 );
 
 
-ALTER TABLE public.federated_user OWNER TO beatbuddyauthdb;
+ALTER TABLE public.federated_user OWNER TO bbauthdb;
 
 --
--- Name: group_attribute; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: group_attribute; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.group_attribute (
@@ -654,10 +655,10 @@ CREATE TABLE public.group_attribute (
 );
 
 
-ALTER TABLE public.group_attribute OWNER TO beatbuddyauthdb;
+ALTER TABLE public.group_attribute OWNER TO bbauthdb;
 
 --
--- Name: group_role_mapping; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: group_role_mapping; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.group_role_mapping (
@@ -666,10 +667,10 @@ CREATE TABLE public.group_role_mapping (
 );
 
 
-ALTER TABLE public.group_role_mapping OWNER TO beatbuddyauthdb;
+ALTER TABLE public.group_role_mapping OWNER TO bbauthdb;
 
 --
--- Name: identity_provider; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.identity_provider (
@@ -689,10 +690,10 @@ CREATE TABLE public.identity_provider (
 );
 
 
-ALTER TABLE public.identity_provider OWNER TO beatbuddyauthdb;
+ALTER TABLE public.identity_provider OWNER TO bbauthdb;
 
 --
--- Name: identity_provider_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.identity_provider_config (
@@ -702,10 +703,10 @@ CREATE TABLE public.identity_provider_config (
 );
 
 
-ALTER TABLE public.identity_provider_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.identity_provider_config OWNER TO bbauthdb;
 
 --
--- Name: identity_provider_mapper; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider_mapper; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.identity_provider_mapper (
@@ -717,10 +718,10 @@ CREATE TABLE public.identity_provider_mapper (
 );
 
 
-ALTER TABLE public.identity_provider_mapper OWNER TO beatbuddyauthdb;
+ALTER TABLE public.identity_provider_mapper OWNER TO bbauthdb;
 
 --
--- Name: idp_mapper_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: idp_mapper_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.idp_mapper_config (
@@ -730,10 +731,10 @@ CREATE TABLE public.idp_mapper_config (
 );
 
 
-ALTER TABLE public.idp_mapper_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.idp_mapper_config OWNER TO bbauthdb;
 
 --
--- Name: keycloak_group; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: keycloak_group; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.keycloak_group (
@@ -744,10 +745,10 @@ CREATE TABLE public.keycloak_group (
 );
 
 
-ALTER TABLE public.keycloak_group OWNER TO beatbuddyauthdb;
+ALTER TABLE public.keycloak_group OWNER TO bbauthdb;
 
 --
--- Name: keycloak_role; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: keycloak_role; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.keycloak_role (
@@ -762,10 +763,10 @@ CREATE TABLE public.keycloak_role (
 );
 
 
-ALTER TABLE public.keycloak_role OWNER TO beatbuddyauthdb;
+ALTER TABLE public.keycloak_role OWNER TO bbauthdb;
 
 --
--- Name: migration_model; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: migration_model; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.migration_model (
@@ -775,10 +776,10 @@ CREATE TABLE public.migration_model (
 );
 
 
-ALTER TABLE public.migration_model OWNER TO beatbuddyauthdb;
+ALTER TABLE public.migration_model OWNER TO bbauthdb;
 
 --
--- Name: offline_client_session; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: offline_client_session; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.offline_client_session (
@@ -792,10 +793,10 @@ CREATE TABLE public.offline_client_session (
 );
 
 
-ALTER TABLE public.offline_client_session OWNER TO beatbuddyauthdb;
+ALTER TABLE public.offline_client_session OWNER TO bbauthdb;
 
 --
--- Name: offline_user_session; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: offline_user_session; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.offline_user_session (
@@ -809,10 +810,10 @@ CREATE TABLE public.offline_user_session (
 );
 
 
-ALTER TABLE public.offline_user_session OWNER TO beatbuddyauthdb;
+ALTER TABLE public.offline_user_session OWNER TO bbauthdb;
 
 --
--- Name: policy_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: policy_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.policy_config (
@@ -822,10 +823,10 @@ CREATE TABLE public.policy_config (
 );
 
 
-ALTER TABLE public.policy_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.policy_config OWNER TO bbauthdb;
 
 --
--- Name: protocol_mapper; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: protocol_mapper; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.protocol_mapper (
@@ -838,10 +839,10 @@ CREATE TABLE public.protocol_mapper (
 );
 
 
-ALTER TABLE public.protocol_mapper OWNER TO beatbuddyauthdb;
+ALTER TABLE public.protocol_mapper OWNER TO bbauthdb;
 
 --
--- Name: protocol_mapper_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: protocol_mapper_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.protocol_mapper_config (
@@ -851,10 +852,10 @@ CREATE TABLE public.protocol_mapper_config (
 );
 
 
-ALTER TABLE public.protocol_mapper_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.protocol_mapper_config OWNER TO bbauthdb;
 
 --
--- Name: realm; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm (
@@ -914,10 +915,10 @@ CREATE TABLE public.realm (
 );
 
 
-ALTER TABLE public.realm OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm OWNER TO bbauthdb;
 
 --
--- Name: realm_attribute; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_attribute; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm_attribute (
@@ -927,10 +928,10 @@ CREATE TABLE public.realm_attribute (
 );
 
 
-ALTER TABLE public.realm_attribute OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm_attribute OWNER TO bbauthdb;
 
 --
--- Name: realm_default_groups; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_default_groups; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm_default_groups (
@@ -939,10 +940,10 @@ CREATE TABLE public.realm_default_groups (
 );
 
 
-ALTER TABLE public.realm_default_groups OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm_default_groups OWNER TO bbauthdb;
 
 --
--- Name: realm_enabled_event_types; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_enabled_event_types; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm_enabled_event_types (
@@ -951,10 +952,10 @@ CREATE TABLE public.realm_enabled_event_types (
 );
 
 
-ALTER TABLE public.realm_enabled_event_types OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm_enabled_event_types OWNER TO bbauthdb;
 
 --
--- Name: realm_events_listeners; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_events_listeners; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm_events_listeners (
@@ -963,10 +964,10 @@ CREATE TABLE public.realm_events_listeners (
 );
 
 
-ALTER TABLE public.realm_events_listeners OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm_events_listeners OWNER TO bbauthdb;
 
 --
--- Name: realm_localizations; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_localizations; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm_localizations (
@@ -976,10 +977,10 @@ CREATE TABLE public.realm_localizations (
 );
 
 
-ALTER TABLE public.realm_localizations OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm_localizations OWNER TO bbauthdb;
 
 --
--- Name: realm_required_credential; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_required_credential; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm_required_credential (
@@ -991,10 +992,10 @@ CREATE TABLE public.realm_required_credential (
 );
 
 
-ALTER TABLE public.realm_required_credential OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm_required_credential OWNER TO bbauthdb;
 
 --
--- Name: realm_smtp_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_smtp_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm_smtp_config (
@@ -1004,10 +1005,10 @@ CREATE TABLE public.realm_smtp_config (
 );
 
 
-ALTER TABLE public.realm_smtp_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm_smtp_config OWNER TO bbauthdb;
 
 --
--- Name: realm_supported_locales; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_supported_locales; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.realm_supported_locales (
@@ -1016,10 +1017,10 @@ CREATE TABLE public.realm_supported_locales (
 );
 
 
-ALTER TABLE public.realm_supported_locales OWNER TO beatbuddyauthdb;
+ALTER TABLE public.realm_supported_locales OWNER TO bbauthdb;
 
 --
--- Name: redirect_uris; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: redirect_uris; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.redirect_uris (
@@ -1028,10 +1029,10 @@ CREATE TABLE public.redirect_uris (
 );
 
 
-ALTER TABLE public.redirect_uris OWNER TO beatbuddyauthdb;
+ALTER TABLE public.redirect_uris OWNER TO bbauthdb;
 
 --
--- Name: required_action_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: required_action_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.required_action_config (
@@ -1041,10 +1042,10 @@ CREATE TABLE public.required_action_config (
 );
 
 
-ALTER TABLE public.required_action_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.required_action_config OWNER TO bbauthdb;
 
 --
--- Name: required_action_provider; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: required_action_provider; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.required_action_provider (
@@ -1059,10 +1060,10 @@ CREATE TABLE public.required_action_provider (
 );
 
 
-ALTER TABLE public.required_action_provider OWNER TO beatbuddyauthdb;
+ALTER TABLE public.required_action_provider OWNER TO bbauthdb;
 
 --
--- Name: resource_attribute; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_attribute; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_attribute (
@@ -1073,10 +1074,10 @@ CREATE TABLE public.resource_attribute (
 );
 
 
-ALTER TABLE public.resource_attribute OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_attribute OWNER TO bbauthdb;
 
 --
--- Name: resource_policy; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_policy; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_policy (
@@ -1085,10 +1086,10 @@ CREATE TABLE public.resource_policy (
 );
 
 
-ALTER TABLE public.resource_policy OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_policy OWNER TO bbauthdb;
 
 --
--- Name: resource_scope; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_scope; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_scope (
@@ -1097,10 +1098,10 @@ CREATE TABLE public.resource_scope (
 );
 
 
-ALTER TABLE public.resource_scope OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_scope OWNER TO bbauthdb;
 
 --
--- Name: resource_server; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_server (
@@ -1111,10 +1112,10 @@ CREATE TABLE public.resource_server (
 );
 
 
-ALTER TABLE public.resource_server OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_server OWNER TO bbauthdb;
 
 --
--- Name: resource_server_perm_ticket; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_perm_ticket; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_server_perm_ticket (
@@ -1130,10 +1131,10 @@ CREATE TABLE public.resource_server_perm_ticket (
 );
 
 
-ALTER TABLE public.resource_server_perm_ticket OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_server_perm_ticket OWNER TO bbauthdb;
 
 --
--- Name: resource_server_policy; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_policy; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_server_policy (
@@ -1148,10 +1149,10 @@ CREATE TABLE public.resource_server_policy (
 );
 
 
-ALTER TABLE public.resource_server_policy OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_server_policy OWNER TO bbauthdb;
 
 --
--- Name: resource_server_resource; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_resource; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_server_resource (
@@ -1166,10 +1167,10 @@ CREATE TABLE public.resource_server_resource (
 );
 
 
-ALTER TABLE public.resource_server_resource OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_server_resource OWNER TO bbauthdb;
 
 --
--- Name: resource_server_scope; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_scope; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_server_scope (
@@ -1181,10 +1182,10 @@ CREATE TABLE public.resource_server_scope (
 );
 
 
-ALTER TABLE public.resource_server_scope OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_server_scope OWNER TO bbauthdb;
 
 --
--- Name: resource_uris; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_uris; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.resource_uris (
@@ -1193,10 +1194,10 @@ CREATE TABLE public.resource_uris (
 );
 
 
-ALTER TABLE public.resource_uris OWNER TO beatbuddyauthdb;
+ALTER TABLE public.resource_uris OWNER TO bbauthdb;
 
 --
--- Name: role_attribute; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: role_attribute; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.role_attribute (
@@ -1207,10 +1208,10 @@ CREATE TABLE public.role_attribute (
 );
 
 
-ALTER TABLE public.role_attribute OWNER TO beatbuddyauthdb;
+ALTER TABLE public.role_attribute OWNER TO bbauthdb;
 
 --
--- Name: scope_mapping; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: scope_mapping; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.scope_mapping (
@@ -1219,10 +1220,10 @@ CREATE TABLE public.scope_mapping (
 );
 
 
-ALTER TABLE public.scope_mapping OWNER TO beatbuddyauthdb;
+ALTER TABLE public.scope_mapping OWNER TO bbauthdb;
 
 --
--- Name: scope_policy; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: scope_policy; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.scope_policy (
@@ -1231,10 +1232,10 @@ CREATE TABLE public.scope_policy (
 );
 
 
-ALTER TABLE public.scope_policy OWNER TO beatbuddyauthdb;
+ALTER TABLE public.scope_policy OWNER TO bbauthdb;
 
 --
--- Name: user_attribute; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_attribute; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_attribute (
@@ -1245,10 +1246,10 @@ CREATE TABLE public.user_attribute (
 );
 
 
-ALTER TABLE public.user_attribute OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_attribute OWNER TO bbauthdb;
 
 --
--- Name: user_consent; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_consent; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_consent (
@@ -1262,10 +1263,10 @@ CREATE TABLE public.user_consent (
 );
 
 
-ALTER TABLE public.user_consent OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_consent OWNER TO bbauthdb;
 
 --
--- Name: user_consent_client_scope; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_consent_client_scope; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_consent_client_scope (
@@ -1274,10 +1275,10 @@ CREATE TABLE public.user_consent_client_scope (
 );
 
 
-ALTER TABLE public.user_consent_client_scope OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_consent_client_scope OWNER TO bbauthdb;
 
 --
--- Name: user_entity; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_entity; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_entity (
@@ -1297,10 +1298,10 @@ CREATE TABLE public.user_entity (
 );
 
 
-ALTER TABLE public.user_entity OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_entity OWNER TO bbauthdb;
 
 --
--- Name: user_federation_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_federation_config (
@@ -1310,10 +1311,10 @@ CREATE TABLE public.user_federation_config (
 );
 
 
-ALTER TABLE public.user_federation_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_federation_config OWNER TO bbauthdb;
 
 --
--- Name: user_federation_mapper; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_mapper; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_federation_mapper (
@@ -1325,10 +1326,10 @@ CREATE TABLE public.user_federation_mapper (
 );
 
 
-ALTER TABLE public.user_federation_mapper OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_federation_mapper OWNER TO bbauthdb;
 
 --
--- Name: user_federation_mapper_config; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_mapper_config; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_federation_mapper_config (
@@ -1338,10 +1339,10 @@ CREATE TABLE public.user_federation_mapper_config (
 );
 
 
-ALTER TABLE public.user_federation_mapper_config OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_federation_mapper_config OWNER TO bbauthdb;
 
 --
--- Name: user_federation_provider; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_provider; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_federation_provider (
@@ -1356,10 +1357,10 @@ CREATE TABLE public.user_federation_provider (
 );
 
 
-ALTER TABLE public.user_federation_provider OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_federation_provider OWNER TO bbauthdb;
 
 --
--- Name: user_group_membership; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_group_membership; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_group_membership (
@@ -1368,10 +1369,10 @@ CREATE TABLE public.user_group_membership (
 );
 
 
-ALTER TABLE public.user_group_membership OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_group_membership OWNER TO bbauthdb;
 
 --
--- Name: user_required_action; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_required_action; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_required_action (
@@ -1380,10 +1381,10 @@ CREATE TABLE public.user_required_action (
 );
 
 
-ALTER TABLE public.user_required_action OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_required_action OWNER TO bbauthdb;
 
 --
--- Name: user_role_mapping; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_role_mapping; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_role_mapping (
@@ -1392,10 +1393,10 @@ CREATE TABLE public.user_role_mapping (
 );
 
 
-ALTER TABLE public.user_role_mapping OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_role_mapping OWNER TO bbauthdb;
 
 --
--- Name: user_session; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_session; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_session (
@@ -1414,10 +1415,10 @@ CREATE TABLE public.user_session (
 );
 
 
-ALTER TABLE public.user_session OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_session OWNER TO bbauthdb;
 
 --
--- Name: user_session_note; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_session_note; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.user_session_note (
@@ -1427,10 +1428,10 @@ CREATE TABLE public.user_session_note (
 );
 
 
-ALTER TABLE public.user_session_note OWNER TO beatbuddyauthdb;
+ALTER TABLE public.user_session_note OWNER TO bbauthdb;
 
 --
--- Name: username_login_failure; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: username_login_failure; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.username_login_failure (
@@ -1443,10 +1444,10 @@ CREATE TABLE public.username_login_failure (
 );
 
 
-ALTER TABLE public.username_login_failure OWNER TO beatbuddyauthdb;
+ALTER TABLE public.username_login_failure OWNER TO bbauthdb;
 
 --
--- Name: web_origins; Type: TABLE; Schema: public; Owner: beatbuddyauthdb
+-- Name: web_origins; Type: TABLE; Schema: public; Owner: bbauthdb
 --
 
 CREATE TABLE public.web_origins (
@@ -1455,10 +1456,10 @@ CREATE TABLE public.web_origins (
 );
 
 
-ALTER TABLE public.web_origins OWNER TO beatbuddyauthdb;
+ALTER TABLE public.web_origins OWNER TO bbauthdb;
 
 --
--- Data for Name: admin_event_entity; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: admin_event_entity; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.admin_event_entity (id, admin_event_time, realm_id, operation_type, auth_realm_id, auth_client_id, auth_user_id, ip_address, resource_path, representation, error, resource_type) FROM stdin;
@@ -1466,7 +1467,7 @@ COPY public.admin_event_entity (id, admin_event_time, realm_id, operation_type, 
 
 
 --
--- Data for Name: associated_policy; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: associated_policy; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.associated_policy (policy_id, associated_policy_id) FROM stdin;
@@ -1474,7 +1475,7 @@ COPY public.associated_policy (policy_id, associated_policy_id) FROM stdin;
 
 
 --
--- Data for Name: authentication_execution; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: authentication_execution; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.authentication_execution (id, alias, authenticator, realm_id, flow_id, requirement, priority, authenticator_flow, auth_flow_id, auth_config) FROM stdin;
@@ -1493,7 +1494,6 @@ dc5fc33c-7c2f-47b5-9b21-bb9c75303fdc	\N	direct-grant-validate-password	f0fbc87d-
 cd288a35-6e68-4a49-a809-6a32acacfb78	\N	direct-grant-validate-otp	f0fbc87d-9020-46ea-b572-7f7ccc131e82	6741fe14-64a0-407c-ad8e-36767b128311	0	20	f	\N	\N
 8e04ae3a-5c18-44ad-bc07-c58004138fe0	\N	registration-page-form	f0fbc87d-9020-46ea-b572-7f7ccc131e82	0ba9e862-750d-4406-9fd6-9fc290a8e51c	0	10	t	8c98bd16-8e21-4886-890a-49e537766c28	\N
 b47d52fb-668b-4961-bf02-1f892f388c8e	\N	registration-user-creation	f0fbc87d-9020-46ea-b572-7f7ccc131e82	8c98bd16-8e21-4886-890a-49e537766c28	0	20	f	\N	\N
-4ef90769-8b04-4640-af6b-7c486fb6f588	\N	registration-profile-action	f0fbc87d-9020-46ea-b572-7f7ccc131e82	8c98bd16-8e21-4886-890a-49e537766c28	0	40	f	\N	\N
 c0cb1da0-9f23-4577-9b15-db56bec509c7	\N	registration-password-action	f0fbc87d-9020-46ea-b572-7f7ccc131e82	8c98bd16-8e21-4886-890a-49e537766c28	0	50	f	\N	\N
 537c006c-fcb6-4350-a01d-ba9b179193ad	\N	registration-recaptcha-action	f0fbc87d-9020-46ea-b572-7f7ccc131e82	8c98bd16-8e21-4886-890a-49e537766c28	3	60	f	\N	\N
 518bc174-0acb-42de-b4fd-d96866dc9446	\N	registration-terms-and-conditions	f0fbc87d-9020-46ea-b572-7f7ccc131e82	8c98bd16-8e21-4886-890a-49e537766c28	3	70	f	\N	\N
@@ -1536,7 +1536,6 @@ f4a5a07e-8ffb-40e6-bdac-5af07d028679	\N	direct-grant-validate-username	bbfb0c95-
 0d2f8cde-bc44-4a34-ae18-9a072ebf9f22	\N	direct-grant-validate-otp	bbfb0c95-df74-4043-af21-ff214ec2b0a0	95721217-7966-450b-89be-9ccd81456ea7	0	20	f	\N	\N
 4b2626fc-bb15-41d3-8587-a73df3a27ba9	\N	registration-page-form	bbfb0c95-df74-4043-af21-ff214ec2b0a0	aa8ad4cd-b373-4981-bbd4-ea01bd2d4232	0	10	t	009d35f0-0cb1-49ce-976d-c0f9abbecbe4	\N
 d68d46a1-4fd9-488c-a3ca-21d6cea7740f	\N	registration-user-creation	bbfb0c95-df74-4043-af21-ff214ec2b0a0	009d35f0-0cb1-49ce-976d-c0f9abbecbe4	0	20	f	\N	\N
-8d393504-0d9d-4683-936e-6c92307e14c3	\N	registration-profile-action	bbfb0c95-df74-4043-af21-ff214ec2b0a0	009d35f0-0cb1-49ce-976d-c0f9abbecbe4	0	40	f	\N	\N
 ef2ffa6a-9f4c-469f-8831-97a4ea5b1e70	\N	registration-password-action	bbfb0c95-df74-4043-af21-ff214ec2b0a0	009d35f0-0cb1-49ce-976d-c0f9abbecbe4	0	50	f	\N	\N
 6587a8b9-181c-4c2a-bcd2-2b2982a82fd2	\N	registration-recaptcha-action	bbfb0c95-df74-4043-af21-ff214ec2b0a0	009d35f0-0cb1-49ce-976d-c0f9abbecbe4	3	60	f	\N	\N
 0b3c2244-5da9-4783-ab73-39f28aab9187	\N	reset-credentials-choose-user	bbfb0c95-df74-4043-af21-ff214ec2b0a0	eaf535e7-aa53-435b-b772-0a28b81b514d	0	10	f	\N	\N
@@ -1567,7 +1566,7 @@ f518941a-9156-4459-b242-70ed56e06818	\N	http-basic-authenticator	bbfb0c95-df74-4
 
 
 --
--- Data for Name: authentication_flow; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: authentication_flow; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.authentication_flow (id, alias, description, realm_id, provider_id, top_level, built_in) FROM stdin;
@@ -1611,7 +1610,7 @@ a44f59d5-1b9c-4955-946c-69cdc8e66bf2	clients	Base authentication for clients	bbf
 
 
 --
--- Data for Name: authenticator_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: authenticator_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.authenticator_config (id, alias, realm_id) FROM stdin;
@@ -1623,7 +1622,7 @@ eb865bf2-9552-4687-987c-c283af61f441	create unique user config	f0fbc87d-9020-46e
 
 
 --
--- Data for Name: authenticator_config_entry; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: authenticator_config_entry; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.authenticator_config_entry (authenticator_id, value, name) FROM stdin;
@@ -1635,7 +1634,7 @@ eb865bf2-9552-4687-987c-c283af61f441	false	require.password.update.after.registr
 
 
 --
--- Data for Name: broker_link; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: broker_link; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.broker_link (identity_provider, storage_provider_id, realm_id, broker_user_id, broker_username, token, user_id) FROM stdin;
@@ -1643,7 +1642,7 @@ COPY public.broker_link (identity_provider, storage_provider_id, realm_id, broke
 
 
 --
--- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client (id, enabled, full_scope_allowed, client_id, not_before, public_client, secret, base_url, bearer_only, management_url, surrogate_auth_required, realm_id, protocol, node_rereg_timeout, frontchannel_logout, consent_required, name, service_accounts_enabled, client_authenticator_type, root_url, description, registration_token, standard_flow_enabled, implicit_flow_enabled, direct_access_grants_enabled, always_display_in_console) FROM stdin;
@@ -1667,7 +1666,7 @@ a8d9ae70-abb4-454e-becd-3f82944a2a47	t	t	beatbuddyapi	0	f	OlgAtZaj5SRia4YWBvKPok
 
 
 --
--- Data for Name: client_attributes; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_attributes; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_attributes (client_id, name, value) FROM stdin;
@@ -1712,7 +1711,7 @@ a8d9ae70-abb4-454e-becd-3f82944a2a47	client.secret.creation.time	1703671499
 
 
 --
--- Data for Name: client_auth_flow_bindings; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_auth_flow_bindings; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_auth_flow_bindings (client_id, flow_id, binding_name) FROM stdin;
@@ -1720,7 +1719,7 @@ COPY public.client_auth_flow_bindings (client_id, flow_id, binding_name) FROM st
 
 
 --
--- Data for Name: client_initial_access; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_initial_access; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_initial_access (id, realm_id, "timestamp", expiration, count, remaining_count) FROM stdin;
@@ -1728,7 +1727,7 @@ COPY public.client_initial_access (id, realm_id, "timestamp", expiration, count,
 
 
 --
--- Data for Name: client_node_registrations; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_node_registrations; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_node_registrations (client_id, value, name) FROM stdin;
@@ -1736,7 +1735,7 @@ COPY public.client_node_registrations (client_id, value, name) FROM stdin;
 
 
 --
--- Data for Name: client_scope; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_scope; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_scope (id, name, realm_id, description, protocol) FROM stdin;
@@ -1766,7 +1765,7 @@ a4eb3ec9-cad7-4d62-828d-e5ac4bdf022f	rbac	bbfb0c95-df74-4043-af21-ff214ec2b0a0	U
 
 
 --
--- Data for Name: client_scope_attributes; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_scope_attributes; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_scope_attributes (scope_id, value, name) FROM stdin;
@@ -1834,7 +1833,7 @@ a4eb3ec9-cad7-4d62-828d-e5ac4bdf022f		gui.order
 
 
 --
--- Data for Name: client_scope_client; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_scope_client; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_scope_client (client_id, scope_id, default_scope) FROM stdin;
@@ -1962,7 +1961,7 @@ e2c14827-9237-4f6e-8f31-d4e4564298f1	c6a99be1-5c93-47b2-add2-ee3648afe730	f
 
 
 --
--- Data for Name: client_scope_role_mapping; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_scope_role_mapping; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_scope_role_mapping (scope_id, role_id) FROM stdin;
@@ -1972,7 +1971,7 @@ c6a99be1-5c93-47b2-add2-ee3648afe730	6dd58860-5a3a-43f0-840d-1663dd08a596
 
 
 --
--- Data for Name: client_session; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_session; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_session (id, client_id, redirect_uri, state, "timestamp", session_id, auth_method, realm_id, auth_user_id, current_action) FROM stdin;
@@ -1980,7 +1979,7 @@ COPY public.client_session (id, client_id, redirect_uri, state, "timestamp", ses
 
 
 --
--- Data for Name: client_session_auth_status; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_session_auth_status; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_session_auth_status (authenticator, status, client_session) FROM stdin;
@@ -1988,7 +1987,7 @@ COPY public.client_session_auth_status (authenticator, status, client_session) F
 
 
 --
--- Data for Name: client_session_note; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_session_note; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_session_note (name, value, client_session) FROM stdin;
@@ -1996,7 +1995,7 @@ COPY public.client_session_note (name, value, client_session) FROM stdin;
 
 
 --
--- Data for Name: client_session_prot_mapper; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_session_prot_mapper; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_session_prot_mapper (protocol_mapper_id, client_session) FROM stdin;
@@ -2004,7 +2003,7 @@ COPY public.client_session_prot_mapper (protocol_mapper_id, client_session) FROM
 
 
 --
--- Data for Name: client_session_role; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_session_role; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_session_role (role_id, client_session) FROM stdin;
@@ -2012,7 +2011,7 @@ COPY public.client_session_role (role_id, client_session) FROM stdin;
 
 
 --
--- Data for Name: client_user_session_note; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: client_user_session_note; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.client_user_session_note (name, value, client_session) FROM stdin;
@@ -2020,7 +2019,7 @@ COPY public.client_user_session_note (name, value, client_session) FROM stdin;
 
 
 --
--- Data for Name: component; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: component; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.component (id, name, parent_id, provider_id, provider_type, realm_id, sub_type) FROM stdin;
@@ -2052,13 +2051,17 @@ c6259062-9e76-44ad-8835-54df7814cae5	Allowed Client Scopes	bbfb0c95-df74-4043-af
 
 
 --
--- Data for Name: component_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: component_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.component_config (id, component_id, name, value) FROM stdin;
 0f5f2a81-dd84-4c5c-95d2-acfd2d052744	bd35f0e5-13bd-4e83-bb45-52495a0056dd	allow-default-scopes	true
 5b3141cb-a3db-4087-8451-23bd042bc8aa	929d964f-9bcc-4e65-8566-e5fda010db0a	max-clients	200
 add165cb-7ae8-4c97-8b27-66164c8e8182	e6596633-5491-41af-a577-0c31def425cf	allowed-protocol-mapper-types	saml-user-property-mapper
+93795b40-3a85-491b-a3b8-1d33fa509c11	1e75b765-2df5-4da1-b74b-eb327008825b	allow-default-scopes	true
+03234640-db83-4a42-986a-be0d6f8a1863	bb6e3633-6d09-4b73-a3e8-c2b6dd56926a	allowed-protocol-mapper-types	oidc-sha256-pairwise-sub-mapper
+3f9711c8-2ffc-44ba-8da8-50002a5f74e6	e23b422a-7acc-47c4-8a47-63928129e4fb	host-sending-registration-request-must-match	true
+0105bbd0-cb9a-456e-a1ed-b2c617685dd6	e23b422a-7acc-47c4-8a47-63928129e4fb	client-uris-must-match	true
 79120d95-c195-43e0-81b2-2451f2c82879	e6596633-5491-41af-a577-0c31def425cf	allowed-protocol-mapper-types	saml-user-attribute-mapper
 93a9e639-cea0-4a71-a6e8-452265e2353d	e6596633-5491-41af-a577-0c31def425cf	allowed-protocol-mapper-types	oidc-sha256-pairwise-sub-mapper
 a60b434d-be38-4666-abc8-63343eaf3206	e6596633-5491-41af-a577-0c31def425cf	allowed-protocol-mapper-types	oidc-usermodel-attribute-mapper
@@ -2073,10 +2076,6 @@ a09f721f-bcb9-4000-a157-d44ca9eb8967	e6596633-5491-41af-a577-0c31def425cf	allowe
 3f95af8f-03da-4ecb-8a6d-8671efef0476	bb6e3633-6d09-4b73-a3e8-c2b6dd56926a	allowed-protocol-mapper-types	saml-role-list-mapper
 5c814aa7-a659-4662-9df8-daffcd78dd9f	bb6e3633-6d09-4b73-a3e8-c2b6dd56926a	allowed-protocol-mapper-types	oidc-address-mapper
 48db8d96-5bb0-4699-a4fc-e74ac3b4ee2b	bb6e3633-6d09-4b73-a3e8-c2b6dd56926a	allowed-protocol-mapper-types	saml-user-attribute-mapper
-03234640-db83-4a42-986a-be0d6f8a1863	bb6e3633-6d09-4b73-a3e8-c2b6dd56926a	allowed-protocol-mapper-types	oidc-sha256-pairwise-sub-mapper
-93795b40-3a85-491b-a3b8-1d33fa509c11	1e75b765-2df5-4da1-b74b-eb327008825b	allow-default-scopes	true
-3f9711c8-2ffc-44ba-8da8-50002a5f74e6	e23b422a-7acc-47c4-8a47-63928129e4fb	host-sending-registration-request-must-match	true
-0105bbd0-cb9a-456e-a1ed-b2c617685dd6	e23b422a-7acc-47c4-8a47-63928129e4fb	client-uris-must-match	true
 20633cab-f6ec-4575-a86e-4d6cdad78e04	def65697-6a0a-4dc7-98b9-0890ba2b639e	priority	100
 bc16a60f-ec62-429f-8bfa-7ac2ee73df69	def65697-6a0a-4dc7-98b9-0890ba2b639e	algorithm	HS256
 ef827382-70a5-4364-8cf2-0109a7f0314d	def65697-6a0a-4dc7-98b9-0890ba2b639e	secret	nGOlWrhOGZIPD4JIH5tPZAZel4169TgQG5v5w-4RPm5RosuhAxTY2SuW9vElombFK0R5Luc9ainDzdhpvVTM2w
@@ -2134,7 +2133,7 @@ aa3ef373-ed1c-4bd7-b8aa-5f10acfff8b1	69d288de-7107-4502-9e05-e12f4add5891	allowe
 
 
 --
--- Data for Name: composite_role; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: composite_role; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.composite_role (composite, child_role) FROM stdin;
@@ -2218,7 +2217,7 @@ ba014b3c-92ed-48fc-ab62-d025f714bb5f	8d60a4ea-9288-4633-89fb-c0f638da0bdb
 
 
 --
--- Data for Name: credential; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: credential; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.credential (id, salt, type, user_id, created_date, user_label, secret_data, credential_data, priority) FROM stdin;
@@ -2231,7 +2230,7 @@ b84c7b1f-9f6a-4cc6-94e8-25d72f1984db	\N	password	9a5f3b26-f8c5-406e-831c-cdeb7ef
 
 
 --
--- Data for Name: databasechangelog; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: databasechangelog; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.databasechangelog (id, author, filename, dateexecuted, orderexecuted, exectype, md5sum, description, comments, tag, liquibase, contexts, labels, deployment_id) FROM stdin;
@@ -2350,11 +2349,13 @@ client-attributes-string-accomodation-fixed	keycloak	META-INF/jpa-changelog-20.0
 21.1.0-19404-2	keycloak	META-INF/jpa-changelog-21.1.0.xml	2023-12-14 11:24:28.720025	113	MARK_RAN	9:627d032e3ef2c06c0e1f73d2ae25c26c	addColumn tableName=RESOURCE_SERVER_POLICY; update tableName=RESOURCE_SERVER_POLICY; dropColumn columnName=DECISION_STRATEGY, tableName=RESOURCE_SERVER_POLICY; renameColumn newColumnName=DECISION_STRATEGY, oldColumnName=DECISION_STRATEGY_NEW, tabl...		\N	4.23.2	\N	\N	2553064526
 22.0.0-17484-updated	keycloak	META-INF/jpa-changelog-22.0.0.xml	2023-12-14 11:24:28.730843	114	EXECUTED	9:90af0bfd30cafc17b9f4d6eccd92b8b3	customChange		\N	4.23.2	\N	\N	2553064526
 22.0.5-24031	keycloak	META-INF/jpa-changelog-22.0.0.xml	2023-12-14 11:24:28.734715	115	MARK_RAN	9:a60d2d7b315ec2d3eba9e2f145f9df28	customChange		\N	4.23.2	\N	\N	2553064526
+23.0.0-12062	keycloak	META-INF/jpa-changelog-23.0.0.xml	2024-01-13 14:43:15.823239	116	EXECUTED	9:2168fbe728fec46ae9baf15bf80927b8	addColumn tableName=COMPONENT_CONFIG; update tableName=COMPONENT_CONFIG; dropColumn columnName=VALUE, tableName=COMPONENT_CONFIG; renameColumn newColumnName=VALUE, oldColumnName=VALUE_NEW, tableName=COMPONENT_CONFIG		\N	4.23.2	\N	\N	5131795457
+23.0.0-17258	keycloak	META-INF/jpa-changelog-23.0.0.xml	2024-01-13 14:43:15.852155	117	EXECUTED	9:36506d679a83bbfda85a27ea1864dca8	addColumn tableName=EVENT_ENTITY		\N	4.23.2	\N	\N	5131795457
 \.
 
 
 --
--- Data for Name: databasechangeloglock; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: databasechangeloglock; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.databasechangeloglock (id, locked, lockgranted, lockedby) FROM stdin;
@@ -2365,7 +2366,7 @@ COPY public.databasechangeloglock (id, locked, lockgranted, lockedby) FROM stdin
 
 
 --
--- Data for Name: default_client_scope; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: default_client_scope; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.default_client_scope (realm_id, scope_id, default_scope) FROM stdin;
@@ -2393,15 +2394,15 @@ bbfb0c95-df74-4043-af21-ff214ec2b0a0	e6307b01-1269-480e-93bf-5a01f85cd21e	t
 
 
 --
--- Data for Name: event_entity; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: event_entity; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
-COPY public.event_entity (id, client_id, details_json, error, ip_address, realm_id, session_id, event_time, type, user_id) FROM stdin;
+COPY public.event_entity (id, client_id, details_json, error, ip_address, realm_id, session_id, event_time, type, user_id, details_json_long_value) FROM stdin;
 \.
 
 
 --
--- Data for Name: fed_user_attribute; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: fed_user_attribute; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.fed_user_attribute (id, name, user_id, realm_id, storage_provider_id, value) FROM stdin;
@@ -2409,7 +2410,7 @@ COPY public.fed_user_attribute (id, name, user_id, realm_id, storage_provider_id
 
 
 --
--- Data for Name: fed_user_consent; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: fed_user_consent; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.fed_user_consent (id, client_id, user_id, realm_id, storage_provider_id, created_date, last_updated_date, client_storage_provider, external_client_id) FROM stdin;
@@ -2417,7 +2418,7 @@ COPY public.fed_user_consent (id, client_id, user_id, realm_id, storage_provider
 
 
 --
--- Data for Name: fed_user_consent_cl_scope; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: fed_user_consent_cl_scope; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.fed_user_consent_cl_scope (user_consent_id, scope_id) FROM stdin;
@@ -2425,7 +2426,7 @@ COPY public.fed_user_consent_cl_scope (user_consent_id, scope_id) FROM stdin;
 
 
 --
--- Data for Name: fed_user_credential; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: fed_user_credential; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.fed_user_credential (id, salt, type, created_date, user_id, realm_id, storage_provider_id, user_label, secret_data, credential_data, priority) FROM stdin;
@@ -2433,7 +2434,7 @@ COPY public.fed_user_credential (id, salt, type, created_date, user_id, realm_id
 
 
 --
--- Data for Name: fed_user_group_membership; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: fed_user_group_membership; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.fed_user_group_membership (group_id, user_id, realm_id, storage_provider_id) FROM stdin;
@@ -2441,7 +2442,7 @@ COPY public.fed_user_group_membership (group_id, user_id, realm_id, storage_prov
 
 
 --
--- Data for Name: fed_user_required_action; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: fed_user_required_action; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.fed_user_required_action (required_action, user_id, realm_id, storage_provider_id) FROM stdin;
@@ -2449,7 +2450,7 @@ COPY public.fed_user_required_action (required_action, user_id, realm_id, storag
 
 
 --
--- Data for Name: fed_user_role_mapping; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: fed_user_role_mapping; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.fed_user_role_mapping (role_id, user_id, realm_id, storage_provider_id) FROM stdin;
@@ -2457,7 +2458,7 @@ COPY public.fed_user_role_mapping (role_id, user_id, realm_id, storage_provider_
 
 
 --
--- Data for Name: federated_identity; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: federated_identity; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.federated_identity (identity_provider, realm_id, federated_user_id, federated_username, token, user_id) FROM stdin;
@@ -2467,7 +2468,7 @@ google	bbfb0c95-df74-4043-af21-ff214ec2b0a0	106580901576078550890	vutien.dat.wor
 
 
 --
--- Data for Name: federated_user; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: federated_user; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.federated_user (id, storage_provider_id, realm_id) FROM stdin;
@@ -2475,7 +2476,7 @@ COPY public.federated_user (id, storage_provider_id, realm_id) FROM stdin;
 
 
 --
--- Data for Name: group_attribute; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: group_attribute; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.group_attribute (id, name, value, group_id) FROM stdin;
@@ -2483,7 +2484,7 @@ COPY public.group_attribute (id, name, value, group_id) FROM stdin;
 
 
 --
--- Data for Name: group_role_mapping; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: group_role_mapping; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.group_role_mapping (role_id, group_id) FROM stdin;
@@ -2500,7 +2501,7 @@ COPY public.group_role_mapping (role_id, group_id) FROM stdin;
 
 
 --
--- Data for Name: identity_provider; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: identity_provider; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.identity_provider (internal_id, enabled, provider_alias, provider_id, store_token, authenticate_by_default, realm_id, add_token_role, trust_email, first_broker_login_flow_id, post_broker_login_flow_id, provider_display_name, link_only) FROM stdin;
@@ -2509,7 +2510,7 @@ COPY public.identity_provider (internal_id, enabled, provider_alias, provider_id
 
 
 --
--- Data for Name: identity_provider_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: identity_provider_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.identity_provider_config (identity_provider_id, value, name) FROM stdin;
@@ -2525,7 +2526,7 @@ COPY public.identity_provider_config (identity_provider_id, value, name) FROM st
 
 
 --
--- Data for Name: identity_provider_mapper; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: identity_provider_mapper; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.identity_provider_mapper (id, name, idp_alias, idp_mapper_name, realm_id) FROM stdin;
@@ -2535,7 +2536,7 @@ a0c00add-7ec8-4ddc-b38a-630b62cac217	username	google	oidc-username-idp-mapper	bb
 
 
 --
--- Data for Name: idp_mapper_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: idp_mapper_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.idp_mapper_config (idp_mapper_id, value, name) FROM stdin;
@@ -2549,7 +2550,7 @@ b14d6406-8dc5-4099-91f1-d17f971ca09d	picture	jsonField
 
 
 --
--- Data for Name: keycloak_group; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: keycloak_group; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.keycloak_group (id, name, parent_group, realm_id) FROM stdin;
@@ -2560,7 +2561,7 @@ a54bf233-dec3-4851-a3a6-9633d876491a	moderator	 	bbfb0c95-df74-4043-af21-ff214ec
 
 
 --
--- Data for Name: keycloak_role; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: keycloak_role; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.keycloak_role (id, client_realm_constraint, client_role, description, name, realm_id, client, realm) FROM stdin;
@@ -2654,16 +2655,17 @@ b96cbc63-8ab6-4ec8-a071-3581d817b2fe	858761b0-4802-4e35-a222-e44a0279baba	t	${ro
 
 
 --
--- Data for Name: migration_model; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: migration_model; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.migration_model (id, version, update_time) FROM stdin;
 lc4cj	22.0.5	1702553068
+acqyh	23.0.4	1705131798
 \.
 
 
 --
--- Data for Name: offline_client_session; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: offline_client_session; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.offline_client_session (user_session_id, client_id, offline_flag, "timestamp", data, client_storage_provider, external_client_id) FROM stdin;
@@ -2671,7 +2673,7 @@ COPY public.offline_client_session (user_session_id, client_id, offline_flag, "t
 
 
 --
--- Data for Name: offline_user_session; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: offline_user_session; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.offline_user_session (user_session_id, user_id, realm_id, created_on, offline_flag, data, last_session_refresh) FROM stdin;
@@ -2679,7 +2681,7 @@ COPY public.offline_user_session (user_session_id, user_id, realm_id, created_on
 
 
 --
--- Data for Name: policy_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: policy_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.policy_config (policy_id, name, value) FROM stdin;
@@ -2687,7 +2689,7 @@ COPY public.policy_config (policy_id, name, value) FROM stdin;
 
 
 --
--- Data for Name: protocol_mapper; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: protocol_mapper; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.protocol_mapper (id, name, protocol, protocol_mapper_name, client_id, client_scope_id) FROM stdin;
@@ -2766,7 +2768,7 @@ e467cb03-55c3-4ba5-b4ea-97aa0176f996	Client Host	openid-connect	oidc-usersession
 
 
 --
--- Data for Name: protocol_mapper_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: protocol_mapper_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.protocol_mapper_config (protocol_mapper_id, value, name) FROM stdin;
@@ -3142,7 +3144,7 @@ e467cb03-55c3-4ba5-b4ea-97aa0176f996	String	jsonType.label
 
 
 --
--- Data for Name: realm; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm (id, access_code_lifespan, user_action_lifespan, access_token_lifespan, account_theme, admin_theme, email_theme, enabled, events_enabled, events_expiration, login_theme, name, not_before, password_policy, registration_allowed, remember_me, reset_password_allowed, social, ssl_required, sso_idle_timeout, sso_max_lifespan, update_profile_on_soc_login, verify_email, master_admin_client, login_lifespan, internationalization_enabled, default_locale, reg_email_as_username, admin_events_enabled, admin_events_details_enabled, edit_username_allowed, otp_policy_counter, otp_policy_window, otp_policy_period, otp_policy_digits, otp_policy_alg, otp_policy_type, browser_flow, registration_flow, direct_grant_flow, reset_credentials_flow, client_auth_flow, offline_session_idle_timeout, revoke_refresh_token, access_token_life_implicit, login_with_email_allowed, duplicate_emails_allowed, docker_auth_flow, refresh_token_max_reuse, allow_user_managed_access, sso_max_lifespan_remember_me, sso_idle_timeout_remember_me, default_role) FROM stdin;
@@ -3152,7 +3154,7 @@ bbfb0c95-df74-4043-af21-ff214ec2b0a0	648000	300	15552000	keycloak.v2	keycloak.v2
 
 
 --
--- Data for Name: realm_attribute; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm_attribute; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm_attribute (name, realm_id, value) FROM stdin;
@@ -3244,7 +3246,7 @@ _browser_header.strictTransportSecurity	bbfb0c95-df74-4043-af21-ff214ec2b0a0	max
 
 
 --
--- Data for Name: realm_default_groups; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm_default_groups; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm_default_groups (realm_id, group_id) FROM stdin;
@@ -3253,7 +3255,7 @@ bbfb0c95-df74-4043-af21-ff214ec2b0a0	02e6e3ee-5b93-4db9-af34-7c0be2b54ddb
 
 
 --
--- Data for Name: realm_enabled_event_types; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm_enabled_event_types; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm_enabled_event_types (realm_id, value) FROM stdin;
@@ -3261,7 +3263,7 @@ COPY public.realm_enabled_event_types (realm_id, value) FROM stdin;
 
 
 --
--- Data for Name: realm_events_listeners; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm_events_listeners; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm_events_listeners (realm_id, value) FROM stdin;
@@ -3271,7 +3273,7 @@ bbfb0c95-df74-4043-af21-ff214ec2b0a0	jboss-logging
 
 
 --
--- Data for Name: realm_localizations; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm_localizations; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm_localizations (realm_id, locale, texts) FROM stdin;
@@ -3279,7 +3281,7 @@ COPY public.realm_localizations (realm_id, locale, texts) FROM stdin;
 
 
 --
--- Data for Name: realm_required_credential; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm_required_credential; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm_required_credential (type, form_label, input, secret, realm_id) FROM stdin;
@@ -3289,7 +3291,7 @@ password	password	t	t	bbfb0c95-df74-4043-af21-ff214ec2b0a0
 
 
 --
--- Data for Name: realm_smtp_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm_smtp_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm_smtp_config (realm_id, value, name) FROM stdin;
@@ -3309,7 +3311,7 @@ bbfb0c95-df74-4043-af21-ff214ec2b0a0	vutien.dat.work@gmail.com	user
 
 
 --
--- Data for Name: realm_supported_locales; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: realm_supported_locales; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.realm_supported_locales (realm_id, value) FROM stdin;
@@ -3317,7 +3319,7 @@ COPY public.realm_supported_locales (realm_id, value) FROM stdin;
 
 
 --
--- Data for Name: redirect_uris; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: redirect_uris; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.redirect_uris (client_id, value) FROM stdin;
@@ -3335,7 +3337,7 @@ e2c14827-9237-4f6e-8f31-d4e4564298f1	https://vnexpress.net
 
 
 --
--- Data for Name: required_action_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: required_action_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.required_action_config (required_action_id, value, name) FROM stdin;
@@ -3343,7 +3345,7 @@ COPY public.required_action_config (required_action_id, value, name) FROM stdin;
 
 
 --
--- Data for Name: required_action_provider; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: required_action_provider; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.required_action_provider (id, alias, name, realm_id, enabled, default_action, provider_id, priority) FROM stdin;
@@ -3369,7 +3371,7 @@ bde2ec32-51df-4892-9484-2eb0c443ac0c	webauthn-register-passwordless	Webauthn Reg
 
 
 --
--- Data for Name: resource_attribute; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_attribute; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_attribute (id, name, value, resource_id) FROM stdin;
@@ -3377,7 +3379,7 @@ COPY public.resource_attribute (id, name, value, resource_id) FROM stdin;
 
 
 --
--- Data for Name: resource_policy; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_policy; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_policy (resource_id, policy_id) FROM stdin;
@@ -3385,7 +3387,7 @@ COPY public.resource_policy (resource_id, policy_id) FROM stdin;
 
 
 --
--- Data for Name: resource_scope; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_scope; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_scope (resource_id, scope_id) FROM stdin;
@@ -3393,7 +3395,7 @@ COPY public.resource_scope (resource_id, scope_id) FROM stdin;
 
 
 --
--- Data for Name: resource_server; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_server; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_server (id, allow_rs_remote_mgmt, policy_enforce_mode, decision_strategy) FROM stdin;
@@ -3401,7 +3403,7 @@ COPY public.resource_server (id, allow_rs_remote_mgmt, policy_enforce_mode, deci
 
 
 --
--- Data for Name: resource_server_perm_ticket; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_server_perm_ticket; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_server_perm_ticket (id, owner, requester, created_timestamp, granted_timestamp, resource_id, scope_id, resource_server_id, policy_id) FROM stdin;
@@ -3409,7 +3411,7 @@ COPY public.resource_server_perm_ticket (id, owner, requester, created_timestamp
 
 
 --
--- Data for Name: resource_server_policy; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_server_policy; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_server_policy (id, name, description, type, decision_strategy, logic, resource_server_id, owner) FROM stdin;
@@ -3417,7 +3419,7 @@ COPY public.resource_server_policy (id, name, description, type, decision_strate
 
 
 --
--- Data for Name: resource_server_resource; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_server_resource; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_server_resource (id, name, type, icon_uri, owner, resource_server_id, owner_managed_access, display_name) FROM stdin;
@@ -3425,7 +3427,7 @@ COPY public.resource_server_resource (id, name, type, icon_uri, owner, resource_
 
 
 --
--- Data for Name: resource_server_scope; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_server_scope; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_server_scope (id, name, icon_uri, resource_server_id, display_name) FROM stdin;
@@ -3433,7 +3435,7 @@ COPY public.resource_server_scope (id, name, icon_uri, resource_server_id, displ
 
 
 --
--- Data for Name: resource_uris; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: resource_uris; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.resource_uris (resource_id, value) FROM stdin;
@@ -3441,7 +3443,7 @@ COPY public.resource_uris (resource_id, value) FROM stdin;
 
 
 --
--- Data for Name: role_attribute; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: role_attribute; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.role_attribute (id, role_id, name, value) FROM stdin;
@@ -3449,7 +3451,7 @@ COPY public.role_attribute (id, role_id, name, value) FROM stdin;
 
 
 --
--- Data for Name: scope_mapping; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: scope_mapping; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.scope_mapping (client_id, role_id) FROM stdin;
@@ -3461,7 +3463,7 @@ c9f45c5a-c9c2-485d-978b-9b3aacdda522	f12c528d-c3b4-4396-ade9-b7a78c39489a
 
 
 --
--- Data for Name: scope_policy; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: scope_policy; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.scope_policy (scope_id, policy_id) FROM stdin;
@@ -3469,7 +3471,7 @@ COPY public.scope_policy (scope_id, policy_id) FROM stdin;
 
 
 --
--- Data for Name: user_attribute; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_attribute; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_attribute (name, value, user_id, id) FROM stdin;
@@ -3479,7 +3481,7 @@ profile_avatar	https://lh3.googleusercontent.com/a/ACg8ocKZJjTu39lW-51y4syE-AQ1I
 
 
 --
--- Data for Name: user_consent; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_consent; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_consent (id, client_id, user_id, created_date, last_updated_date, client_storage_provider, external_client_id) FROM stdin;
@@ -3487,7 +3489,7 @@ COPY public.user_consent (id, client_id, user_id, created_date, last_updated_dat
 
 
 --
--- Data for Name: user_consent_client_scope; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_consent_client_scope; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_consent_client_scope (user_consent_id, scope_id) FROM stdin;
@@ -3495,7 +3497,7 @@ COPY public.user_consent_client_scope (user_consent_id, scope_id) FROM stdin;
 
 
 --
--- Data for Name: user_entity; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_entity; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_entity (id, email, email_constraint, email_verified, enabled, federation_link, first_name, last_name, realm_id, username, created_timestamp, service_account_client_link, not_before) FROM stdin;
@@ -3510,7 +3512,7 @@ ddb6f1ab-c1e6-40c5-a62c-9463378bcbc1	\N	4b4bfdca-7db7-44f0-a7bf-1c699dee7adb	f	t
 
 
 --
--- Data for Name: user_federation_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_federation_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_federation_config (user_federation_provider_id, value, name) FROM stdin;
@@ -3518,7 +3520,7 @@ COPY public.user_federation_config (user_federation_provider_id, value, name) FR
 
 
 --
--- Data for Name: user_federation_mapper; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_federation_mapper; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_federation_mapper (id, name, federation_provider_id, federation_mapper_type, realm_id) FROM stdin;
@@ -3526,7 +3528,7 @@ COPY public.user_federation_mapper (id, name, federation_provider_id, federation
 
 
 --
--- Data for Name: user_federation_mapper_config; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_federation_mapper_config; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_federation_mapper_config (user_federation_mapper_id, value, name) FROM stdin;
@@ -3534,7 +3536,7 @@ COPY public.user_federation_mapper_config (user_federation_mapper_id, value, nam
 
 
 --
--- Data for Name: user_federation_provider; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_federation_provider; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_federation_provider (id, changed_sync_period, display_name, full_sync_period, last_sync, priority, provider_name, realm_id) FROM stdin;
@@ -3542,7 +3544,7 @@ COPY public.user_federation_provider (id, changed_sync_period, display_name, ful
 
 
 --
--- Data for Name: user_group_membership; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_group_membership; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_group_membership (group_id, user_id) FROM stdin;
@@ -3557,7 +3559,7 @@ a54bf233-dec3-4851-a3a6-9633d876491a	392393fc-3ef3-4234-8a26-4db05569819e
 
 
 --
--- Data for Name: user_required_action; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_required_action; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_required_action (user_id, required_action) FROM stdin;
@@ -3565,7 +3567,7 @@ COPY public.user_required_action (user_id, required_action) FROM stdin;
 
 
 --
--- Data for Name: user_role_mapping; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_role_mapping; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_role_mapping (role_id, user_id) FROM stdin;
@@ -3598,7 +3600,7 @@ ba014b3c-92ed-48fc-ab62-d025f714bb5f	4d575a51-d441-412d-bde0-5c72d18cfcfc
 
 
 --
--- Data for Name: user_session; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_session; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_session (id, auth_method, ip_address, last_session_refresh, login_username, realm_id, remember_me, started, user_id, user_session_state, broker_session_id, broker_user_id) FROM stdin;
@@ -3606,7 +3608,7 @@ COPY public.user_session (id, auth_method, ip_address, last_session_refresh, log
 
 
 --
--- Data for Name: user_session_note; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: user_session_note; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.user_session_note (user_session, name, value) FROM stdin;
@@ -3614,7 +3616,7 @@ COPY public.user_session_note (user_session, name, value) FROM stdin;
 
 
 --
--- Data for Name: username_login_failure; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: username_login_failure; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.username_login_failure (realm_id, username, failed_login_not_before, last_failure, last_ip_failure, num_failures) FROM stdin;
@@ -3622,7 +3624,7 @@ COPY public.username_login_failure (realm_id, username, failed_login_not_before,
 
 
 --
--- Data for Name: web_origins; Type: TABLE DATA; Schema: public; Owner: beatbuddyauthdb
+-- Data for Name: web_origins; Type: TABLE DATA; Schema: public; Owner: bbauthdb
 --
 
 COPY public.web_origins (client_id, value) FROM stdin;
@@ -3635,7 +3637,7 @@ e2c14827-9237-4f6e-8f31-d4e4564298f1	*
 
 
 --
--- Name: username_login_failure CONSTRAINT_17-2; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: username_login_failure CONSTRAINT_17-2; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.username_login_failure
@@ -3643,7 +3645,7 @@ ALTER TABLE ONLY public.username_login_failure
 
 
 --
--- Name: keycloak_role UK_J3RWUVD56ONTGSUHOGM184WW2-2; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: keycloak_role UK_J3RWUVD56ONTGSUHOGM184WW2-2; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.keycloak_role
@@ -3651,7 +3653,7 @@ ALTER TABLE ONLY public.keycloak_role
 
 
 --
--- Name: client_auth_flow_bindings c_cli_flow_bind; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_auth_flow_bindings c_cli_flow_bind; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_auth_flow_bindings
@@ -3659,7 +3661,7 @@ ALTER TABLE ONLY public.client_auth_flow_bindings
 
 
 --
--- Name: client_scope_client c_cli_scope_bind; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope_client c_cli_scope_bind; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_scope_client
@@ -3667,7 +3669,7 @@ ALTER TABLE ONLY public.client_scope_client
 
 
 --
--- Name: client_initial_access cnstr_client_init_acc_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_initial_access cnstr_client_init_acc_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_initial_access
@@ -3675,7 +3677,7 @@ ALTER TABLE ONLY public.client_initial_access
 
 
 --
--- Name: realm_default_groups con_group_id_def_groups; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_default_groups con_group_id_def_groups; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_default_groups
@@ -3683,7 +3685,7 @@ ALTER TABLE ONLY public.realm_default_groups
 
 
 --
--- Name: broker_link constr_broker_link_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: broker_link constr_broker_link_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.broker_link
@@ -3691,7 +3693,7 @@ ALTER TABLE ONLY public.broker_link
 
 
 --
--- Name: client_user_session_note constr_cl_usr_ses_note; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_user_session_note constr_cl_usr_ses_note; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_user_session_note
@@ -3699,7 +3701,7 @@ ALTER TABLE ONLY public.client_user_session_note
 
 
 --
--- Name: component_config constr_component_config_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: component_config constr_component_config_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.component_config
@@ -3707,7 +3709,7 @@ ALTER TABLE ONLY public.component_config
 
 
 --
--- Name: component constr_component_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: component constr_component_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.component
@@ -3715,7 +3717,7 @@ ALTER TABLE ONLY public.component
 
 
 --
--- Name: fed_user_required_action constr_fed_required_action; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_required_action constr_fed_required_action; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.fed_user_required_action
@@ -3723,7 +3725,7 @@ ALTER TABLE ONLY public.fed_user_required_action
 
 
 --
--- Name: fed_user_attribute constr_fed_user_attr_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_attribute constr_fed_user_attr_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.fed_user_attribute
@@ -3731,7 +3733,7 @@ ALTER TABLE ONLY public.fed_user_attribute
 
 
 --
--- Name: fed_user_consent constr_fed_user_consent_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_consent constr_fed_user_consent_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.fed_user_consent
@@ -3739,7 +3741,7 @@ ALTER TABLE ONLY public.fed_user_consent
 
 
 --
--- Name: fed_user_credential constr_fed_user_cred_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_credential constr_fed_user_cred_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.fed_user_credential
@@ -3747,7 +3749,7 @@ ALTER TABLE ONLY public.fed_user_credential
 
 
 --
--- Name: fed_user_group_membership constr_fed_user_group; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_group_membership constr_fed_user_group; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.fed_user_group_membership
@@ -3755,7 +3757,7 @@ ALTER TABLE ONLY public.fed_user_group_membership
 
 
 --
--- Name: fed_user_role_mapping constr_fed_user_role; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_role_mapping constr_fed_user_role; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.fed_user_role_mapping
@@ -3763,7 +3765,7 @@ ALTER TABLE ONLY public.fed_user_role_mapping
 
 
 --
--- Name: federated_user constr_federated_user; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: federated_user constr_federated_user; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.federated_user
@@ -3771,7 +3773,7 @@ ALTER TABLE ONLY public.federated_user
 
 
 --
--- Name: realm_default_groups constr_realm_default_groups; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_default_groups constr_realm_default_groups; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_default_groups
@@ -3779,7 +3781,7 @@ ALTER TABLE ONLY public.realm_default_groups
 
 
 --
--- Name: realm_enabled_event_types constr_realm_enabl_event_types; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_enabled_event_types constr_realm_enabl_event_types; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_enabled_event_types
@@ -3787,7 +3789,7 @@ ALTER TABLE ONLY public.realm_enabled_event_types
 
 
 --
--- Name: realm_events_listeners constr_realm_events_listeners; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_events_listeners constr_realm_events_listeners; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_events_listeners
@@ -3795,7 +3797,7 @@ ALTER TABLE ONLY public.realm_events_listeners
 
 
 --
--- Name: realm_supported_locales constr_realm_supported_locales; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_supported_locales constr_realm_supported_locales; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_supported_locales
@@ -3803,7 +3805,7 @@ ALTER TABLE ONLY public.realm_supported_locales
 
 
 --
--- Name: identity_provider constraint_2b; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider constraint_2b; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.identity_provider
@@ -3811,7 +3813,7 @@ ALTER TABLE ONLY public.identity_provider
 
 
 --
--- Name: client_attributes constraint_3c; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_attributes constraint_3c; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_attributes
@@ -3819,7 +3821,7 @@ ALTER TABLE ONLY public.client_attributes
 
 
 --
--- Name: event_entity constraint_4; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: event_entity constraint_4; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.event_entity
@@ -3827,7 +3829,7 @@ ALTER TABLE ONLY public.event_entity
 
 
 --
--- Name: federated_identity constraint_40; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: federated_identity constraint_40; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.federated_identity
@@ -3835,7 +3837,7 @@ ALTER TABLE ONLY public.federated_identity
 
 
 --
--- Name: realm constraint_4a; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm constraint_4a; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm
@@ -3843,7 +3845,7 @@ ALTER TABLE ONLY public.realm
 
 
 --
--- Name: client_session_role constraint_5; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_role constraint_5; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session_role
@@ -3851,7 +3853,7 @@ ALTER TABLE ONLY public.client_session_role
 
 
 --
--- Name: user_session constraint_57; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_session constraint_57; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_session
@@ -3859,7 +3861,7 @@ ALTER TABLE ONLY public.user_session
 
 
 --
--- Name: user_federation_provider constraint_5c; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_provider constraint_5c; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_provider
@@ -3867,7 +3869,7 @@ ALTER TABLE ONLY public.user_federation_provider
 
 
 --
--- Name: client_session_note constraint_5e; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_note constraint_5e; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session_note
@@ -3875,7 +3877,7 @@ ALTER TABLE ONLY public.client_session_note
 
 
 --
--- Name: client constraint_7; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client constraint_7; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client
@@ -3883,7 +3885,7 @@ ALTER TABLE ONLY public.client
 
 
 --
--- Name: client_session constraint_8; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session constraint_8; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session
@@ -3891,7 +3893,7 @@ ALTER TABLE ONLY public.client_session
 
 
 --
--- Name: scope_mapping constraint_81; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: scope_mapping constraint_81; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.scope_mapping
@@ -3899,7 +3901,7 @@ ALTER TABLE ONLY public.scope_mapping
 
 
 --
--- Name: client_node_registrations constraint_84; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_node_registrations constraint_84; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_node_registrations
@@ -3907,7 +3909,7 @@ ALTER TABLE ONLY public.client_node_registrations
 
 
 --
--- Name: realm_attribute constraint_9; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_attribute constraint_9; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_attribute
@@ -3915,7 +3917,7 @@ ALTER TABLE ONLY public.realm_attribute
 
 
 --
--- Name: realm_required_credential constraint_92; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_required_credential constraint_92; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_required_credential
@@ -3923,7 +3925,7 @@ ALTER TABLE ONLY public.realm_required_credential
 
 
 --
--- Name: keycloak_role constraint_a; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: keycloak_role constraint_a; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.keycloak_role
@@ -3931,7 +3933,7 @@ ALTER TABLE ONLY public.keycloak_role
 
 
 --
--- Name: admin_event_entity constraint_admin_event_entity; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: admin_event_entity constraint_admin_event_entity; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.admin_event_entity
@@ -3939,7 +3941,7 @@ ALTER TABLE ONLY public.admin_event_entity
 
 
 --
--- Name: authenticator_config_entry constraint_auth_cfg_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: authenticator_config_entry constraint_auth_cfg_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.authenticator_config_entry
@@ -3947,7 +3949,7 @@ ALTER TABLE ONLY public.authenticator_config_entry
 
 
 --
--- Name: authentication_execution constraint_auth_exec_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: authentication_execution constraint_auth_exec_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.authentication_execution
@@ -3955,7 +3957,7 @@ ALTER TABLE ONLY public.authentication_execution
 
 
 --
--- Name: authentication_flow constraint_auth_flow_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: authentication_flow constraint_auth_flow_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.authentication_flow
@@ -3963,7 +3965,7 @@ ALTER TABLE ONLY public.authentication_flow
 
 
 --
--- Name: authenticator_config constraint_auth_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: authenticator_config constraint_auth_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.authenticator_config
@@ -3971,7 +3973,7 @@ ALTER TABLE ONLY public.authenticator_config
 
 
 --
--- Name: client_session_auth_status constraint_auth_status_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_auth_status constraint_auth_status_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session_auth_status
@@ -3979,7 +3981,7 @@ ALTER TABLE ONLY public.client_session_auth_status
 
 
 --
--- Name: user_role_mapping constraint_c; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_role_mapping constraint_c; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_role_mapping
@@ -3987,7 +3989,7 @@ ALTER TABLE ONLY public.user_role_mapping
 
 
 --
--- Name: composite_role constraint_composite_role; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: composite_role constraint_composite_role; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.composite_role
@@ -3995,7 +3997,7 @@ ALTER TABLE ONLY public.composite_role
 
 
 --
--- Name: client_session_prot_mapper constraint_cs_pmp_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_prot_mapper constraint_cs_pmp_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session_prot_mapper
@@ -4003,7 +4005,7 @@ ALTER TABLE ONLY public.client_session_prot_mapper
 
 
 --
--- Name: identity_provider_config constraint_d; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider_config constraint_d; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.identity_provider_config
@@ -4011,7 +4013,7 @@ ALTER TABLE ONLY public.identity_provider_config
 
 
 --
--- Name: policy_config constraint_dpc; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: policy_config constraint_dpc; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.policy_config
@@ -4019,7 +4021,7 @@ ALTER TABLE ONLY public.policy_config
 
 
 --
--- Name: realm_smtp_config constraint_e; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_smtp_config constraint_e; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_smtp_config
@@ -4027,7 +4029,7 @@ ALTER TABLE ONLY public.realm_smtp_config
 
 
 --
--- Name: credential constraint_f; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: credential constraint_f; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.credential
@@ -4035,7 +4037,7 @@ ALTER TABLE ONLY public.credential
 
 
 --
--- Name: user_federation_config constraint_f9; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_config constraint_f9; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_config
@@ -4043,7 +4045,7 @@ ALTER TABLE ONLY public.user_federation_config
 
 
 --
--- Name: resource_server_perm_ticket constraint_fapmt; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_perm_ticket constraint_fapmt; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_perm_ticket
@@ -4051,7 +4053,7 @@ ALTER TABLE ONLY public.resource_server_perm_ticket
 
 
 --
--- Name: resource_server_resource constraint_farsr; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_resource constraint_farsr; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_resource
@@ -4059,7 +4061,7 @@ ALTER TABLE ONLY public.resource_server_resource
 
 
 --
--- Name: resource_server_policy constraint_farsrp; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_policy constraint_farsrp; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_policy
@@ -4067,7 +4069,7 @@ ALTER TABLE ONLY public.resource_server_policy
 
 
 --
--- Name: associated_policy constraint_farsrpap; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: associated_policy constraint_farsrpap; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.associated_policy
@@ -4075,7 +4077,7 @@ ALTER TABLE ONLY public.associated_policy
 
 
 --
--- Name: resource_policy constraint_farsrpp; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_policy constraint_farsrpp; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_policy
@@ -4083,7 +4085,7 @@ ALTER TABLE ONLY public.resource_policy
 
 
 --
--- Name: resource_server_scope constraint_farsrs; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_scope constraint_farsrs; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_scope
@@ -4091,7 +4093,7 @@ ALTER TABLE ONLY public.resource_server_scope
 
 
 --
--- Name: resource_scope constraint_farsrsp; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_scope constraint_farsrsp; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_scope
@@ -4099,7 +4101,7 @@ ALTER TABLE ONLY public.resource_scope
 
 
 --
--- Name: scope_policy constraint_farsrsps; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: scope_policy constraint_farsrsps; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.scope_policy
@@ -4107,7 +4109,7 @@ ALTER TABLE ONLY public.scope_policy
 
 
 --
--- Name: user_entity constraint_fb; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_entity constraint_fb; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_entity
@@ -4115,7 +4117,7 @@ ALTER TABLE ONLY public.user_entity
 
 
 --
--- Name: user_federation_mapper_config constraint_fedmapper_cfg_pm; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_mapper_config constraint_fedmapper_cfg_pm; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_mapper_config
@@ -4123,7 +4125,7 @@ ALTER TABLE ONLY public.user_federation_mapper_config
 
 
 --
--- Name: user_federation_mapper constraint_fedmapperpm; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_mapper constraint_fedmapperpm; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_mapper
@@ -4131,7 +4133,7 @@ ALTER TABLE ONLY public.user_federation_mapper
 
 
 --
--- Name: fed_user_consent_cl_scope constraint_fgrntcsnt_clsc_pm; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: fed_user_consent_cl_scope constraint_fgrntcsnt_clsc_pm; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.fed_user_consent_cl_scope
@@ -4139,7 +4141,7 @@ ALTER TABLE ONLY public.fed_user_consent_cl_scope
 
 
 --
--- Name: user_consent_client_scope constraint_grntcsnt_clsc_pm; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_consent_client_scope constraint_grntcsnt_clsc_pm; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_consent_client_scope
@@ -4147,7 +4149,7 @@ ALTER TABLE ONLY public.user_consent_client_scope
 
 
 --
--- Name: user_consent constraint_grntcsnt_pm; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_consent constraint_grntcsnt_pm; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_consent
@@ -4155,7 +4157,7 @@ ALTER TABLE ONLY public.user_consent
 
 
 --
--- Name: keycloak_group constraint_group; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: keycloak_group constraint_group; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.keycloak_group
@@ -4163,7 +4165,7 @@ ALTER TABLE ONLY public.keycloak_group
 
 
 --
--- Name: group_attribute constraint_group_attribute_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: group_attribute constraint_group_attribute_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.group_attribute
@@ -4171,7 +4173,7 @@ ALTER TABLE ONLY public.group_attribute
 
 
 --
--- Name: group_role_mapping constraint_group_role; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: group_role_mapping constraint_group_role; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.group_role_mapping
@@ -4179,7 +4181,7 @@ ALTER TABLE ONLY public.group_role_mapping
 
 
 --
--- Name: identity_provider_mapper constraint_idpm; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider_mapper constraint_idpm; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.identity_provider_mapper
@@ -4187,7 +4189,7 @@ ALTER TABLE ONLY public.identity_provider_mapper
 
 
 --
--- Name: idp_mapper_config constraint_idpmconfig; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: idp_mapper_config constraint_idpmconfig; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.idp_mapper_config
@@ -4195,7 +4197,7 @@ ALTER TABLE ONLY public.idp_mapper_config
 
 
 --
--- Name: migration_model constraint_migmod; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: migration_model constraint_migmod; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.migration_model
@@ -4203,7 +4205,7 @@ ALTER TABLE ONLY public.migration_model
 
 
 --
--- Name: offline_client_session constraint_offl_cl_ses_pk3; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: offline_client_session constraint_offl_cl_ses_pk3; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.offline_client_session
@@ -4211,7 +4213,7 @@ ALTER TABLE ONLY public.offline_client_session
 
 
 --
--- Name: offline_user_session constraint_offl_us_ses_pk2; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: offline_user_session constraint_offl_us_ses_pk2; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.offline_user_session
@@ -4219,7 +4221,7 @@ ALTER TABLE ONLY public.offline_user_session
 
 
 --
--- Name: protocol_mapper constraint_pcm; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: protocol_mapper constraint_pcm; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.protocol_mapper
@@ -4227,7 +4229,7 @@ ALTER TABLE ONLY public.protocol_mapper
 
 
 --
--- Name: protocol_mapper_config constraint_pmconfig; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: protocol_mapper_config constraint_pmconfig; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.protocol_mapper_config
@@ -4235,7 +4237,7 @@ ALTER TABLE ONLY public.protocol_mapper_config
 
 
 --
--- Name: redirect_uris constraint_redirect_uris; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: redirect_uris constraint_redirect_uris; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.redirect_uris
@@ -4243,7 +4245,7 @@ ALTER TABLE ONLY public.redirect_uris
 
 
 --
--- Name: required_action_config constraint_req_act_cfg_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: required_action_config constraint_req_act_cfg_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.required_action_config
@@ -4251,7 +4253,7 @@ ALTER TABLE ONLY public.required_action_config
 
 
 --
--- Name: required_action_provider constraint_req_act_prv_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: required_action_provider constraint_req_act_prv_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.required_action_provider
@@ -4259,7 +4261,7 @@ ALTER TABLE ONLY public.required_action_provider
 
 
 --
--- Name: user_required_action constraint_required_action; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_required_action constraint_required_action; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_required_action
@@ -4267,7 +4269,7 @@ ALTER TABLE ONLY public.user_required_action
 
 
 --
--- Name: resource_uris constraint_resour_uris_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_uris constraint_resour_uris_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_uris
@@ -4275,7 +4277,7 @@ ALTER TABLE ONLY public.resource_uris
 
 
 --
--- Name: role_attribute constraint_role_attribute_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: role_attribute constraint_role_attribute_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.role_attribute
@@ -4283,7 +4285,7 @@ ALTER TABLE ONLY public.role_attribute
 
 
 --
--- Name: user_attribute constraint_user_attribute_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_attribute constraint_user_attribute_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_attribute
@@ -4291,7 +4293,7 @@ ALTER TABLE ONLY public.user_attribute
 
 
 --
--- Name: user_group_membership constraint_user_group; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_group_membership constraint_user_group; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_group_membership
@@ -4299,7 +4301,7 @@ ALTER TABLE ONLY public.user_group_membership
 
 
 --
--- Name: user_session_note constraint_usn_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_session_note constraint_usn_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_session_note
@@ -4307,7 +4309,7 @@ ALTER TABLE ONLY public.user_session_note
 
 
 --
--- Name: web_origins constraint_web_origins; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: web_origins constraint_web_origins; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.web_origins
@@ -4315,7 +4317,7 @@ ALTER TABLE ONLY public.web_origins
 
 
 --
--- Name: databasechangeloglock databasechangeloglock_pkey; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: databasechangeloglock databasechangeloglock_pkey; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.databasechangeloglock
@@ -4323,7 +4325,7 @@ ALTER TABLE ONLY public.databasechangeloglock
 
 
 --
--- Name: client_scope_attributes pk_cl_tmpl_attr; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope_attributes pk_cl_tmpl_attr; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_scope_attributes
@@ -4331,7 +4333,7 @@ ALTER TABLE ONLY public.client_scope_attributes
 
 
 --
--- Name: client_scope pk_cli_template; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope pk_cli_template; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_scope
@@ -4339,7 +4341,7 @@ ALTER TABLE ONLY public.client_scope
 
 
 --
--- Name: resource_server pk_resource_server; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server pk_resource_server; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server
@@ -4347,7 +4349,7 @@ ALTER TABLE ONLY public.resource_server
 
 
 --
--- Name: client_scope_role_mapping pk_template_scope; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope_role_mapping pk_template_scope; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_scope_role_mapping
@@ -4355,7 +4357,7 @@ ALTER TABLE ONLY public.client_scope_role_mapping
 
 
 --
--- Name: default_client_scope r_def_cli_scope_bind; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: default_client_scope r_def_cli_scope_bind; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.default_client_scope
@@ -4363,7 +4365,7 @@ ALTER TABLE ONLY public.default_client_scope
 
 
 --
--- Name: realm_localizations realm_localizations_pkey; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_localizations realm_localizations_pkey; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_localizations
@@ -4371,7 +4373,7 @@ ALTER TABLE ONLY public.realm_localizations
 
 
 --
--- Name: resource_attribute res_attr_pk; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_attribute res_attr_pk; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_attribute
@@ -4379,7 +4381,7 @@ ALTER TABLE ONLY public.resource_attribute
 
 
 --
--- Name: keycloak_group sibling_names; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: keycloak_group sibling_names; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.keycloak_group
@@ -4387,7 +4389,7 @@ ALTER TABLE ONLY public.keycloak_group
 
 
 --
--- Name: identity_provider uk_2daelwnibji49avxsrtuf6xj33; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider uk_2daelwnibji49avxsrtuf6xj33; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.identity_provider
@@ -4395,7 +4397,7 @@ ALTER TABLE ONLY public.identity_provider
 
 
 --
--- Name: client uk_b71cjlbenv945rb6gcon438at; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client uk_b71cjlbenv945rb6gcon438at; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client
@@ -4403,7 +4405,7 @@ ALTER TABLE ONLY public.client
 
 
 --
--- Name: client_scope uk_cli_scope; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope uk_cli_scope; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_scope
@@ -4411,7 +4413,7 @@ ALTER TABLE ONLY public.client_scope
 
 
 --
--- Name: user_entity uk_dykn684sl8up1crfei6eckhd7; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_entity uk_dykn684sl8up1crfei6eckhd7; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_entity
@@ -4419,7 +4421,7 @@ ALTER TABLE ONLY public.user_entity
 
 
 --
--- Name: resource_server_resource uk_frsr6t700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_resource uk_frsr6t700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_resource
@@ -4427,7 +4429,7 @@ ALTER TABLE ONLY public.resource_server_resource
 
 
 --
--- Name: resource_server_perm_ticket uk_frsr6t700s9v50bu18ws5pmt; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_perm_ticket uk_frsr6t700s9v50bu18ws5pmt; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_perm_ticket
@@ -4435,7 +4437,7 @@ ALTER TABLE ONLY public.resource_server_perm_ticket
 
 
 --
--- Name: resource_server_policy uk_frsrpt700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_policy uk_frsrpt700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_policy
@@ -4443,7 +4445,7 @@ ALTER TABLE ONLY public.resource_server_policy
 
 
 --
--- Name: resource_server_scope uk_frsrst700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_scope uk_frsrst700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_scope
@@ -4451,7 +4453,7 @@ ALTER TABLE ONLY public.resource_server_scope
 
 
 --
--- Name: user_consent uk_jkuwuvd56ontgsuhogm8uewrt; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_consent uk_jkuwuvd56ontgsuhogm8uewrt; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_consent
@@ -4459,7 +4461,7 @@ ALTER TABLE ONLY public.user_consent
 
 
 --
--- Name: realm uk_orvsdmla56612eaefiq6wl5oi; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm uk_orvsdmla56612eaefiq6wl5oi; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm
@@ -4467,7 +4469,7 @@ ALTER TABLE ONLY public.realm
 
 
 --
--- Name: user_entity uk_ru8tt6t700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_entity uk_ru8tt6t700s9v50bu18ws5ha6; Type: CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_entity
@@ -4475,588 +4477,588 @@ ALTER TABLE ONLY public.user_entity
 
 
 --
--- Name: idx_admin_event_time; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_admin_event_time; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_admin_event_time ON public.admin_event_entity USING btree (realm_id, admin_event_time);
 
 
 --
--- Name: idx_assoc_pol_assoc_pol_id; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_assoc_pol_assoc_pol_id; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_assoc_pol_assoc_pol_id ON public.associated_policy USING btree (associated_policy_id);
 
 
 --
--- Name: idx_auth_config_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_auth_config_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_auth_config_realm ON public.authenticator_config USING btree (realm_id);
 
 
 --
--- Name: idx_auth_exec_flow; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_auth_exec_flow; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_auth_exec_flow ON public.authentication_execution USING btree (flow_id);
 
 
 --
--- Name: idx_auth_exec_realm_flow; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_auth_exec_realm_flow; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_auth_exec_realm_flow ON public.authentication_execution USING btree (realm_id, flow_id);
 
 
 --
--- Name: idx_auth_flow_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_auth_flow_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_auth_flow_realm ON public.authentication_flow USING btree (realm_id);
 
 
 --
--- Name: idx_cl_clscope; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_cl_clscope; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_cl_clscope ON public.client_scope_client USING btree (scope_id);
 
 
 --
--- Name: idx_client_id; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_client_id; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_client_id ON public.client USING btree (client_id);
 
 
 --
--- Name: idx_client_init_acc_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_client_init_acc_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_client_init_acc_realm ON public.client_initial_access USING btree (realm_id);
 
 
 --
--- Name: idx_client_session_session; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_client_session_session; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_client_session_session ON public.client_session USING btree (session_id);
 
 
 --
--- Name: idx_clscope_attrs; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_clscope_attrs; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_clscope_attrs ON public.client_scope_attributes USING btree (scope_id);
 
 
 --
--- Name: idx_clscope_cl; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_clscope_cl; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_clscope_cl ON public.client_scope_client USING btree (client_id);
 
 
 --
--- Name: idx_clscope_protmap; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_clscope_protmap; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_clscope_protmap ON public.protocol_mapper USING btree (client_scope_id);
 
 
 --
--- Name: idx_clscope_role; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_clscope_role; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_clscope_role ON public.client_scope_role_mapping USING btree (scope_id);
 
 
 --
--- Name: idx_compo_config_compo; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_compo_config_compo; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_compo_config_compo ON public.component_config USING btree (component_id);
 
 
 --
--- Name: idx_component_provider_type; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_component_provider_type; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_component_provider_type ON public.component USING btree (provider_type);
 
 
 --
--- Name: idx_component_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_component_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_component_realm ON public.component USING btree (realm_id);
 
 
 --
--- Name: idx_composite; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_composite; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_composite ON public.composite_role USING btree (composite);
 
 
 --
--- Name: idx_composite_child; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_composite_child; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_composite_child ON public.composite_role USING btree (child_role);
 
 
 --
--- Name: idx_defcls_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_defcls_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_defcls_realm ON public.default_client_scope USING btree (realm_id);
 
 
 --
--- Name: idx_defcls_scope; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_defcls_scope; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_defcls_scope ON public.default_client_scope USING btree (scope_id);
 
 
 --
--- Name: idx_event_time; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_event_time; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_event_time ON public.event_entity USING btree (realm_id, event_time);
 
 
 --
--- Name: idx_fedidentity_feduser; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fedidentity_feduser; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fedidentity_feduser ON public.federated_identity USING btree (federated_user_id);
 
 
 --
--- Name: idx_fedidentity_user; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fedidentity_user; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fedidentity_user ON public.federated_identity USING btree (user_id);
 
 
 --
--- Name: idx_fu_attribute; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_attribute; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_attribute ON public.fed_user_attribute USING btree (user_id, realm_id, name);
 
 
 --
--- Name: idx_fu_cnsnt_ext; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_cnsnt_ext; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_cnsnt_ext ON public.fed_user_consent USING btree (user_id, client_storage_provider, external_client_id);
 
 
 --
--- Name: idx_fu_consent; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_consent; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_consent ON public.fed_user_consent USING btree (user_id, client_id);
 
 
 --
--- Name: idx_fu_consent_ru; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_consent_ru; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_consent_ru ON public.fed_user_consent USING btree (realm_id, user_id);
 
 
 --
--- Name: idx_fu_credential; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_credential; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_credential ON public.fed_user_credential USING btree (user_id, type);
 
 
 --
--- Name: idx_fu_credential_ru; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_credential_ru; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_credential_ru ON public.fed_user_credential USING btree (realm_id, user_id);
 
 
 --
--- Name: idx_fu_group_membership; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_group_membership; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_group_membership ON public.fed_user_group_membership USING btree (user_id, group_id);
 
 
 --
--- Name: idx_fu_group_membership_ru; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_group_membership_ru; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_group_membership_ru ON public.fed_user_group_membership USING btree (realm_id, user_id);
 
 
 --
--- Name: idx_fu_required_action; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_required_action; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_required_action ON public.fed_user_required_action USING btree (user_id, required_action);
 
 
 --
--- Name: idx_fu_required_action_ru; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_required_action_ru; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_required_action_ru ON public.fed_user_required_action USING btree (realm_id, user_id);
 
 
 --
--- Name: idx_fu_role_mapping; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_role_mapping; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_role_mapping ON public.fed_user_role_mapping USING btree (user_id, role_id);
 
 
 --
--- Name: idx_fu_role_mapping_ru; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_fu_role_mapping_ru; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_fu_role_mapping_ru ON public.fed_user_role_mapping USING btree (realm_id, user_id);
 
 
 --
--- Name: idx_group_att_by_name_value; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_group_att_by_name_value; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_group_att_by_name_value ON public.group_attribute USING btree (name, ((value)::character varying(250)));
 
 
 --
--- Name: idx_group_attr_group; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_group_attr_group; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_group_attr_group ON public.group_attribute USING btree (group_id);
 
 
 --
--- Name: idx_group_role_mapp_group; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_group_role_mapp_group; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_group_role_mapp_group ON public.group_role_mapping USING btree (group_id);
 
 
 --
--- Name: idx_id_prov_mapp_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_id_prov_mapp_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_id_prov_mapp_realm ON public.identity_provider_mapper USING btree (realm_id);
 
 
 --
--- Name: idx_ident_prov_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_ident_prov_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_ident_prov_realm ON public.identity_provider USING btree (realm_id);
 
 
 --
--- Name: idx_keycloak_role_client; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_keycloak_role_client; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_keycloak_role_client ON public.keycloak_role USING btree (client);
 
 
 --
--- Name: idx_keycloak_role_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_keycloak_role_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_keycloak_role_realm ON public.keycloak_role USING btree (realm);
 
 
 --
--- Name: idx_offline_css_preload; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_offline_css_preload; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_offline_css_preload ON public.offline_client_session USING btree (client_id, offline_flag);
 
 
 --
--- Name: idx_offline_uss_by_user; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_offline_uss_by_user; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_offline_uss_by_user ON public.offline_user_session USING btree (user_id, realm_id, offline_flag);
 
 
 --
--- Name: idx_offline_uss_by_usersess; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_offline_uss_by_usersess; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_offline_uss_by_usersess ON public.offline_user_session USING btree (realm_id, offline_flag, user_session_id);
 
 
 --
--- Name: idx_offline_uss_createdon; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_offline_uss_createdon; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_offline_uss_createdon ON public.offline_user_session USING btree (created_on);
 
 
 --
--- Name: idx_offline_uss_preload; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_offline_uss_preload; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_offline_uss_preload ON public.offline_user_session USING btree (offline_flag, created_on, user_session_id);
 
 
 --
--- Name: idx_protocol_mapper_client; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_protocol_mapper_client; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_protocol_mapper_client ON public.protocol_mapper USING btree (client_id);
 
 
 --
--- Name: idx_realm_attr_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_realm_attr_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_realm_attr_realm ON public.realm_attribute USING btree (realm_id);
 
 
 --
--- Name: idx_realm_clscope; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_realm_clscope; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_realm_clscope ON public.client_scope USING btree (realm_id);
 
 
 --
--- Name: idx_realm_def_grp_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_realm_def_grp_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_realm_def_grp_realm ON public.realm_default_groups USING btree (realm_id);
 
 
 --
--- Name: idx_realm_evt_list_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_realm_evt_list_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_realm_evt_list_realm ON public.realm_events_listeners USING btree (realm_id);
 
 
 --
--- Name: idx_realm_evt_types_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_realm_evt_types_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_realm_evt_types_realm ON public.realm_enabled_event_types USING btree (realm_id);
 
 
 --
--- Name: idx_realm_master_adm_cli; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_realm_master_adm_cli; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_realm_master_adm_cli ON public.realm USING btree (master_admin_client);
 
 
 --
--- Name: idx_realm_supp_local_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_realm_supp_local_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_realm_supp_local_realm ON public.realm_supported_locales USING btree (realm_id);
 
 
 --
--- Name: idx_redir_uri_client; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_redir_uri_client; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_redir_uri_client ON public.redirect_uris USING btree (client_id);
 
 
 --
--- Name: idx_req_act_prov_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_req_act_prov_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_req_act_prov_realm ON public.required_action_provider USING btree (realm_id);
 
 
 --
--- Name: idx_res_policy_policy; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_res_policy_policy; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_res_policy_policy ON public.resource_policy USING btree (policy_id);
 
 
 --
--- Name: idx_res_scope_scope; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_res_scope_scope; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_res_scope_scope ON public.resource_scope USING btree (scope_id);
 
 
 --
--- Name: idx_res_serv_pol_res_serv; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_res_serv_pol_res_serv; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_res_serv_pol_res_serv ON public.resource_server_policy USING btree (resource_server_id);
 
 
 --
--- Name: idx_res_srv_res_res_srv; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_res_srv_res_res_srv; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_res_srv_res_res_srv ON public.resource_server_resource USING btree (resource_server_id);
 
 
 --
--- Name: idx_res_srv_scope_res_srv; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_res_srv_scope_res_srv; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_res_srv_scope_res_srv ON public.resource_server_scope USING btree (resource_server_id);
 
 
 --
--- Name: idx_role_attribute; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_role_attribute; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_role_attribute ON public.role_attribute USING btree (role_id);
 
 
 --
--- Name: idx_role_clscope; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_role_clscope; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_role_clscope ON public.client_scope_role_mapping USING btree (role_id);
 
 
 --
--- Name: idx_scope_mapping_role; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_scope_mapping_role; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_scope_mapping_role ON public.scope_mapping USING btree (role_id);
 
 
 --
--- Name: idx_scope_policy_policy; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_scope_policy_policy; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_scope_policy_policy ON public.scope_policy USING btree (policy_id);
 
 
 --
--- Name: idx_update_time; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_update_time; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_update_time ON public.migration_model USING btree (update_time);
 
 
 --
--- Name: idx_us_sess_id_on_cl_sess; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_us_sess_id_on_cl_sess; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_us_sess_id_on_cl_sess ON public.offline_client_session USING btree (user_session_id);
 
 
 --
--- Name: idx_usconsent_clscope; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_usconsent_clscope; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_usconsent_clscope ON public.user_consent_client_scope USING btree (user_consent_id);
 
 
 --
--- Name: idx_user_attribute; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_attribute; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_attribute ON public.user_attribute USING btree (user_id);
 
 
 --
--- Name: idx_user_attribute_name; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_attribute_name; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_attribute_name ON public.user_attribute USING btree (name, value);
 
 
 --
--- Name: idx_user_consent; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_consent; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_consent ON public.user_consent USING btree (user_id);
 
 
 --
--- Name: idx_user_credential; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_credential; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_credential ON public.credential USING btree (user_id);
 
 
 --
--- Name: idx_user_email; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_email; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_email ON public.user_entity USING btree (email);
 
 
 --
--- Name: idx_user_group_mapping; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_group_mapping; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_group_mapping ON public.user_group_membership USING btree (user_id);
 
 
 --
--- Name: idx_user_reqactions; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_reqactions; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_reqactions ON public.user_required_action USING btree (user_id);
 
 
 --
--- Name: idx_user_role_mapping; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_role_mapping; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_role_mapping ON public.user_role_mapping USING btree (user_id);
 
 
 --
--- Name: idx_user_service_account; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_user_service_account; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_user_service_account ON public.user_entity USING btree (realm_id, service_account_client_link);
 
 
 --
--- Name: idx_usr_fed_map_fed_prv; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_usr_fed_map_fed_prv; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_usr_fed_map_fed_prv ON public.user_federation_mapper USING btree (federation_provider_id);
 
 
 --
--- Name: idx_usr_fed_map_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_usr_fed_map_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_usr_fed_map_realm ON public.user_federation_mapper USING btree (realm_id);
 
 
 --
--- Name: idx_usr_fed_prv_realm; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_usr_fed_prv_realm; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_usr_fed_prv_realm ON public.user_federation_provider USING btree (realm_id);
 
 
 --
--- Name: idx_web_orig_client; Type: INDEX; Schema: public; Owner: beatbuddyauthdb
+-- Name: idx_web_orig_client; Type: INDEX; Schema: public; Owner: bbauthdb
 --
 
 CREATE INDEX idx_web_orig_client ON public.web_origins USING btree (client_id);
 
 
 --
--- Name: client_session_auth_status auth_status_constraint; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_auth_status auth_status_constraint; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session_auth_status
@@ -5064,7 +5066,7 @@ ALTER TABLE ONLY public.client_session_auth_status
 
 
 --
--- Name: identity_provider fk2b4ebc52ae5c3b34; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider fk2b4ebc52ae5c3b34; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.identity_provider
@@ -5072,7 +5074,7 @@ ALTER TABLE ONLY public.identity_provider
 
 
 --
--- Name: client_attributes fk3c47c64beacca966; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_attributes fk3c47c64beacca966; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_attributes
@@ -5080,7 +5082,7 @@ ALTER TABLE ONLY public.client_attributes
 
 
 --
--- Name: federated_identity fk404288b92ef007a6; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: federated_identity fk404288b92ef007a6; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.federated_identity
@@ -5088,7 +5090,7 @@ ALTER TABLE ONLY public.federated_identity
 
 
 --
--- Name: client_node_registrations fk4129723ba992f594; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_node_registrations fk4129723ba992f594; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_node_registrations
@@ -5096,7 +5098,7 @@ ALTER TABLE ONLY public.client_node_registrations
 
 
 --
--- Name: client_session_note fk5edfb00ff51c2736; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_note fk5edfb00ff51c2736; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session_note
@@ -5104,7 +5106,7 @@ ALTER TABLE ONLY public.client_session_note
 
 
 --
--- Name: user_session_note fk5edfb00ff51d3472; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_session_note fk5edfb00ff51d3472; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_session_note
@@ -5112,7 +5114,7 @@ ALTER TABLE ONLY public.user_session_note
 
 
 --
--- Name: client_session_role fk_11b7sgqw18i532811v7o2dv76; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_role fk_11b7sgqw18i532811v7o2dv76; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session_role
@@ -5120,7 +5122,7 @@ ALTER TABLE ONLY public.client_session_role
 
 
 --
--- Name: redirect_uris fk_1burs8pb4ouj97h5wuppahv9f; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: redirect_uris fk_1burs8pb4ouj97h5wuppahv9f; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.redirect_uris
@@ -5128,7 +5130,7 @@ ALTER TABLE ONLY public.redirect_uris
 
 
 --
--- Name: user_federation_provider fk_1fj32f6ptolw2qy60cd8n01e8; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_provider fk_1fj32f6ptolw2qy60cd8n01e8; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_provider
@@ -5136,7 +5138,7 @@ ALTER TABLE ONLY public.user_federation_provider
 
 
 --
--- Name: client_session_prot_mapper fk_33a8sgqw18i532811v7o2dk89; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session_prot_mapper fk_33a8sgqw18i532811v7o2dk89; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session_prot_mapper
@@ -5144,7 +5146,7 @@ ALTER TABLE ONLY public.client_session_prot_mapper
 
 
 --
--- Name: realm_required_credential fk_5hg65lybevavkqfki3kponh9v; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_required_credential fk_5hg65lybevavkqfki3kponh9v; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_required_credential
@@ -5152,7 +5154,7 @@ ALTER TABLE ONLY public.realm_required_credential
 
 
 --
--- Name: resource_attribute fk_5hrm2vlf9ql5fu022kqepovbr; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_attribute fk_5hrm2vlf9ql5fu022kqepovbr; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_attribute
@@ -5160,7 +5162,7 @@ ALTER TABLE ONLY public.resource_attribute
 
 
 --
--- Name: user_attribute fk_5hrm2vlf9ql5fu043kqepovbr; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_attribute fk_5hrm2vlf9ql5fu043kqepovbr; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_attribute
@@ -5168,7 +5170,7 @@ ALTER TABLE ONLY public.user_attribute
 
 
 --
--- Name: user_required_action fk_6qj3w1jw9cvafhe19bwsiuvmd; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_required_action fk_6qj3w1jw9cvafhe19bwsiuvmd; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_required_action
@@ -5176,7 +5178,7 @@ ALTER TABLE ONLY public.user_required_action
 
 
 --
--- Name: keycloak_role fk_6vyqfe4cn4wlq8r6kt5vdsj5c; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: keycloak_role fk_6vyqfe4cn4wlq8r6kt5vdsj5c; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.keycloak_role
@@ -5184,7 +5186,7 @@ ALTER TABLE ONLY public.keycloak_role
 
 
 --
--- Name: realm_smtp_config fk_70ej8xdxgxd0b9hh6180irr0o; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_smtp_config fk_70ej8xdxgxd0b9hh6180irr0o; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_smtp_config
@@ -5192,7 +5194,7 @@ ALTER TABLE ONLY public.realm_smtp_config
 
 
 --
--- Name: realm_attribute fk_8shxd6l3e9atqukacxgpffptw; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_attribute fk_8shxd6l3e9atqukacxgpffptw; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_attribute
@@ -5200,7 +5202,7 @@ ALTER TABLE ONLY public.realm_attribute
 
 
 --
--- Name: composite_role fk_a63wvekftu8jo1pnj81e7mce2; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: composite_role fk_a63wvekftu8jo1pnj81e7mce2; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.composite_role
@@ -5208,7 +5210,7 @@ ALTER TABLE ONLY public.composite_role
 
 
 --
--- Name: authentication_execution fk_auth_exec_flow; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: authentication_execution fk_auth_exec_flow; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.authentication_execution
@@ -5216,7 +5218,7 @@ ALTER TABLE ONLY public.authentication_execution
 
 
 --
--- Name: authentication_execution fk_auth_exec_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: authentication_execution fk_auth_exec_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.authentication_execution
@@ -5224,7 +5226,7 @@ ALTER TABLE ONLY public.authentication_execution
 
 
 --
--- Name: authentication_flow fk_auth_flow_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: authentication_flow fk_auth_flow_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.authentication_flow
@@ -5232,7 +5234,7 @@ ALTER TABLE ONLY public.authentication_flow
 
 
 --
--- Name: authenticator_config fk_auth_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: authenticator_config fk_auth_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.authenticator_config
@@ -5240,7 +5242,7 @@ ALTER TABLE ONLY public.authenticator_config
 
 
 --
--- Name: client_session fk_b4ao2vcvat6ukau74wbwtfqo1; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_session fk_b4ao2vcvat6ukau74wbwtfqo1; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_session
@@ -5248,7 +5250,7 @@ ALTER TABLE ONLY public.client_session
 
 
 --
--- Name: user_role_mapping fk_c4fqv34p1mbylloxang7b1q3l; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_role_mapping fk_c4fqv34p1mbylloxang7b1q3l; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_role_mapping
@@ -5256,7 +5258,7 @@ ALTER TABLE ONLY public.user_role_mapping
 
 
 --
--- Name: client_scope_attributes fk_cl_scope_attr_scope; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope_attributes fk_cl_scope_attr_scope; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_scope_attributes
@@ -5264,7 +5266,7 @@ ALTER TABLE ONLY public.client_scope_attributes
 
 
 --
--- Name: client_scope_role_mapping fk_cl_scope_rm_scope; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_scope_role_mapping fk_cl_scope_rm_scope; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_scope_role_mapping
@@ -5272,7 +5274,7 @@ ALTER TABLE ONLY public.client_scope_role_mapping
 
 
 --
--- Name: client_user_session_note fk_cl_usr_ses_note; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_user_session_note fk_cl_usr_ses_note; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_user_session_note
@@ -5280,7 +5282,7 @@ ALTER TABLE ONLY public.client_user_session_note
 
 
 --
--- Name: protocol_mapper fk_cli_scope_mapper; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: protocol_mapper fk_cli_scope_mapper; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.protocol_mapper
@@ -5288,7 +5290,7 @@ ALTER TABLE ONLY public.protocol_mapper
 
 
 --
--- Name: client_initial_access fk_client_init_acc_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: client_initial_access fk_client_init_acc_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.client_initial_access
@@ -5296,7 +5298,7 @@ ALTER TABLE ONLY public.client_initial_access
 
 
 --
--- Name: component_config fk_component_config; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: component_config fk_component_config; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.component_config
@@ -5304,7 +5306,7 @@ ALTER TABLE ONLY public.component_config
 
 
 --
--- Name: component fk_component_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: component fk_component_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.component
@@ -5312,7 +5314,7 @@ ALTER TABLE ONLY public.component
 
 
 --
--- Name: realm_default_groups fk_def_groups_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_default_groups fk_def_groups_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_default_groups
@@ -5320,7 +5322,7 @@ ALTER TABLE ONLY public.realm_default_groups
 
 
 --
--- Name: user_federation_mapper_config fk_fedmapper_cfg; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_mapper_config fk_fedmapper_cfg; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_mapper_config
@@ -5328,7 +5330,7 @@ ALTER TABLE ONLY public.user_federation_mapper_config
 
 
 --
--- Name: user_federation_mapper fk_fedmapperpm_fedprv; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_mapper fk_fedmapperpm_fedprv; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_mapper
@@ -5336,7 +5338,7 @@ ALTER TABLE ONLY public.user_federation_mapper
 
 
 --
--- Name: user_federation_mapper fk_fedmapperpm_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_mapper fk_fedmapperpm_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_mapper
@@ -5344,7 +5346,7 @@ ALTER TABLE ONLY public.user_federation_mapper
 
 
 --
--- Name: associated_policy fk_frsr5s213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: associated_policy fk_frsr5s213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.associated_policy
@@ -5352,7 +5354,7 @@ ALTER TABLE ONLY public.associated_policy
 
 
 --
--- Name: scope_policy fk_frsrasp13xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: scope_policy fk_frsrasp13xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.scope_policy
@@ -5360,7 +5362,7 @@ ALTER TABLE ONLY public.scope_policy
 
 
 --
--- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog82sspmt; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog82sspmt; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_perm_ticket
@@ -5368,7 +5370,7 @@ ALTER TABLE ONLY public.resource_server_perm_ticket
 
 
 --
--- Name: resource_server_resource fk_frsrho213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_resource fk_frsrho213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_resource
@@ -5376,7 +5378,7 @@ ALTER TABLE ONLY public.resource_server_resource
 
 
 --
--- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog83sspmt; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog83sspmt; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_perm_ticket
@@ -5384,7 +5386,7 @@ ALTER TABLE ONLY public.resource_server_perm_ticket
 
 
 --
--- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog84sspmt; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_perm_ticket fk_frsrho213xcx4wnkog84sspmt; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_perm_ticket
@@ -5392,7 +5394,7 @@ ALTER TABLE ONLY public.resource_server_perm_ticket
 
 
 --
--- Name: associated_policy fk_frsrpas14xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: associated_policy fk_frsrpas14xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.associated_policy
@@ -5400,7 +5402,7 @@ ALTER TABLE ONLY public.associated_policy
 
 
 --
--- Name: scope_policy fk_frsrpass3xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: scope_policy fk_frsrpass3xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.scope_policy
@@ -5408,7 +5410,7 @@ ALTER TABLE ONLY public.scope_policy
 
 
 --
--- Name: resource_server_perm_ticket fk_frsrpo2128cx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_perm_ticket fk_frsrpo2128cx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_perm_ticket
@@ -5416,7 +5418,7 @@ ALTER TABLE ONLY public.resource_server_perm_ticket
 
 
 --
--- Name: resource_server_policy fk_frsrpo213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_policy fk_frsrpo213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_policy
@@ -5424,7 +5426,7 @@ ALTER TABLE ONLY public.resource_server_policy
 
 
 --
--- Name: resource_scope fk_frsrpos13xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_scope fk_frsrpos13xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_scope
@@ -5432,7 +5434,7 @@ ALTER TABLE ONLY public.resource_scope
 
 
 --
--- Name: resource_policy fk_frsrpos53xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_policy fk_frsrpos53xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_policy
@@ -5440,7 +5442,7 @@ ALTER TABLE ONLY public.resource_policy
 
 
 --
--- Name: resource_policy fk_frsrpp213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_policy fk_frsrpp213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_policy
@@ -5448,7 +5450,7 @@ ALTER TABLE ONLY public.resource_policy
 
 
 --
--- Name: resource_scope fk_frsrps213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_scope fk_frsrps213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_scope
@@ -5456,7 +5458,7 @@ ALTER TABLE ONLY public.resource_scope
 
 
 --
--- Name: resource_server_scope fk_frsrso213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_server_scope fk_frsrso213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_server_scope
@@ -5464,7 +5466,7 @@ ALTER TABLE ONLY public.resource_server_scope
 
 
 --
--- Name: composite_role fk_gr7thllb9lu8q4vqa4524jjy8; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: composite_role fk_gr7thllb9lu8q4vqa4524jjy8; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.composite_role
@@ -5472,7 +5474,7 @@ ALTER TABLE ONLY public.composite_role
 
 
 --
--- Name: user_consent_client_scope fk_grntcsnt_clsc_usc; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_consent_client_scope fk_grntcsnt_clsc_usc; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_consent_client_scope
@@ -5480,7 +5482,7 @@ ALTER TABLE ONLY public.user_consent_client_scope
 
 
 --
--- Name: user_consent fk_grntcsnt_user; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_consent fk_grntcsnt_user; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_consent
@@ -5488,7 +5490,7 @@ ALTER TABLE ONLY public.user_consent
 
 
 --
--- Name: group_attribute fk_group_attribute_group; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: group_attribute fk_group_attribute_group; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.group_attribute
@@ -5496,7 +5498,7 @@ ALTER TABLE ONLY public.group_attribute
 
 
 --
--- Name: group_role_mapping fk_group_role_group; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: group_role_mapping fk_group_role_group; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.group_role_mapping
@@ -5504,7 +5506,7 @@ ALTER TABLE ONLY public.group_role_mapping
 
 
 --
--- Name: realm_enabled_event_types fk_h846o4h0w8epx5nwedrf5y69j; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_enabled_event_types fk_h846o4h0w8epx5nwedrf5y69j; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_enabled_event_types
@@ -5512,7 +5514,7 @@ ALTER TABLE ONLY public.realm_enabled_event_types
 
 
 --
--- Name: realm_events_listeners fk_h846o4h0w8epx5nxev9f5y69j; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_events_listeners fk_h846o4h0w8epx5nxev9f5y69j; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_events_listeners
@@ -5520,7 +5522,7 @@ ALTER TABLE ONLY public.realm_events_listeners
 
 
 --
--- Name: identity_provider_mapper fk_idpm_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider_mapper fk_idpm_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.identity_provider_mapper
@@ -5528,7 +5530,7 @@ ALTER TABLE ONLY public.identity_provider_mapper
 
 
 --
--- Name: idp_mapper_config fk_idpmconfig; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: idp_mapper_config fk_idpmconfig; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.idp_mapper_config
@@ -5536,7 +5538,7 @@ ALTER TABLE ONLY public.idp_mapper_config
 
 
 --
--- Name: web_origins fk_lojpho213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: web_origins fk_lojpho213xcx4wnkog82ssrfy; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.web_origins
@@ -5544,7 +5546,7 @@ ALTER TABLE ONLY public.web_origins
 
 
 --
--- Name: scope_mapping fk_ouse064plmlr732lxjcn1q5f1; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: scope_mapping fk_ouse064plmlr732lxjcn1q5f1; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.scope_mapping
@@ -5552,7 +5554,7 @@ ALTER TABLE ONLY public.scope_mapping
 
 
 --
--- Name: protocol_mapper fk_pcm_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: protocol_mapper fk_pcm_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.protocol_mapper
@@ -5560,7 +5562,7 @@ ALTER TABLE ONLY public.protocol_mapper
 
 
 --
--- Name: credential fk_pfyr0glasqyl0dei3kl69r6v0; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: credential fk_pfyr0glasqyl0dei3kl69r6v0; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.credential
@@ -5568,7 +5570,7 @@ ALTER TABLE ONLY public.credential
 
 
 --
--- Name: protocol_mapper_config fk_pmconfig; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: protocol_mapper_config fk_pmconfig; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.protocol_mapper_config
@@ -5576,7 +5578,7 @@ ALTER TABLE ONLY public.protocol_mapper_config
 
 
 --
--- Name: default_client_scope fk_r_def_cli_scope_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: default_client_scope fk_r_def_cli_scope_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.default_client_scope
@@ -5584,7 +5586,7 @@ ALTER TABLE ONLY public.default_client_scope
 
 
 --
--- Name: required_action_provider fk_req_act_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: required_action_provider fk_req_act_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.required_action_provider
@@ -5592,7 +5594,7 @@ ALTER TABLE ONLY public.required_action_provider
 
 
 --
--- Name: resource_uris fk_resource_server_uris; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: resource_uris fk_resource_server_uris; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.resource_uris
@@ -5600,7 +5602,7 @@ ALTER TABLE ONLY public.resource_uris
 
 
 --
--- Name: role_attribute fk_role_attribute_id; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: role_attribute fk_role_attribute_id; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.role_attribute
@@ -5608,7 +5610,7 @@ ALTER TABLE ONLY public.role_attribute
 
 
 --
--- Name: realm_supported_locales fk_supported_locales_realm; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: realm_supported_locales fk_supported_locales_realm; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.realm_supported_locales
@@ -5616,7 +5618,7 @@ ALTER TABLE ONLY public.realm_supported_locales
 
 
 --
--- Name: user_federation_config fk_t13hpu1j94r2ebpekr39x5eu5; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_federation_config fk_t13hpu1j94r2ebpekr39x5eu5; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_federation_config
@@ -5624,7 +5626,7 @@ ALTER TABLE ONLY public.user_federation_config
 
 
 --
--- Name: user_group_membership fk_user_group_user; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: user_group_membership fk_user_group_user; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.user_group_membership
@@ -5632,7 +5634,7 @@ ALTER TABLE ONLY public.user_group_membership
 
 
 --
--- Name: policy_config fkdc34197cf864c4e43; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: policy_config fkdc34197cf864c4e43; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.policy_config
@@ -5640,7 +5642,7 @@ ALTER TABLE ONLY public.policy_config
 
 
 --
--- Name: identity_provider_config fkdc4897cf864c4e43; Type: FK CONSTRAINT; Schema: public; Owner: beatbuddyauthdb
+-- Name: identity_provider_config fkdc4897cf864c4e43; Type: FK CONSTRAINT; Schema: public; Owner: bbauthdb
 --
 
 ALTER TABLE ONLY public.identity_provider_config
