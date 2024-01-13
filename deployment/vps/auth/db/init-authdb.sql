@@ -2,3 +2,4 @@ CREATE DATABASE bbauthdb;
 CREATE USER bbauthdb WITH PASSWORD 'bbauthdb';
 GRANT ALL PRIVILEGES ON DATABASE bbauthdb TO bbauthdb;
 ALTER USER bbauthdb WITH SUPERUSER;
+ALTER SCHEMA public OWNER TO bbauthdb;
