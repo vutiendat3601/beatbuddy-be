@@ -1,0 +1,46 @@
+{
+  "realm": "beatbuddy",
+  "auth-server-url": "https://bbauth.datvu.tech",
+  "resource": "bbapi",
+  "credentials": {
+    "secret": "SG01wIpg7l8FB4wxFVFVcFbfmJ8Wy7To"
+  },
+  "http-method-as-scope": true,
+  "path-cache": {
+    "lifespan": 0
+  },
+  "paths": [
+    {
+      "path": "/swagger-ui/*",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v3/api-docs/*",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v1/search",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v1/tracks/{id}",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v1/tracks",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v1/artists/{id}",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v1/playlists/{id}",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v1/artists/{id}/tracks",
+      "enforcement-mode": "DISABLED"
+    }
+  ]
+}

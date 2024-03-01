@@ -19,10 +19,11 @@ COPY ./dependencies/yt /opt/yt-dlp/yt
 RUN chmod -R u=rx,g=rx,a=rx /opt/yt-dlp /opt/ffmpeg
 
 WORKDIR /opt/beatbuddy/
-COPY --from=layer01 /opt/beatbuddy/target/beatbuddy-api-1.0.0.jar ./beatbuddy-api-1.0.0.jar
+COPY --from=layer01 /opt/beatbuddy/target/*.jar ./app.jar
 COPY --from=layer01 /opt/beatbuddy/entrypoint.sh /entrypoint.sh
 RUN chmod u+x /entrypoint.sh
 
 ENV PATH=$PATH:/opt/yt-dlp:/opt/ffmpeg
 ENV PROFILE=default
+
 ENTRYPOINT ["/entrypoint.sh"]

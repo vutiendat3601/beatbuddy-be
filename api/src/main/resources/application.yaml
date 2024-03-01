@@ -1,39 +1,17 @@
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://beatbuddyapi.datvu.tech:5432/beatbuddyapidb}
-    username: ${DB_USER:beatbuddyapidb}
-    password: ${DB_PASS:beatbuddyapidb}
+    url: jdbc:postgresql://bbapi.datvu.tech:5432/bbapidb
+    username: bbapidb
+    password: bbapidb
   flyway:
     baseline-on-migrate: true
-    baseline-version: ${FLYWAY_BASELINE_VERSION:1}
+    baseline-version: 1
   security:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: ${JWK_URI:http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs}
-      client:
-        registration:
-          beatbuddyapi:
-            client-id: ${BEAT_BUDDY_API_CLIENT_ID:beatbuddyapi}
-            client-secret: ${BEAT_BUDDY_API_CLIENT_SECRET:OlgAtZaj5SRia4YWBvKPok07rfGUKSoP}
-            scope: openid
-            authorization-grant-type: client_credentials
-        provider:
-          beatbuddyapi:
-            token-uri: ${BEAT_BUDDY_API_TOKEN_URI:http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/token}
-  data:
-    redis:
-      host: ${REDIS_HOST:beatbuddyapiredis.datvu.tech}
-      port: ${REDIS_PORT:6379}
-      password: ${REDIS_PASSWORD:beatbuddyapiredis}
-  cache:
-    redis:
-      cache-null-values: true
-      time-to-live: 60000
-    type: redis
-    cache-names:
-      - cache1
-      - cache2
+          jwk-set-uri: https://bbauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs
+          issuer-uri: https://bbauth.datvu.tech/realms/beatbuddy
   jpa:
     open-in-view: false
     properties:
@@ -50,13 +28,22 @@ spring:
       enabled: false
       skip:
         in-tests: true
+
+# server:
+#   port: ${PORT:8080}
+#   server.ssl.key-store: ${TLS_FILE_PATH:/etc/tls/bbapi.datvu.tech/bbapi.datvu.tech.p12}
+#   server.ssl.key-store-password: bbapi
+#   server.ssl.keyStoreType: PKCS12
+#   server.ssl.keyAlias: bbapi.datvu.tech
+
 springdoc:
   api-docs:
     enabled: true
     path: /v3/api-docs
-  swagger-ui:
-    path: /swagger
-app:
-  service:
-    beatbuddy-storage-url: ${BEAT_BUDDY_STORAGE_URL:http://beatbuddystorage.datvu.tech}
-    # beatbuddy-storage-url: ${BEAT_BUDDY_STORAGE_URL:http://localhost:8081}
+
+bbapi:
+  server-url: https://bbauth.datvu.tech
+  realm: beatbuddy
+  grant-type: client_credentials
+  client-id: bbapi
+  client-secret: 2HmOZC4Y7XfhtPy43u6fdYKqLqnKaQcA

@@ -1,12 +1,27 @@
 {"properties": [
   {
-    "name": "app.service.beatbuddy-storage-url",
+    "name": "bbapi.server-url",
     "type": "java.lang.String",
-    "description": "A description for 'app.service.beatbuddy-storage-url'"
+    "description": "A description for 'bbapi.server-url'"
   },
   {
-    "name": "app.service.beatbuddy-static-url",
+    "name": "bbapi.client-id",
     "type": "java.lang.String",
-    "description": "A description for 'app.service.beatbuddy-static-url'"
+    "description": "A description for 'bbapi.client-id'"
+  },
+  {
+    "name": "bbapi.client-secret",
+    "type": "java.lang.String",
+    "description": "A description for 'bbapi.client-secret'"
+  },
+  {
+    "name": "bbapi.realm",
+    "type": "java.lang.String",
+    "description": "A description for 'bbapi.realm'"
+  },
+  {
+    "name": "bbapi.grant-type",
+    "type": "java.lang.String",
+    "description": "A description for 'bbapi.grant-type'"
   }
 ]}
