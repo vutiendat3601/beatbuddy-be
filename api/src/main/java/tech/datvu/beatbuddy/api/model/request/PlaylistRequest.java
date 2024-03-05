@@ -9,6 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import tech.datvu.beatbuddy.api.util.validation.ContentType;
@@ -25,6 +26,7 @@ public class PlaylistRequest {
     @NotBlank
     private String name;
 
+    @NotNull
     private Boolean isPublic;
 
     private String description;
@@ -32,6 +34,7 @@ public class PlaylistRequest {
     @NotEmpty(groups = { Update.class })
     private Set<UUID> trackIds;
 
+    @NotNull
     private Boolean isTrackRemove;
 
     public PlaylistRequest() {

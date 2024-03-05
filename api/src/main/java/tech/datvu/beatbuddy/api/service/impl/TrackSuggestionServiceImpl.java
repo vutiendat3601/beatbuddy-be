@@ -32,7 +32,7 @@ import tech.datvu.beatbuddy.api.repository.TrackSuggestionArtistRepository;
 import tech.datvu.beatbuddy.api.repository.TrackSuggestionRepository;
 import tech.datvu.beatbuddy.api.service.FileService;
 import tech.datvu.beatbuddy.api.service.TrackSuggestionService;
-import tech.datvu.beatbuddy.api.util.PaginationUltil;
+import tech.datvu.beatbuddy.api.util.PaginationUtil;
 import tech.datvu.beatbuddy.api.util.TextUtil;
 import tech.datvu.beatbuddy.api.util.TrackSuggestionUrlProcessor;
 import tech.datvu.beatbuddy.api.util.UserContext;
@@ -53,7 +53,7 @@ public class TrackSuggestionServiceImpl implements TrackSuggestionService {
         // ## Process url, if there is any audio file available
         // String audioRefCode = processUrl(suggTrackReq.getUrl());
         TrackSuggestion trackSugg = trackSuggRepo.findFirstByUrlAndCreatedBy(trackSuggReq.getUrl(),
-                UserContext.getUsername()).orElse(null);
+                UserContext.getUserId()).orElse(null);
 
         if (trackSugg == null) {
             // ## Validate artists UUIDs
@@ -96,7 +96,7 @@ public class TrackSuggestionServiceImpl implements TrackSuggestionService {
     @Override
     public Page<TrackSuggestionDto> getTrackSuggestions(TrackSuggestionQueryRequest pageReq) {
         // ## Check pagination params and parsing sortBy
-        PaginationUltil.checkPageOffset(pageReq.getPage(), pageReq.getSize());
+        PaginationUtil.checkPagination(pageReq.getPage(), pageReq.getSize());
         Sort sort = SortParser.parseQueryParam(pageReq.getSortBy(), TRACK_SUGGESTION_SORT_FIELDS);
         Pageable pageable = PageRequest.of(pageReq.getPage(), pageReq.getSize(), sort);
 
@@ -119,7 +119,7 @@ public class TrackSuggestionServiceImpl implements TrackSuggestionService {
     @Override
     public Page<TrackSuggestionDto> getUserTrackSuggestions(TrackSuggestionQueryRequest pageReq) {
         // ## Check pagination params and parsing sortBy
-        PaginationUltil.checkPageOffset(pageReq.getPage(), pageReq.getSize());
+        PaginationUtil.checkPagination(pageReq.getPage(), pageReq.getSize());
         Sort sort = SortParser.parseQueryParam(pageReq.getSortBy(), TRACK_SUGGESTION_SORT_FIELDS);
         Pageable pageable = PageRequest.of(pageReq.getPage(), pageReq.getSize(), sort);
 
@@ -135,7 +135,7 @@ public class TrackSuggestionServiceImpl implements TrackSuggestionService {
                         keyword,
                         fromDate,
                         toDate.plusDays(1),
-                        UserContext.getUsername());
+                        UserContext.getUserId());
 
         // ## Find all TrackSuggestionArtist suggested by current user
         Page<TrackSuggestionDto> trackSuggDtoPage = trackSuggPage.map(trackSuggMapper::mapToTrackSuggestionDto);

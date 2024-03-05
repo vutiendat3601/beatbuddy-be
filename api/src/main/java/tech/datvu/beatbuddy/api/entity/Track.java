@@ -26,11 +26,11 @@ public class Track extends AbstractEntity {
     private UUID id;
 
     private String refCode;
-    
+
     private String name;
-    
+
     private boolean isPublic;
-    
+
     private String description;
 
     private String releasedDate;
@@ -41,4 +41,8 @@ public class Track extends AbstractEntity {
 
     @Column(name = "thumb_img")
     private String thumbnail;
+
+    public static final String[] TRACK_SORT_FIELDS = {
+            "id", "name", "url", "releasedDate", "description", "durationSec", "createdAt", "updatedAt"
+    };
 }

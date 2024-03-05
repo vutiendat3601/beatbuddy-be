@@ -12,8 +12,6 @@ import tech.datvu.beatbuddy.api.entity.Audio.AudioQuality;
 @AllArgsConstructor
 @Data
 public class TrackStreamDto {
-    private String fileName;
-
     private Map<AudioQuality, List<String>> links;
 
     public TrackStreamDto() {

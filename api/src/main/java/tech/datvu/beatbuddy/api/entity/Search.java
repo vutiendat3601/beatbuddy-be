@@ -2,8 +2,6 @@ package tech.datvu.beatbuddy.api.entity;
 
 import java.util.UUID;
 
-import com.fasterxml.jackson.annotation.JsonValue;
-
 import jakarta.persistence.AttributeConverter;
 import jakarta.persistence.Converter;
 import jakarta.persistence.Entity;
@@ -15,6 +13,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
+import tech.datvu.beatbuddy.api.model.ResourceType;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -38,27 +37,18 @@ public class Search extends AbstractEntity {
 
     private long popularity;
 
-    public static String mapUri(ResourceType type, UUID id) {
-        return (type == null || id == null)
-                ? null
-                : type.name().toLowerCase() + ":" + id;
-    }
-
     public static UUID getIdFromUri(Search resource) {
+        UUID id = null;
         if (resource != null) {
             String uri = resource.getUri();
-            return uri == null ? null : UUID.fromString(uri.split(":")[1]);
+            String[] tokens = uri == null ? new String[] {} : uri.split(":");
+            try {
+                id = tokens.length == 3 ? UUID.fromString(tokens[2]) : id;
+            } catch (Exception e) {
+                id = null;
+            }
         }
-        return null;
-    }
-
-    public static enum ResourceType {
-        ARTIST, TRACK;
-
-        @JsonValue
-        public String json() {
-            return name().toLowerCase();
-        }
+        return id;
     }
 
     @Converter(autoApply = true)

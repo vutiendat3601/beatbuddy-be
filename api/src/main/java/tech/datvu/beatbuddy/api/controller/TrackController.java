@@ -25,9 +25,10 @@ public class TrackController {
     private final TrackService trackService;
 
     /* #: Public */
-    @GetMapping("{id}")
-    public ResponseEntity<Response<TrackDto>> getTrack(@PathVariable("id") UUID trackId) {
+    @GetMapping("{trackId}")
+    public ResponseEntity<Response<TrackDto>> getTrack(@PathVariable UUID trackId) {
         TrackDto trackDto = trackService.getTrack(trackId);
+        trackService.increaseSearchPriority(trackId);
         return ResponseEntity.ok(Response.success(trackDto));
     }
 
@@ -38,9 +39,10 @@ public class TrackController {
     }
     /* # Public */
 
-    @GetMapping(value = "{id}/stream")
-    public ResponseEntity<Response<TrackStreamDto>> getTrackStream(@PathVariable("id") UUID trackId) {
-        TrackStreamDto trackStreamDto = trackService.getStream(trackId);
+    @GetMapping(value = "{trackId}/stream")
+    public ResponseEntity<Response<TrackStreamDto>> getTrackStream(@PathVariable UUID trackId) {
+        TrackStreamDto trackStreamDto = trackService.getTrackStream(trackId);
+        trackService.increaseSearchPriority(trackId);
         return ResponseEntity.ok(Response.success(trackStreamDto));
     }
 

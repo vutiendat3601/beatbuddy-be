@@ -14,5 +14,5 @@ public class BeatBuddyApplication {
 	@Bean
 	RestTemplate restTemplate() {
 		return new RestTemplate();
-	} 
+	}
 }

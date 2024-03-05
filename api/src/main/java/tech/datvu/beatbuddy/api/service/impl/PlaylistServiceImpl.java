@@ -4,6 +4,7 @@ import static tech.datvu.beatbuddy.api.entity.Playlist.PLAYLIST_SORT_FIELDS;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,7 +31,7 @@ import tech.datvu.beatbuddy.api.repository.TrackRepository;
 import tech.datvu.beatbuddy.api.service.PlaylistService;
 import tech.datvu.beatbuddy.api.service.PlaylistServiceAsync;
 import tech.datvu.beatbuddy.api.service.TrackService;
-import tech.datvu.beatbuddy.api.util.PaginationUltil;
+import tech.datvu.beatbuddy.api.util.PaginationUtil;
 import tech.datvu.beatbuddy.api.util.TextUtil;
 import tech.datvu.beatbuddy.api.util.UserContext;
 import tech.datvu.beatbuddy.api.util.parser.SortParser;
@@ -67,35 +68,41 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public long addOrRemovePlaylistTracks(UUID playlistId, PlaylistRequest playlistReq) {
+    public void addOrRemovePlaylistTracks(UUID playlistId, PlaylistRequest playlistReq) {
         final Playlist playlist = playlistRepo.findById(playlistId)
                 .orElseThrow(() -> PlaylistException.PLAYLIST_NOT_FOUND.instance());
-        int cntSuccess = 0;
-        for (UUID trackId : playlistReq.getTrackIds()) {
-            PlaylistTrack playlistTrack = playlistTrackRepo.findByPlaylistIdAndTrackId(playlistId, trackId)
-                    .orElseGet(() -> {
-                        Track track = trackRepo.findById(trackId).orElse(null);
-                        if (track != null) {
-                            PlaylistTrack newPlaylistTrack = new PlaylistTrack();
-                            newPlaylistTrack.setPlaylistId(playlistId);
-                            newPlaylistTrack.setTrackId(trackId);
-                            long durationSec = playlistReq.getIsTrackRemove() ? -track.getDurationSec()
-                                    : track.getDurationSec();
-                            long playlistDurationSec = playlist.getDurationSec() + durationSec;
+        long durationSec = 0;
+        final List<PlaylistTrack> playlistTracks = new LinkedList<>();
+        if (playlistReq.getIsTrackRemove()) {
+            for (UUID trackId : playlistReq.getTrackIds()) {
+                Track track = trackRepo.findById(playlistId).orElse(null);
+                if (track != null) {
+                    PlaylistTrack playlistTrack = playlistTrackRepo.findByPlaylistIdAndTrackId(playlistId, trackId)
+                            .orElse(null);
+                    if (playlistTrack != null) {
+                        durationSec -= track.getDurationSec();
+                        playlistTrack.setActive(false);
+                        playlistTracks.add(playlistTrack);
+                    }
+                }
+            }
+        } else {
+            for (UUID trackId : playlistReq.getTrackIds()) {
+                Track track = trackRepo.findById(playlistId).orElse(null);
 
-                            playlist.setDurationSec(playlistDurationSec);
-                            return newPlaylistTrack;
-                        }
-                        return null;
-                    });
-            if (playlistTrack != null) {
-                playlistTrack.setActive(!playlistReq.getIsTrackRemove());
-                playlistTrackRepo.save(playlistTrack);
-                cntSuccess++;
+                if (track != null) {
+                    PlaylistTrack playlistTrack = playlistTrackRepo.findByPlaylistIdAndTrackId(playlistId, trackId)
+                            .orElse(new PlaylistTrack(playlistId, trackId));
+                    playlistTrack.setActive(true);
+                    durationSec += track.getDurationSec();
+                    playlistTracks.add(playlistTrack);
+                }
             }
         }
+
+        playlist.setDurationSec(playlist.getDurationSec() + durationSec);
         playlistRepo.save(playlist);
-        return cntSuccess;
+        playlistTrackRepo.saveAll(playlistTracks);
     }
 
     @Override
@@ -108,9 +115,17 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
+    public List<TrackDto> getPlaylistTracks(UUID playlistId) {
+        List<PlaylistTrack> playlistTracks = playlistTrackRepo.findAllByPlaylistId(playlistId);
+        List<UUID> trackIds = playlistTracks.stream().map(t -> t.getTrackId()).toList();
+        List<TrackDto> trackDtos = trackService.getTracks(trackIds);
+        return trackDtos;
+    }
+
+    @Override
     public Page<PlaylistDto> getUserPlaylits(@Valid PlaylistQueryRequest pageReq) {
         // ## Check pagination params and parsing sortBy
-        PaginationUltil.checkPageOffset(pageReq.getPage(), pageReq.getSize());
+        PaginationUtil.checkPagination(pageReq.getPage(), pageReq.getSize());
         Sort sort = SortParser.parseQueryParam(pageReq.getSortBy(), PLAYLIST_SORT_FIELDS);
         Pageable pageable = PageRequest.of(pageReq.getPage(), pageReq.getSize(), sort);
 
@@ -125,7 +140,7 @@ public class PlaylistServiceImpl implements PlaylistService {
                 keyword,
                 fromDate,
                 toDate,
-                UserContext.getUsername()
+                UserContext.getUserId() + ""
 
         );
 
@@ -133,13 +148,5 @@ public class PlaylistServiceImpl implements PlaylistService {
         Page<PlaylistDto> playlistDtoPage = playlistPage.map(playlistMapper::mapToPlaylistDto);
         playlistDtoPage.forEach(p -> p.setTracks(getPlaylistTracks(p.getId())));
         return playlistDtoPage;
-    }
-
-    @Override
-    public List<TrackDto> getPlaylistTracks(UUID playlistId) {
-        List<PlaylistTrack> playlistTracks = playlistTrackRepo.findAllByPlaylistId(playlistId);
-        List<UUID> trackIds = playlistTracks.stream().map(t -> t.getTrackId()).toList();
-        List<TrackDto> trackDtos = trackService.getTracks(trackIds);
-        return trackDtos;
     }
 }

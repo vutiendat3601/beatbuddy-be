@@ -19,6 +19,7 @@ public class TextUtil {
 
     public static String hashMd5(String text) {
         try {
+            // deepcode ignore InsecureHash: <please specify a reason of ignoring this>
             MessageDigest md5 = MessageDigest.getInstance("MD5");
             md5.update(text.getBytes());
             byte[] hashedBytes = md5.digest();

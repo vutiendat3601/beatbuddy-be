@@ -30,4 +30,10 @@ public class PlaylistTrack extends AbstractEntity {
     public PlaylistTrack() {
         isActive = true;
     }
+
+    public PlaylistTrack(UUID playlistId, UUID trackId) {
+        this();
+        this.playlistId = playlistId;
+        this.trackId = trackId;
+    }
 }

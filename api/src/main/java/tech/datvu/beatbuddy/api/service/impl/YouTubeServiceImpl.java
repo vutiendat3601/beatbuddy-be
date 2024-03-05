@@ -54,6 +54,7 @@ public class YouTubeServiceImpl implements YouTubeService {
             exitCode = process.waitFor();
         } catch (IOException | InterruptedException e) {
             log.error(e.getMessage());
+            Thread.currentThread().interrupt();
         } finally {
             EXTRACT_AUDIO_CMD[EXTRACT_AUDIO_OUT_ARG] = "ytb_%(id)s";
             EXTRACT_AUDIO_CMD[EXTRACT_AUDIO_FORMAT_ARG] = "mp3";
@@ -81,6 +82,7 @@ public class YouTubeServiceImpl implements YouTubeService {
             }
         } catch (IOException | InterruptedException e) {
             log.error(e.getMessage());
+            Thread.currentThread().interrupt();
         } finally {
             FETCH_CMD[FETCH_URL_ARG] = "";
         }

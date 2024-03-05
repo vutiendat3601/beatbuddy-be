@@ -20,6 +20,8 @@ import lombok.RequiredArgsConstructor;
 import tech.datvu.beatbuddy.api.dto.ArtistDto;
 import tech.datvu.beatbuddy.api.dto.TrackDto;
 import tech.datvu.beatbuddy.api.model.request.ArtistRequest;
+import tech.datvu.beatbuddy.api.model.request.PageSortRequest;
+import tech.datvu.beatbuddy.api.model.request.PaginationRequest;
 import tech.datvu.beatbuddy.api.model.response.Response;
 import tech.datvu.beatbuddy.api.service.ArtistService;
 
@@ -30,19 +32,46 @@ public class ArtistController {
     private final ArtistService artistService;
 
     /* #: Public */
-    @GetMapping("{id}")
-    public ResponseEntity<Response<ArtistDto>> getArtist(@PathVariable UUID id) {
-        ArtistDto artistDto = artistService.getArtist(id);
+    @GetMapping("{artistId}")
+    public ResponseEntity<Response<ArtistDto>> getArtist(@PathVariable UUID artistId) {
+        ArtistDto artistDto = artistService.getArtist(artistId);
+        artistService.increaseSearchPriority(artistId);
         return ResponseEntity.ok(Response.success(artistDto));
     }
 
     @GetMapping
     public ResponseEntity<Response<List<ArtistDto>>> getSeveralArtists(
-            @Valid @Size(min = 1, max = 100) @RequestParam List<UUID> ids
+            @Valid @Size(min = 1, max = 100) @RequestParam(name = "artistIds") List<UUID> artistIds
 
     ) {
-        List<ArtistDto> artistDtos = artistService.getArtists(ids);
+        List<ArtistDto> artistDtos = artistService.getArtists(artistIds);
         return ResponseEntity.ok(Response.success(artistDtos));
+    }
+
+    @GetMapping("{artistId}/tracks")
+    public ResponseEntity<Response<List<TrackDto>>> getArtistTracks(
+            @PathVariable UUID artistId,
+            @Valid PageSortRequest pageReq
+
+    ) {
+        Page<TrackDto> artistTrackDtos = artistService.getArtistTracks(artistId, pageReq);
+        return ResponseEntity.ok(Response.successPage(artistTrackDtos));
+    }
+
+    @GetMapping("feed/popularity")
+    public ResponseEntity<Response<List<ArtistDto>>> getPopularArtists(PaginationRequest pageReq) {
+        Page<ArtistDto> artistDtos = artistService.getPopularArtists(pageReq);
+        return ResponseEntity.ok(Response.successPage(artistDtos));
+    }
+
+    @GetMapping("{artistId}/top-tracks")
+    public ResponseEntity<Response<List<TrackDto>>> getArtistTopTracks(
+            @PathVariable UUID artistId,
+            @Range(min = 10, max = 100) @RequestParam(required = false, defaultValue = "10") Integer top
+
+    ) {
+        List<TrackDto> artistTrackDtos = artistService.getArtistTopTracks(artistId, top);
+        return ResponseEntity.ok(Response.success(artistTrackDtos));
     }
     /* # Public */
 
@@ -52,12 +81,4 @@ public class ArtistController {
         return ResponseEntity.ok(Response.success(artistId));
     }
 
-    @GetMapping("{id}/tracks")
-    public ResponseEntity<Response<List<TrackDto>>> getArtistTracks(
-            @PathVariable("id") UUID artistId,
-            @Range(min = 0, max = Integer.MAX_VALUE) @RequestParam int page,
-            @Range(min = 1, max = 100) @RequestParam int size) {
-        Page<TrackDto> artistTrackDtos = artistService.getArtistTracks(artistId, page, size);
-        return ResponseEntity.ok(Response.successPage(artistTrackDtos));
-    }
 }

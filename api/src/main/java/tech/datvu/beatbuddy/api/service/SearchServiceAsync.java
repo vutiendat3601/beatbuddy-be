@@ -1,7 +1,5 @@
 package tech.datvu.beatbuddy.api.service;
 
-import java.util.UUID;
-
 import org.springframework.scheduling.annotation.Async;
 
 import tech.datvu.beatbuddy.api.model.request.SearchRequest;
@@ -10,7 +8,5 @@ import tech.datvu.beatbuddy.api.model.request.SearchRequest;
 public interface SearchServiceAsync {
     void createSearch(SearchRequest searchReq);
 
-    void increasePriorityById(Iterable<UUID> searchIds);
-
-    void increasePriorityByUri(Iterable<String> searchUris);
+    void increasePopularity(Iterable<String> uris);
 }

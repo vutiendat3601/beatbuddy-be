@@ -7,7 +7,7 @@
   },
   "http-method-as-scope": true,
   "path-cache": {
-    "lifespan": 0
+    "lifespan": 30000
   },
   "paths": [
     {
@@ -23,7 +23,7 @@
       "enforcement-mode": "DISABLED"
     },
     {
-      "path": "/v1/tracks/{id}",
+      "path": "/v1/tracks/{trackId}",
       "enforcement-mode": "DISABLED"
     },
     {
@@ -31,15 +31,23 @@
       "enforcement-mode": "DISABLED"
     },
     {
-      "path": "/v1/artists/{id}",
+      "path": "/v1/artists/feed/popularity",
       "enforcement-mode": "DISABLED"
     },
     {
-      "path": "/v1/playlists/{id}",
+      "path": "/v1/artists/{artistId}",
       "enforcement-mode": "DISABLED"
     },
     {
-      "path": "/v1/artists/{id}/tracks",
+      "path": "/v1/artists/{artistId}/tracks",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v1/artists/{artistId}/top-tracks",
+      "enforcement-mode": "DISABLED"
+    },
+    {
+      "path": "/v1/playlists/{playlistId}",
       "enforcement-mode": "DISABLED"
     }
   ]

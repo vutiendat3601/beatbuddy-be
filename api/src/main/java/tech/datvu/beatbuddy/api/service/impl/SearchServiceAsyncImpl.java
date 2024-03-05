@@ -1,7 +1,6 @@
 package tech.datvu.beatbuddy.api.service.impl;
 
 import java.util.List;
-import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 
@@ -28,15 +27,8 @@ public class SearchServiceAsyncImpl implements SearchServiceAsync {
     }
 
     @Override
-    public void increasePriorityById(Iterable<UUID> searchIds) {
-        List<Search> searchs = searchRepo.findAllById(searchIds);
-        searchs.forEach(s -> s.setPopularity(s.getPopularity() + 1));
-        searchRepo.saveAll(searchs);
-    }
-
-    @Override
-    public void increasePriorityByUri(Iterable<String> searchUris) {
-        List<Search> searchs = searchRepo.findAllByUri(searchUris);
+    public void increasePopularity(Iterable<String> uris) {
+        List<Search> searchs = searchRepo.findAllByUriIn(uris);
         searchs.forEach(s -> s.setPopularity(s.getPopularity() + 1));
         searchRepo.saveAll(searchs);
     }

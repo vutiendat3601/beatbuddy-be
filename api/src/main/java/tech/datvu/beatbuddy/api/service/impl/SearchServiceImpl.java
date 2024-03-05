@@ -1,7 +1,5 @@
 package tech.datvu.beatbuddy.api.service.impl;
 
-import static tech.datvu.beatbuddy.api.util.TextUtil.removeAccents;
-
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -10,7 +8,6 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
@@ -21,16 +18,15 @@ import tech.datvu.beatbuddy.api.dto.SearchDto;
 import tech.datvu.beatbuddy.api.dto.SearchPageDto;
 import tech.datvu.beatbuddy.api.dto.TrackDto;
 import tech.datvu.beatbuddy.api.entity.Search;
-import tech.datvu.beatbuddy.api.entity.Search.ResourceType;
 import tech.datvu.beatbuddy.api.exception.CommonException;
 import tech.datvu.beatbuddy.api.model.PageMetadata;
+import tech.datvu.beatbuddy.api.model.ResourceType;
 import tech.datvu.beatbuddy.api.model.request.SearchQueryRequest;
 import tech.datvu.beatbuddy.api.repository.SearchRepository;
 import tech.datvu.beatbuddy.api.service.ArtistService;
 import tech.datvu.beatbuddy.api.service.SearchService;
-import tech.datvu.beatbuddy.api.service.SearchServiceAsync;
 import tech.datvu.beatbuddy.api.service.TrackService;
-import tech.datvu.beatbuddy.api.util.PaginationUltil;
+import tech.datvu.beatbuddy.api.util.PaginationUtil;
 import tech.datvu.beatbuddy.api.util.TextUtil;
 
 @RequiredArgsConstructor
@@ -42,22 +38,15 @@ public class SearchServiceImpl implements SearchService {
     // ## Services
     private final TrackService trackService;
     private final ArtistService artistService;
-    private final SearchServiceAsync searchServiceAsync;
 
     @Override
     public Map<ResourceType, SearchPageDto> search(@Valid SearchQueryRequest queryReq) {
-        PaginationUltil.checkPageOffset(queryReq.getPage(), queryReq.getSize());
-        Pageable pageReq = PageRequest.of(queryReq.getPage(), queryReq.getSize());
+        Pageable pageReq = PaginationUtil.parsePagination(queryReq.getPage(), queryReq.getSize());
         final String keyword = queryReq.getQ() == null ? "" : TextUtil.removeAccents(queryReq.getQ().trim());
         Set<ResourceType> types = queryReq.getTypes();
         final Map<ResourceType, SearchPageDto> searchDtosMap = new HashMap<>();
         types.forEach(t -> {
             Page<Search> searchPage = searchRepo.findByTypeAndKeyword(t, keyword, pageReq);
-
-            // ## Increase priority of search result's elements
-            searchServiceAsync.increasePriorityById(searchPage
-                    .filter(s -> removeAccents(s.getName()).contains(removeAccents(keyword)))
-                    .map(s -> s.getId()).toList());
 
             Page<SearchDto<?>> searchDtoPage = mapToSearchDtoPage(searchPage, t);
             SearchPageDto searchDto = new SearchPageDto(

@@ -35,12 +35,12 @@ public class UserController {
     }
 
     @PutMapping(value = "{username}/playlists/{playlistId}/tracks", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Response<Long>> addOrRemovePlaylistTracks(
+    public ResponseEntity<Response<?>> addOrRemovePlaylistTracks(
             @PathVariable UUID playlistId,
             @RequestBody @Validated(PlaylistRequest.Update.class) PlaylistRequest playlistReq
 
     ) {
-        long cntSuccess = playlistService.addOrRemovePlaylistTracks(playlistId, playlistReq);
-        return ResponseEntity.ok(Response.success(cntSuccess));
+        playlistService.addOrRemovePlaylistTracks(playlistId, playlistReq);
+        return ResponseEntity.ok(Response.success(null));
     }
 }

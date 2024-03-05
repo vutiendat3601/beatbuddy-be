@@ -1,7 +1,6 @@
 package tech.datvu.beatbuddy.api.filter;
 
 import java.io.IOException;
-import java.util.UUID;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -29,7 +28,7 @@ public class JwtUserContextFilter extends OncePerRequestFilter {
             String username = jwt.getClaimAsString("preferred_username");
 
             UserContext.setJwt(jwt);
-            UserContext.setUserId(UUID.fromString(userId));
+            UserContext.setUserId(userId);
             UserContext.setEmail(email);
             UserContext.setUsername(username);
         }

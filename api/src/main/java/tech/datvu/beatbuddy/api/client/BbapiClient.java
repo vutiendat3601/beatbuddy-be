@@ -27,6 +27,7 @@ public class BbapiClient {
         Response resp = bbapi.realm(BEATBUDDY).clients().get(ID).authorization()
                 .resources()
                 .create(resource);
+
         int status = resp.getStatus();
         if (status >= 200 && status < 300) {
             log.info("Created resouce: " + resource.getName());

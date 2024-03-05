@@ -28,18 +28,18 @@ public class AbstractEntity implements Serializable {
 
     @PrePersist
     public void prePersist() {
-        String username = UserContext.getUsername();
-        username = username == null ? UserContext.ANONYMOUS : username;
+        String userId = UserContext.getUserId();
+        userId = userId == null ? UserContext.ANONYMOUS : userId;
 
-        createdBy = username;
-        updatedBy = username;
+        createdBy = userId;
+        updatedBy = userId;
     }
 
     @PreUpdate
     public void preUpdate() {
-        String username = UserContext.getUsername();
-        username = username == null ? UserContext.ANONYMOUS : username;
+        String userId = UserContext.getUserId();
+        userId = userId == null ? UserContext.ANONYMOUS : userId;
 
-        updatedBy = username;
+        updatedBy = userId;
     }
 }

@@ -1,6 +1,5 @@
 package tech.datvu.beatbuddy.api.util;
 
-import java.util.UUID;
 import java.util.concurrent.atomic.AtomicReference;
 
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -19,7 +18,7 @@ public class UserContext {
 
     private static AtomicReference<Jwt> jwt = new AtomicReference<>();
 
-    private static AtomicReference<UUID> userId = new AtomicReference<>();
+    private static AtomicReference<String> userId = new AtomicReference<>();
 
     private static AtomicReference<String> username = new AtomicReference<>();
 
@@ -41,11 +40,11 @@ public class UserContext {
         return jwt.get();
     }
 
-    public static void setUserId(UUID userId) {
+    public static void setUserId(String userId) {
         UserContext.userId.set(userId);
     }
 
-    public static UUID getUserId() {
+    public static String getUserId() {
         return userId.get();
     }
 
@@ -58,7 +57,7 @@ public class UserContext {
     }
 
     public static void setEmail(String email) {
-        UserContext.username.set(email);
+        UserContext.email.set(email);
     }
 
     public static String getEmail() {

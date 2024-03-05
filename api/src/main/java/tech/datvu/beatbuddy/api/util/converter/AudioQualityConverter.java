@@ -1,6 +1,7 @@
 package tech.datvu.beatbuddy.api.util.converter;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.lang.NonNull;
 import org.springframework.stereotype.Component;
 
 import tech.datvu.beatbuddy.api.entity.Audio.AudioQuality;

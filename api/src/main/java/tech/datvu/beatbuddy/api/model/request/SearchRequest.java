@@ -4,7 +4,7 @@ import java.util.UUID;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import tech.datvu.beatbuddy.api.entity.Search.ResourceType;
+import tech.datvu.beatbuddy.api.model.ResourceType;
 
 @AllArgsConstructor
 @Data
@@ -17,7 +17,7 @@ public class SearchRequest {
 
     private ResourceType type;
     
-    private UUID code;
+    private UUID resourceId;
 
     public SearchRequest() {
         tags = "";

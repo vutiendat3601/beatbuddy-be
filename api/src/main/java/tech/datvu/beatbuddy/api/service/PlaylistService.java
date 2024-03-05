@@ -18,7 +18,7 @@ public interface PlaylistService {
 
     PlaylistDto getPlaylist(UUID playlistId, String username);
 
-    long addOrRemovePlaylistTracks(UUID playlistId, PlaylistRequest playlistReq);
+    void addOrRemovePlaylistTracks(UUID playlistId, PlaylistRequest playlistReq);
 
     Page<PlaylistDto> getUserPlaylits(@Valid PlaylistQueryRequest playlistQueryReq);
 

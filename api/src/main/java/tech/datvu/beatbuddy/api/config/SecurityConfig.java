@@ -53,7 +53,7 @@ public class SecurityConfig {
                         ServletPolicyEnforcerFilter.class
 
                 )
-                .csrf(csrf -> csrf.disable())
+                .csrf(csrf -> Customizer.withDefaults())
                 .cors(cors -> cors.configurationSource(req -> {
                     CorsConfiguration config = new CorsConfiguration();
                     config.setAllowedOrigins(List.of("*"));
