@@ -24,17 +24,17 @@ import tech.datvu.beatbuddy.api.service.PlaylistService;
 public class UserController {
     private final PlaylistService playlistService;
 
-    @GetMapping(value = "{username}/playlists/{playlistId}")
+    @GetMapping(value = "{userId}/playlists/{playlistId}")
     public ResponseEntity<Response<PlaylistDto>> getUserPlaylist(
-            @PathVariable String username,
+            @PathVariable UUID userId,
             @PathVariable UUID playlistId
 
     ) {
-        PlaylistDto playlistDto = playlistService.getPlaylist(playlistId, username);
+        PlaylistDto playlistDto = playlistService.getPlaylist(playlistId, userId);
         return ResponseEntity.ok(Response.success(playlistDto));
     }
 
-    @PutMapping(value = "{username}/playlists/{playlistId}/tracks", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PutMapping(value = "{userId}/playlists/{playlistId}/tracks", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Response<?>> addOrRemovePlaylistTracks(
             @PathVariable UUID playlistId,
             @RequestBody @Validated(PlaylistRequest.Update.class) PlaylistRequest playlistReq

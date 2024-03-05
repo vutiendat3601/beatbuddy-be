@@ -106,8 +106,8 @@ public class PlaylistServiceImpl implements PlaylistService {
     }
 
     @Override
-    public PlaylistDto getPlaylist(UUID playlistId, String username) {
-        Playlist playlist = playlistRepo.findByIdAndCreatedBy(playlistId, username)
+    public PlaylistDto getPlaylist(UUID playlistId, UUID userId) {
+        Playlist playlist = playlistRepo.findByIdAndCreatedBy(playlistId, userId + "")
                 .orElseThrow(() -> PlaylistException.PLAYLIST_NOT_FOUND.instance());
         PlaylistDto playlistDto = playlistMapper.mapToPlaylistDto(playlist);
         playlistDto.setTracks(getPlaylistTracks(playlistId));
@@ -140,7 +140,7 @@ public class PlaylistServiceImpl implements PlaylistService {
                 keyword,
                 fromDate,
                 toDate,
-                UserContext.getUserId() + ""
+                UserContext.getUserId()
 
         );
 

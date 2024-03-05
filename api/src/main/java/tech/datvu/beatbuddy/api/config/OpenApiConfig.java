@@ -17,7 +17,7 @@ import io.swagger.v3.oas.annotations.servers.Server;
 
         ),
 
-        servers = @Server(url = "https://bbapi.datvu.tech")
+        servers = @Server(url = "https://bbapi.datvu.tech/api")
 
 )
 @Configuration

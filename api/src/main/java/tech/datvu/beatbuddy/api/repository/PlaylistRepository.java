@@ -17,11 +17,13 @@ public interface PlaylistRepository extends JpaRepository<Playlist, UUID> {
 
     Optional<Playlist> findByIdAndIsPublicTrue(UUID id);
 
-    @Query(" SELECT p FROM Playlist p " +
-    " WHERE cast(function('unaccent', p.name) AS text) ILIKE %:keyword% " +
-    " OR cast(function('unaccent', p.description) AS text) ILIKE %:keyword% " +
-    " AND ( p.createdAt BETWEEN cast(:fromDate AS date) AND cast(:toDate AS date) " +
-    " AND p.createdBy = :createdBy ) ")
+    @Query("""
+            SELECT p FROM Playlist p
+            WHERE ( (cast(function('unaccent', p.name) AS text) ILIKE %:keyword%
+            OR cast(function('unaccent', p.description) AS text) ILIKE %:keyword%)
+            AND ( p.createdAt BETWEEN cast(:fromDate AS date) AND cast(:toDate AS date)
+            AND p.createdBy = :createdBy ))
+            """)
     Page<Playlist> findByKeywordAndCreatedAtRangeAndCreatedBy(
             Pageable pageable,
             @Param("keyword") String keyword,

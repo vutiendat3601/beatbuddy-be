@@ -16,7 +16,7 @@ public interface PlaylistService {
 
     PlaylistDto getPublicPlaylist(UUID playlistId);
 
-    PlaylistDto getPlaylist(UUID playlistId, String username);
+    PlaylistDto getPlaylist(UUID playlistId, UUID userId);
 
     void addOrRemovePlaylistTracks(UUID playlistId, PlaylistRequest playlistReq);
 
