@@ -6,11 +6,11 @@ import static org.junit.jupiter.api.Assertions.assertThrowsExactly;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
-import tech.datvu.beatbuddy.api.exception.GlobalException;
-import tech.datvu.beatbuddy.api.exception.YouTubeException;
-import tech.datvu.beatbuddy.api.model.YouTubeMetadata;
-import tech.datvu.beatbuddy.api.service.YouTubeService;
-import tech.datvu.beatbuddy.api.service.impl.YouTubeServiceImpl;
+import vn.io.datvutech.beatbuddy.api.exception.GlobalException;
+import vn.io.datvutech.beatbuddy.api.exception.YouTubeException;
+import vn.io.datvutech.beatbuddy.api.model.YouTubeMetadata;
+import vn.io.datvutech.beatbuddy.api.service.YouTubeService;
+import vn.io.datvutech.beatbuddy.api.service.impl.YouTubeServiceImpl;
 
 public class YouTubeServiceImplTest {
 

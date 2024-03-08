@@ -1,0 +1,74 @@
+version: '3.8'
+name: beatbuddy
+services:
+  # ## Auth
+  authdb:
+    image: postgres:16.1-bookworm
+    hostname: authdb
+    environment:
+      - POSTGRES_USER=bbauthdb
+      - POSTGRES_DB=bbauthdb
+      - POSTGRES_PASSWORD=bbauthdb
+      - PGPASSWORD=bbauthdb
+    volumes:
+      - bbauthdb:/var/lib/postgresql/data/
+      - ./auth/db/initdb.d/:/docker-entrypoint-initdb.d/
+      - ./auth/db/backup/:/backup/
+      - ./auth/db/backup.sh:/backup.sh
+    networks:
+      - beatbuddy
+  auth:    
+    image: keycloak/keycloak:23.0.7
+    hostname: auth
+    environment:
+      - KC_DB=postgres
+      - KC_DB_URL=jdbc:postgresql://bbauth.datvu.tech:5431/bbauthdb
+      - KC_DB_USERNAME=bbauthdb
+      - KC_DB_PASSWORD=bbauthdb
+      - KC_HOSTNAME_URL=https://datvutech.io.vn/oauth
+      - KC_HOSTNAME_ADMIN_URL=https://datvutech.io.vn/oauth
+      - KC_HTTP_RELATIVE_PATH=/oauth
+      - KC_HTTP_PORT=8443
+      - KC_HOSTNAME-STRICT=false
+      - KC_PROXY_HEADERS=xforwarded
+      - KC_PROXY=edge
+      - KEYCLOAK_ADMIN=admin
+      - KEYCLOAK_ADMIN_PASSWORD=123456Aa@
+      - JAVA_OPTS=-Xms64M -Xmx128M -Dfile.encoding=UTF-8 -Dsun.stdout.encoding=UTF-8 -Dsun.err.encoding=UTF-8 -Dstdout.encoding=UTF-8 -Dstderr.encoding=UTF-8
+    depends_on:
+      - authdb
+    networks:
+      - beatbuddy
+    command: start
+
+  # ## Proxy
+  proxy:
+    image: nginx:mainline-alpine3.18-slim
+    hostname: proxy
+    volumes:
+      - /etc/letsencrypt/live/datvutech.io.vn/fullchain.pem:/etc/tls/datvutech.io.vn/fullchain.pem
+      - /etc/letsencrypt/live/datvutech.io.vn/privkey.pem:/etc/tls/datvutech.io.vn/privkey.pem
+      - ./proxy/nginx-auth.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - auth
+    networks:
+      - beatbuddy
+    healthcheck:
+      test: ping auth
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+    restart: on-failure
+
+volumes:
+  bbauthdb:
+    name: bbauthdb
+    driver: local
+networks:
+  beatbuddy:
+    name: beatbuddy
+    driver: bridge

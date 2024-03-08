@@ -3,7 +3,7 @@ spring:
     oauth2:
       resourceserver:
         jwt:
-          jwk-set-uri: ${JWKS_URI:http://beatbuddyauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs}
+          jwk-set-uri: ${JWKS_URI:https://bbauth.datvu.tech/realms/beatbuddy/protocol/openid-connect/certs}
   servlet:
     multipart:
       max-file-size: 20MB

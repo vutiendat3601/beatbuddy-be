@@ -1,0 +1,80 @@
+version: '3.8'
+name: beatbuddy
+services:
+  # ## API
+  apidb:
+    image: postgres:16.1-bookworm
+    hostname: apidb
+    environment:
+      - POSTGRES_DB=bbapidb
+      - POSTGRES_USER=bbapidb
+      - POSTGRES_PASSWORD=bbapidb
+      - PGPASSWORD=bbapidb
+    ports:
+      - 5432:5432
+    volumes:
+      - bbapidb:/var/lib/postgresql/data/
+      - ./api/db/initdb.d/:/docker-entrypoint-initdb.d/
+      - ./api/db/backup/:/backup/
+      - ./api/db/backup.sh:/backup.sh
+    networks:
+      - beatbuddy
+  api:
+    image: vutiendat3601/bbapi:1.0.0
+    hostname: api
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://apidb:5432/bbapidb
+      - SPRING_DATASOURCE_USERNAME=bbapidb
+      - SPRING_DATASOURCE_PASSWORD=bbapidb
+      - SPRING_FLYWAY_BASELINE_VERSION=3
+      - SERVER_PORT=8080
+      - SERVER_SERVLET_CONTEXT_PATH=/api
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_JWK_SET_URI=https://datvutech.io.vn/oauth/realms/beatbuddy/protocol/openid-connect/certs
+      - SPRING_SECURITY_OAUTH2_RESOURCESERVER_JWT_ISSUER_URI=https://datvutech.io.vn/oauth/realms/beatbuddy
+    volumes:
+      - bbapi:/root/beatbuddy
+    networks:
+      - beatbuddy
+
+  # ## FE
+  fe:
+    image: vutiendat3601/bbfe:1.0.0
+    hostname: fe
+    networks:
+      - beatbuddy
+  # ## Proxy
+  proxy:
+    image: nginx:mainline-alpine3.18-slim
+    hostname: proxy
+    volumes:
+      - /etc/letsencrypt/live/bbapi.datvu.tech/fullchain.pem:/etc/tls/bbapi.datvu.tech/fullchain.pem
+      - /etc/letsencrypt/live/bbapi.datvu.tech/privkey.pem:/etc/tls/bbapi.datvu.tech/privkey.pem
+      - /etc/letsencrypt/live/beatbuddy.io.vn/fullchain.pem:/etc/tls/beatbuddy.io.vn/fullchain.pem
+      - /etc/letsencrypt/live/beatbuddy.io.vn/privkey.pem:/etc/tls/beatbuddy.io.vn/privkey.pem
+      - ./proxy/nginx.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - api
+    networks:
+      - beatbuddy
+    healthcheck:
+      test: curl http://api:8080 
+      interval: 30s
+      timeout: 30s
+      retries: 3
+      start_period: 30s
+    restart: on-failure
+volumes:
+  bbapidb:
+    name: bbapidb
+    driver: local
+  bbapi:
+    name: bbapi
+    driver: local
+networks:
+  beatbuddy:
+    name: beatbuddy
+    driver: bridge
+

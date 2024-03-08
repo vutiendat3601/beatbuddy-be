@@ -23,5 +23,10 @@
     "name": "bbapi.grant-type",
     "type": "java.lang.String",
     "description": "A description for 'bbapi.grant-type'"
+  },
+  {
+    "name": "policy-enforcer.auth-server-url",
+    "type": "java.lang.String",
+    "description": "A description for 'policy-enforcer.auth-server-url'"
   }
 ]}

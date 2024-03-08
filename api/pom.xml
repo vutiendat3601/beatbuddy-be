@@ -9,7 +9,7 @@
 		<version>3.2.3</version>
 		<relativePath />
 	</parent>
-	<groupId>tech.datvu</groupId>
+	<groupId>vn.io.datvutech</groupId>
 	<artifactId>bbapi</artifactId>
 	<version>1.0.0</version>
 	<name>beatbuddy-api</name>
