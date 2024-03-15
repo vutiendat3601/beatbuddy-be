@@ -1,6 +1,5 @@
 package vn.io.datvutech.beatbuddy.api.service.impl;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
@@ -12,8 +11,8 @@ import lombok.RequiredArgsConstructor;
 import vn.io.datvutech.beatbuddy.api.dto.PlaybackDto;
 import vn.io.datvutech.beatbuddy.api.dto.PlaybackStateDto;
 import vn.io.datvutech.beatbuddy.api.dto.QueueDto;
-import vn.io.datvutech.beatbuddy.api.dto.TrackDto;
 import vn.io.datvutech.beatbuddy.api.dto.QueueDto.OriginalTrackList;
+import vn.io.datvutech.beatbuddy.api.dto.TrackDto;
 import vn.io.datvutech.beatbuddy.api.entity.Playback;
 import vn.io.datvutech.beatbuddy.api.entity.PlaybackState;
 import vn.io.datvutech.beatbuddy.api.entity.Queue;
@@ -25,7 +24,6 @@ import vn.io.datvutech.beatbuddy.api.model.request.PlaybackRequest;
 import vn.io.datvutech.beatbuddy.api.repository.PlaybackRepository;
 import vn.io.datvutech.beatbuddy.api.repository.PlaybackStateRepository;
 import vn.io.datvutech.beatbuddy.api.repository.QueueRepository;
-import vn.io.datvutech.beatbuddy.api.repository.TrackRepository;
 import vn.io.datvutech.beatbuddy.api.service.PlaybackService;
 import vn.io.datvutech.beatbuddy.api.service.TrackService;
 import vn.io.datvutech.beatbuddy.api.util.UserContext;

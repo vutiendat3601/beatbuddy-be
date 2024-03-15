@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${DB_URL:jdbc:postgresql://beatbuddybe.datvu.tech:5432/beatbuddy}
+    url: jdbc:postgresql://beatbuddybe.datvu.tech:5432/beatbuddy
     username: ${DB_USER:beatbuddy}
     password: ${DB_PASS:beatbuddy}
   flyway:

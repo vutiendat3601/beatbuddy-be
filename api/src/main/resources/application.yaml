@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://bbauth.datvu.tech:5432/bbapidb
+    url: jdbc:postgresql://beatbuddy.io.vn:5432/bbapidb
     username: bbapidb
     password: bbapidb
   flyway:
@@ -28,13 +28,6 @@ spring:
       enabled: false
       skip:
         in-tests: true
-
-# server:
-#   port: ${PORT:8080}
-#   server.ssl.key-store: ${TLS_FILE_PATH:/etc/tls/bbapi.datvu.tech/bbapi.datvu.tech.p12}
-#   server.ssl.key-store-password: bbapi
-#   server.ssl.keyStoreType: PKCS12
-#   server.ssl.keyAlias: bbapi.datvu.tech
 
 springdoc:
   api-docs:

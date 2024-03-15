@@ -4,9 +4,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.springframework.stereotype.Service;
 
@@ -15,10 +12,10 @@ import vn.io.datvutech.beatbuddy.api.dto.ArtistDto;
 import vn.io.datvutech.beatbuddy.api.dto.AudioDto;
 import vn.io.datvutech.beatbuddy.api.dto.TrackDto;
 import vn.io.datvutech.beatbuddy.api.dto.TrackStreamDto;
+import vn.io.datvutech.beatbuddy.api.entity.Audio.AudioQuality;
 import vn.io.datvutech.beatbuddy.api.entity.AudioTrack;
 import vn.io.datvutech.beatbuddy.api.entity.Track;
 import vn.io.datvutech.beatbuddy.api.entity.TrackArtist;
-import vn.io.datvutech.beatbuddy.api.entity.Audio.AudioQuality;
 import vn.io.datvutech.beatbuddy.api.exception.TrackException;
 import vn.io.datvutech.beatbuddy.api.mapper.TrackMapper;
 import vn.io.datvutech.beatbuddy.api.repository.AudioTrackRepository;
